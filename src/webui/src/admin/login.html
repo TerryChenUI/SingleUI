@@ -1,11 +1,28 @@
 <!DOCTYPE html>
-<html ng-app="app.admin" ng-controller="AppAdminCtrl">
+<html ng-app="app.admin">
 <head>
+    <meta charset="utf-8"/>
     <title>Next Blog - Login</title>
+    <% styles.forEach(function(file) { %>
+    <link rel="stylesheet" type="text/css" href="<%= file %>"/>
+    <% }); %>
 </head>
-<body>
-
-登录页面
-
+<body ng-controller="LoginCtrl">
+<div id="main">
+    <form>
+        <div>
+            用户名:<input type="text" ng-model="model.username"/>
+        </div>
+        <div>
+            密码:<input type="text" ng-model="model.password"/>
+        </div>
+        <div>
+            <input type="submit" ng-click="Login()" value="登录">
+        </div>
+    </form>
+</div>
+<% scripts.forEach(function(file) { %>
+<script type="text/javascript" src="<%= file %>"></script>
+<% }); %>
 </body>
 </html>

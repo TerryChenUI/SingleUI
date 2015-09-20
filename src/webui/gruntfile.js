@@ -16,7 +16,7 @@ module.exports = function (grunt) {
             },
             ports: {
                 livereload: 35729,
-                connect: 9002
+                connect: 8000
             },
             directory: directory
         }

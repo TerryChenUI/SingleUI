@@ -61,7 +61,7 @@ angular.module('app.admin.content')
             }
         };
 
-        $scope.isClean = function() {
+        $scope.isClean = function () {
             return angular.equals(original, $scope.category);
         };
 

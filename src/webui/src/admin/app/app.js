@@ -6,6 +6,7 @@ angular.module('common.config', []);
 angular.module('common.util', []);
 angular.module('common.directives', []);
 angular.module('common.services', ['common.config', 'common.util']);
+angular.module('app.admin.common', ['common.services']);
 angular.module('app.admin.layout', ['common.services']);
 angular.module('app.admin.content', ['common.services']);
 
@@ -17,6 +18,7 @@ var appAdmin = angular.module('app.admin', [
     'common.config',
     'common.util',
     'angularFileUpload',
+    'app.admin.common',
     'app.admin.layout',
     'app.admin.content'
 ]);

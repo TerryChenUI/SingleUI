@@ -15,7 +15,6 @@ module.exports = function (grunt) {
         if (environment == 'admin') {
             environment = "admin/";
             dirRE = new RegExp("^./dist/admin/", "g");
-
         } else {
             environment = "";
             dirRE = new RegExp("^./dist/", "g");
@@ -53,6 +52,19 @@ module.exports = function (grunt) {
         }
 
         grunt.file.copy('./src/' + environment + 'index.html', './dist/' + environment + 'index.html', {
+            process: (function (_this) {
+                return function (contents, path) {
+                    return grunt.template.process(contents, {
+                        data: {
+                            styles: styles,
+                            scripts: scripts
+                        }
+                    });
+                };
+            })(this)
+        });
+
+        grunt.file.copy('./src/admin/login.html', './dist/admin/login.html', {
             process: (function (_this) {
                 return function (contents, path) {
                     return grunt.template.process(contents, {
