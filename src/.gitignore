@@ -1,0 +1,11 @@
+# Project folders
+
+# 
+node_modules/
+lib/
+.temp/
+dist/
+
+# Web Storm
+
+.idea/

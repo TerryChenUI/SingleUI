@@ -1,0 +1,144 @@
+<h3 class="page-title-recover">
+    <span>{{title}}</span>
+    <small></small>
+</h3>
+
+<div class="portlet box">
+    <div class="portlet-body form">
+        <form class="form-horizontal" name="form">
+            <div class="form-body">
+                <input type="hidden" class="form-control" ng-model="category.Id"/>
+                <div class="table table-custom table-full-width">
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a href="#tab_1" data-toggle="tab">基本信息</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tab_1">
+                            <div class="form-body">
+                                <div class="form-group">
+                                    <label class="control-label col-md-2">标题</label>
+                                    <div class="col-md-4">
+                                        <input type="text" name="title" class="form-control" ng-model="article.Title" required=""/>
+                                        <div ng-show="form.$submitted || form.title.$touched">
+                                            <span ng-show="form.title.$error.required" class="help-block">请填写标题</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-2">类别</label>
+                                    <div class="col-md-4">
+                                        <select ng-model="article.CategoryId" ng-options="option.value as option.name for option in categories"></select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-2">作者</label>
+                                    <div class="col-md-4">
+                                        <input type="text" name="author" class="form-control" ng-model="article.Author" required=""/>
+                                        <div ng-show="form.$submitted || form.author.$touched">
+                                            <span ng-show="form.author.$error.required" class="help-block">请填写作者</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-2">简介</label>
+                                    <div class="col-md-4">
+                                        <input type="text" class="form-control" ng-model="article.Description"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-2">封面图</label>
+                                    <div class="col-md-4">
+                                        <input type="file" nv-file-select="" uploader="uploader" />
+                                        <h3>Upload queue</h3>
+                                        <p>Queue length: {{ uploader.queue.length }}</p>
+
+                                        <table class="table">
+                                            <thead>
+                                            <tr>
+                                                <th width="50%">Name</th>
+                                                <th ng-show="uploader.isHTML5">Size</th>
+                                                <th ng-show="uploader.isHTML5">Progress</th>
+                                                <th>Status</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr ng-repeat="item in uploader.queue">
+                                                <td><strong>{{ item.file.name }}</strong></td>
+                                                <td ng-show="uploader.isHTML5" nowrap>{{ item.file.size/1024/1024|number:2 }} MB</td>
+                                                <td ng-show="uploader.isHTML5">
+                                                    <div class="progress" style="margin-bottom: 0;">
+                                                        <div class="progress-bar" role="progressbar" ng-style="{ 'width': item.progress + '%' }"></div>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <span ng-show="item.isSuccess"><i class="glyphicon glyphicon-ok"></i></span>
+                                                    <span ng-show="item.isCancel"><i class="glyphicon glyphicon-ban-circle"></i></span>
+                                                    <span ng-show="item.isError"><i class="glyphicon glyphicon-remove"></i></span>
+                                                </td>
+                                                <td nowrap>
+                                                    <button type="button" class="btn btn-success btn-xs" ng-click="item.upload()" ng-disabled="item.isReady || item.isUploading || item.isSuccess">
+                                                        <span class="glyphicon glyphicon-upload"></span> Upload
+                                                    </button>
+                                                    <button type="button" class="btn btn-warning btn-xs" ng-click="item.cancel()" ng-disabled="!item.isUploading">
+                                                        <span class="glyphicon glyphicon-ban-circle"></span> Cancel
+                                                    </button>
+                                                    <button type="button" class="btn btn-danger btn-xs" ng-click="item.remove()">
+                                                        <span class="glyphicon glyphicon-trash"></span> Remove
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+
+                                        <div>
+                                            <div>
+                                                Queue progress:
+                                                <div class="progress" style="">
+                                                    <div class="progress-bar" role="progressbar" ng-style="{ 'width': uploader.progress + '%' }"></div>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn btn-success btn-s" ng-click="uploader.uploadAll()" ng-disabled="!uploader.getNotUploadedItems().length">
+                                                <span class="glyphicon glyphicon-upload"></span> Upload all
+                                            </button>
+                                            <button type="button" class="btn btn-warning btn-s" ng-click="uploader.cancelAll()" ng-disabled="!uploader.isUploading">
+                                                <span class="glyphicon glyphicon-ban-circle"></span> Cancel all
+                                            </button>
+                                            <button type="button" class="btn btn-danger btn-s" ng-click="uploader.clearQueue()" ng-disabled="!uploader.queue.length">
+                                                <span class="glyphicon glyphicon-trash"></span> Remove all
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-2">正文</label>
+                                    <div class="col-md-4">
+                                        <ueditor ng-model="article.Content"></ueditor>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-2">已发布</label>
+                                    <div class="col-md-4">
+                                        <div class="checkbox-list">
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" ng-model="article.Publish"/>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-actions fluid">
+                <div class="col-md-offset-2 col-md-9">
+                    <input type="submit" name="save" ng-disabled="isClean() || form.$invalid" class="btn blue" value="保存" ng-click="saveArticle()"/>
+                    <input type="submit" name="save-continue" class="btn dark" value="保存并继续"/>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

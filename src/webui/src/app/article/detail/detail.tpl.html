@@ -1,0 +1,21 @@
+<div class="blog-body">
+    <bread-panel>
+    </bread-panel>
+    <div class="col-sm-8 blog-main">
+        <div class="blog-post">
+            <h2 class="blog-post-title">{{article.Title}}</h2>
+            <p class="blog-post-meta">{{article.CreateTime}} by <a href="#">{{article.Author}}</a></p>
+            <div class="blog-content">
+                {{article.Content}}
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+        <div ui-view="about"></div>
+        <div ui-view="archives"></div>
+    </div>
+</div>
+
+
+
+

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html ng-app="app.admin" ng-controller="AppAdminCtrl">
+<head>
+    <title>Next Blog</title>
+    <% styles.forEach(function(file) { %>
+    <link rel="stylesheet" type="text/css" href="<%= file %>"/>
+    <% }); %>
+</head>
+
+<!-- Body开始 -->
+<body class="page-header-fixed">
+<!-- 顶部 -->
+<div class="header navbar navbar-inverse navbar-fixed-top">
+    <!-- 导航 -->
+    <div class="header-inner">
+        <!-- logo -->
+        <a class="navbar-brand" href="index.html">
+            <img src="assets/img/logo.png" alt="logo" class="img-responsive" />
+        </a>
+
+        <!-- 响应式切换按钮 -->
+        <a href="javascript:;" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <img src="assets/img/menu-toggler.png" alt="" />
+        </a>
+
+        <!-- 导航菜单 -->
+        <header-menu></header-menu>
+    </div>
+</div>
+<div class="clearfix">
+</div>
+
+<div class="page-container">
+
+    <!-- 侧边栏菜单 -->
+    <sidebar-menu></sidebar-menu>
+
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <!-- Modal 弹出窗口 -->
+            <modal></modal>
+
+            <!-- 主题设置 -->
+            <theme></theme>
+
+            <!-- 面包屑 -->
+            <breadcrumb></breadcrumb>
+
+            <!-- 正文开始 -->
+            <div ui-view></div>
+        </div>
+    </div>
+</div>
+
+<!-- 底部开始 -->
+<footer></footer>
+
+<!--[if lt IE 9]>
+<script src="assets/plugins/respond.min.js"></script>
+<script src="assets/plugins/excanvas.min.js"></script>
+<![endif]-->
+
+<% scripts.forEach(function(file) { %>
+<script type="text/javascript" src="<%= file %>"></script>
+<% }); %>
+
+<script type="text/javascript">
+    $(function() {
+        App.init(); // initlayout and core plugins
+        //Index.init();
+        //Index.initJQVMAP(); // init index page's custom scripts
+        //Index.initCalendar(); // init index page's custom scripts
+        //Index.initCharts(); // init index page's custom scripts
+        //Index.initChat();
+        //Index.initMiniCharts();
+        //Index.initDashboardDaterange();
+        //Index.initIntro();
+        //Tasks.initDashboardWidget();
+    });
+</script>
+</body>
+</html>

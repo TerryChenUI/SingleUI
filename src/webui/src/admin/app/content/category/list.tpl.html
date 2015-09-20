@@ -1,0 +1,52 @@
+<div class="fluid">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="table-toolbar">
+                <div class="btn-group">
+                    <a ui-sref="editCategory({id:0})" class="btn blue"><i class="fa fa-plus"></i> 添加</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="table-responsive">
+    <table class="table datatable table-striped table-bordered table-hover">
+        <thead>
+        <tr>
+            <th width="80">
+                序号
+            </th>
+            <th>
+                分类
+            </th>
+            <th>
+                父类
+            </th>
+            <th width="120">
+                描述
+            </th>
+            <th>
+                已启用
+            </th>
+            <th>
+                编辑
+            </th>
+            <th>
+                删除
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="category in categories">
+            <td>{{category.Id}}</td>
+            <td>{{category.Name}}</td>
+            <td>{{category.ParentId}}</td>
+            <td>{{category.Description}}</td>
+            <td>{{category.Enabled}}</td>
+            <td><a ui-sref="editCategory({id:category.Id})">编辑</a></td>
+            <td><a href="javascript:void(0)" ng-click="deleteCategory(category.Id)">删除</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
