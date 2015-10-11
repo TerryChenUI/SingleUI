@@ -59,7 +59,7 @@ module.exports = function (app, options) {
     });
 
     //users
-    app.get(apiUrl + "/users/checkUserAuthen", function(req, res){
+    app.post(apiUrl + "/users/authenticate", function(req, res){
         var data = {
             success : true
         };

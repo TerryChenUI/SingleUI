@@ -19,19 +19,19 @@ var UserService = (function () {
         return this.appHttp.request(config);
     };
 
-    UserService.prototype.checkUserAuthen = function(userName, password){
+    UserService.prototype.authenticate = function (userName, password, successCallback) {
         var config = {
-            method: 'GET',
-            url: this.serviceEndpoint + "users",
-            params : {userName : userName, password: password}
+            method: 'POST',
+            url: this.serviceEndpoint + "users/authenticate" ,
+            data: {userName: userName, password: password}
         };
-        this.$log.debug('checkUserAuthen', config);
-        return this.$http(config).success(function(res) {
+        this.$log.debug('authenticate', config);
+        return this.$http(config).success(function (res) {
             return successCallback(res);
         });
     };
 
-    UserService.prototype.getUserById = function(id){
+    UserService.prototype.getUserById = function (id) {
         var config = {
             method: 'GET',
             url: this.serviceEndpoint + "users/" + id
@@ -40,37 +40,37 @@ var UserService = (function () {
         return this.appHttp.request(config);
     };
 
-    UserService.prototype.insertUser = function(user, successCallback){
+    UserService.prototype.insertUser = function (user, successCallback) {
         var config = {
             method: 'POST',
             url: this.serviceEndpoint + "users",
             data: user
         };
         this.$log.debug('insertUser', config);
-        return this.$http(config).success(function(res) {
+        return this.$http(config).success(function (res) {
             return successCallback(res);
         });
     };
 
-    UserService.prototype.updateUser = function(id, user, successCallback){
+    UserService.prototype.updateUser = function (id, user, successCallback) {
         var config = {
             method: 'PUT',
             url: this.serviceEndpoint + "users/" + id,
             data: user
         };
         this.$log.debug('updateUser', config);
-        return this.$http(config).success(function(res) {
+        return this.$http(config).success(function (res) {
             return successCallback(res);
         });
     };
 
-    UserService.prototype.deleteUser = function(id, successCallback){
+    UserService.prototype.deleteUser = function (id, successCallback) {
         var config = {
             method: 'DELETE',
             url: this.serviceEndpoint + "users/" + id
         };
         this.$log.debug('deleteUser', config);
-        return this.$http(config).success(function(res) {
+        return this.$http(config).success(function (res) {
             return successCallback(res);
         });
     };

@@ -9,6 +9,7 @@ module.exports = function(grunt){
             'copy:dev_lib',
             'copy:dev_src',
             'index:dev_index',
-            'index:dev_admin_index'
+            'index:dev_admin_index',
+            'login:dev'
         ]);
 };

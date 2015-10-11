@@ -12,17 +12,39 @@ angular.module('app.admin.content', ['common.services']);
 
 
 var appAdmin = angular.module('app.admin', [
+    'ngCookies',
     'ui.router',
     'common.services',
     'common.directives',
     'common.config',
     'common.util',
-    'angularFileUpload',
+    //'angularFileUpload',
     'app.admin.common',
     'app.admin.layout',
     'app.admin.content'
 ]);
 
-appAdmin.controller('AppAdminCtrl', [function () {
+appAdmin.run(function($rootScope, $window, $location, $cookieStore, $http){
+    $rootScope.globals = $cookieStore.get('globals') || {};
+    if ($rootScope.globals.currentUser) {
+        $http.defaults.headers.common['Authorization'] = 'Basic ' + $rootScope.globals.currentUser.authdata; // jshint ignore:line
+    }
+    $rootScope.$on('$locationChangeStart', function (event, next, current) {
+        if($window.location.href.indexOf('login') > -1){
+            return;
+        }
+        // redirect to login page if not logged in and trying to access a restricted page
+        var restrictedPage = $.inArray($location.path(), ['/login', '/register']) === -1;
+        var loggedIn = $rootScope.globals.currentUser;
+        if (restrictedPage && !loggedIn) {
+            $window.location.href = 'login.html'
+        }
+    });
+});
 
+appAdmin.controller("AppAdminCtrl", ["$scope", "$window", "AuthenService", function ($scope, $window, AuthenService) {
+    $scope.logout = function(){
+        AuthenService.clearCredentials();
+        $window.location.href = "login.html";
+    }
 }]);

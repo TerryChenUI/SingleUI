@@ -37,6 +37,7 @@ module.exports = {
 
             './dist/admin/../lib/jquery/dist/jquery.js',
             './dist/admin/../lib/angular/angular.js',
+            './dist/admin/../lib/angular-cookies/angular-cookies.min.js',
             './dist/admin/../lib/angular-ui-router/release/angular-ui-router.js',
             './dist/admin/../lib/angular-bootstrap/ui-bootstrap.js',
             './dist/admin/../lib/angular-bootstrap/ui-bootstrap-tpls.js',

@@ -9,6 +9,7 @@ module.exports = {
                 cwd: 'lib',
                 src: [
                     'angular/**',
+                    'angular-cookies/**',
                     'angular-ui-router/**',
                     'angular-bootstrap/**',
                     'jquery/dist/**',
@@ -108,6 +109,16 @@ module.exports = {
             {
                 cwd: '<%= directory.src %>',
                 src: 'admin/index.html',
+                dest: '<%= directory.dist %>',
+                expand: true
+            }
+        ]
+    },
+    login: {
+        files: [
+            {
+                cwd: '<%= directory.src %>',
+                src: 'admin/login.html',
                 dest: '<%= directory.dist %>',
                 expand: true
             }

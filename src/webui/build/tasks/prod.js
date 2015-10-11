@@ -14,6 +14,7 @@ module.exports = function(grunt) {
             'uglify',
             'index:prod_index',
             'index:prod_admin_index',
+            'login:prod',
             'cacheBust'
         ]);
 };

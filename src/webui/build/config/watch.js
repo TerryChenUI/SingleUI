@@ -33,6 +33,14 @@ module.exports = {
             nospawn: true
         }
     },
+    login: {
+        files: '<%= directory.src %>/admin/login.html',
+        tasks: 'login:dev',
+        options: {
+            livereload: '<%= ports.livereload %>',
+            nospawn: true
+        }
+    },
     admin_css: {
         files: '<%= directory.src %>/admin/**/*.css',
         tasks: 'copy:admin_css',
