@@ -1,7 +1,3 @@
-/**
- * Created by tchen on 2015/7/24.
- */
-
 (function () {
     'use strict';
 
@@ -13,7 +9,7 @@
                         callback(response);
                     });
                 },
-                setCredentials: function(userName, password){
+                setCredentials: function (userName, password) {
                     var authdata = Base64.encode(userName + ':' + password);
 
                     $rootScope.globals = {
@@ -26,7 +22,7 @@
                     $http.defaults.headers.common['Authorization'] = 'Basic ' + authdata; // jshint ignore:line
                     $cookieStore.put('globals', $rootScope.globals);
                 },
-                clearCredentials: function(){
+                clearCredentials: function () {
                     $rootScope.globals = {};
                     $cookieStore.remove('globals');
                     $http.defaults.headers.common.Authorization = 'Basic ';

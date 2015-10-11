@@ -37,12 +37,6 @@
 
     <div class="page-content-wrapper">
         <div class="page-content">
-            <!-- Modal 弹出窗口 -->
-            <modal></modal>
-
-            <!-- 主题设置 -->
-            <theme></theme>
-
             <!-- 面包屑 -->
             <breadcrumb></breadcrumb>
 
@@ -55,28 +49,9 @@
 <!-- 底部开始 -->
 <footer></footer>
 
-<!--[if lt IE 9]>
-<script src="assets/plugins/respond.min.js"></script>
-<script src="assets/plugins/excanvas.min.js"></script>
-<![endif]-->
-
 <% scripts.forEach(function(file) { %>
 <script type="text/javascript" src="<%= file %>"></script>
 <% }); %>
 
-<script type="text/javascript">
-    $(function() {
-        App.init(); // initlayout and core plugins
-        //Index.init();
-        //Index.initJQVMAP(); // init index page's custom scripts
-        //Index.initCalendar(); // init index page's custom scripts
-        //Index.initCharts(); // init index page's custom scripts
-        //Index.initChat();
-        //Index.initMiniCharts();
-        //Index.initDashboardDaterange();
-        //Index.initIntro();
-        //Tasks.initDashboardWidget();
-    });
-</script>
 </body>
 </html>

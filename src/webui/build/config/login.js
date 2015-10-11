@@ -10,14 +10,11 @@ module.exports = {
         src: [
             './dist/admin/assets/plugins/font-awesome/css/font-awesome.min.css',
             './dist/admin/../lib/bootstrap/dist/css/bootstrap.min.css',
-            './dist/admin/assets/plugins/uniform/css/uniform.default.css',
             './dist/admin/assets/css/style-metronic.css',
             './dist/admin/assets/css/style.css',
             './dist/admin/assets/css/style-responsive.css',
-            './dist/admin/assets/css/plugins.css',
             './dist/admin/assets/css/themes/default.css',
             './dist/admin/assets/css/login.css',
-            './dist/admin/assets/css/pages/custom.css',
 
             './dist/admin/../lib/jquery/dist/jquery.js',
             './dist/admin/../lib/angular/angular.js',

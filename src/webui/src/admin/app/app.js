@@ -1,6 +1,3 @@
-/**
- * Created by tchen on 7/2/2015.
- */
 'use strict';
 angular.module('common.config', []);
 angular.module('common.util', []);
@@ -14,11 +11,11 @@ angular.module('app.admin.content', ['common.services']);
 var appAdmin = angular.module('app.admin', [
     'ngCookies',
     'ui.router',
+    'angularFileUpload',
     'common.services',
     'common.directives',
     'common.config',
     'common.util',
-    //'angularFileUpload',
     'app.admin.common',
     'app.admin.layout',
     'app.admin.content'
@@ -37,7 +34,7 @@ appAdmin.run(function($rootScope, $window, $location, $cookieStore, $http){
         var restrictedPage = $.inArray($location.path(), ['/login', '/register']) === -1;
         var loggedIn = $rootScope.globals.currentUser;
         if (restrictedPage && !loggedIn) {
-            $window.location.href = 'login.html'
+            //$window.location.href = 'login.html'
         }
     });
 });
