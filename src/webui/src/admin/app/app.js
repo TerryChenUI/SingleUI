@@ -40,8 +40,8 @@ appAdmin.run(function($rootScope, $window, $location, $cookieStore, $http){
 });
 
 appAdmin.controller("AppAdminCtrl", ["$scope", "$window", "AuthenService", function ($scope, $window, AuthenService) {
-    $scope.logout = function(){
-        AuthenService.clearCredentials();
-        $window.location.href = "login.html";
-    }
+    //$scope.logout = function(){
+    //    AuthenService.clearCredentials();
+    //    $window.location.href = "login.html";
+    //}
 }]);

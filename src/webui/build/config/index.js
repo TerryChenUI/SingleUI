@@ -6,7 +6,7 @@ module.exports = {
     dev_index: {
         src: [
             './dist/lib/bootstrap/dist/css/bootstrap.css',
-            './dist/styles/blog.css',
+            './dist/assets/css/style.css',
             './dist/lib/jquery/dist/jquery.js',
             './dist/lib/bootstrap/dist/js/bootstrap.js',
             './dist/lib/angular/angular.js',
@@ -48,16 +48,7 @@ module.exports = {
     },
     prod_index: {
         src: [
-            './dist/lib/bootstrap/dist/css/bootstrap.min.css',
-            './dist/app.min.css',
-            './dist/lib/jquery/dist/jquery.min.js',
-            './dist/lib/bootstrap/dist/js/bootstrap.min.js',
-            './dist/lib/angular/angular.min.js',
-            './dist/lib/angular-ui-router/release/angular-ui-router.min.js',
-            './dist/lib/angular-bootstrap/ui-bootstrap.min.js',
-            './dist/lib/angular-bootstrap/ui-bootstrap-tpls.min.js',
-            './dist/lib/underscore/underscore-min.js',
-            './dist/app.min.js'
+
         ]
     },
     prod_admin_index: {
