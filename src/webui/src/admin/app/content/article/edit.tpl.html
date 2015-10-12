@@ -8,6 +8,7 @@
         <form class="form-horizontal" name="form">
             <div class="form-body">
                 <input type="hidden" class="form-control" ng-model="category.Id"/>
+
                 <div class="table table-custom table-full-width">
                     <ul class="nav nav-tabs">
                         <li class="active">
@@ -60,60 +61,28 @@
                                     <label class="control-label col-md-2">封面图</label>
 
                                     <div class="col-md-4">
-                                        <input type="file" nv-file-select="" uploader="uploader" />
-
-                                        <table class="table">
-                                            <thead>
-                                            <tr>
-                                                <th width="50%">Name</th>
-                                                <th ng-show="uploader.isHTML5">Size</th>
-                                                <th ng-show="uploader.isHTML5">Progress</th>
-                                                <th>Status</th>
-                                                <th>Actions</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            <tr ng-repeat="item in uploader.queue">
-                                                <td><strong>{{ item.file.name }}</strong></td>
-                                                <td ng-show="uploader.isHTML5" nowrap>{{
-                                                    item.file.size/1024/1024|number:2 }} MB
-                                                </td>
-                                                <td ng-show="uploader.isHTML5">
-                                                    <div class="progress" style="margin-bottom: 0;">
-                                                        <div class="progress-bar" role="progressbar"
-                                                             ng-style="{ 'width': item.progress + '%' }"></div>
-                                                    </div>
-                                                </td>
-                                                <td class="text-center">
-                                                    <span ng-show="item.isSuccess"><i
-                                                            class="glyphicon glyphicon-ok"></i></span>
-                                                    <span ng-show="item.isCancel"><i
-                                                            class="glyphicon glyphicon-ban-circle"></i></span>
-                                                    <span ng-show="item.isError"><i
-                                                            class="glyphicon glyphicon-remove"></i></span>
-                                                </td>
-                                                <td nowrap>
-                                                    <button type="button" class="btn btn-success btn-xs"
-                                                            ng-click="item.upload()"
-                                                            ng-disabled="item.isReady || item.isUploading || item.isSuccess">
-                                                        <span class="glyphicon glyphicon-upload"></span> Upload
-                                                    </button>
-                                                    <button type="button" class="btn btn-warning btn-xs"
-                                                            ng-click="item.cancel()" ng-disabled="!item.isUploading">
-                                                        <span class="glyphicon glyphicon-ban-circle"></span> Cancel
-                                                    </button>
-                                                    <button type="button" class="btn btn-danger btn-xs"
-                                                            ng-click="item.remove()">
-                                                        <span class="glyphicon glyphicon-trash"></span> Remove
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
+                                        <input type="file" ngf-select ng-model="picFile" name="file"
+                                               accept="image/*" ngf-max-size="2MB" required>
+                                        <i ng-show="form.file.$error.required">*required</i><br>
+                                        <i ng-show="form.file.$error.maxSize">File too large
+                                            {{picFile.size / 1000000|number:1}}MB: max 2M</i>
+                                        <img ng-show="form.file.$valid" ngf-thumbnail="picFile" class="thumb">
+                                        <button ng-click="picFile = null" ng-show="picFile">Remove</button>
+                                        <br>
+                                        <button ng-disabled="!form.$valid"
+                                                ng-click="uploadPic(picFile)">Submit
+                                        </button>
+      <span class="progress" ng-show="picFile.progress >= 0">
+        <div style="width:{{picFile.progress}}%"
+             ng-bind="picFile.progress + '%'"></div>
+      </span>
+                                        <span ng-show="picFile.result">Upload Successful</span>
+                                        <span class="err" ng-show="errorMsg">{{errorMsg}}</span>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-md-2">正文</label>
+
                                     <div class="col-md-8">
                                         <ueditor ng-model="article.Content"></ueditor>
                                     </div>

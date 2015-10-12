@@ -12,6 +12,7 @@ module.exports = {
                     'angular-cookies/**',
                     'angular-ui-router/**',
                     'angular-bootstrap/**',
+                    'ng-file-upload/**.*',
                     'jquery/dist/**',
                     'underscore/**',
                     'bootstrap/**'
@@ -26,12 +27,7 @@ module.exports = {
             {
                 cwd: 'lib',
                 src: [
-                    'angular/**',
-                    'angular-ui-router/**',
-                    'angular-bootstrap/**',
-                    'jquery/dist/**',
-                    'underscore/**',
-                    'bootstrap/**'
+
                 ],
                 dest: '<%= directory.dist %>/lib/',
                 expand: true

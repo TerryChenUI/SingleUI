@@ -67,10 +67,58 @@ module.exports = function (app, options) {
     });
 
     //upload
-    app.post(apiUrl + '/upload', function(req,res){
-        var action = req.body.action;
+    app.get(apiUrl + '/uploads', function(req,res){
+        var action = req.query.action;
         switch(action){
-            case "config": console.log("config"); break;
+            case "config":
+            //res.setHeader('Content-Type', 'application/json');
+            res.json({
+                "imageActionName": "uploadimage",
+                "imageFieldName": "upfile",
+                "imageMaxSize": 2048000,
+                "imageAllowFiles": [".png", ".jpg", ".jpeg", ".gif", ".bmp"],
+                "imageCompressEnable": true,
+                "imageCompressBorder": 1600,
+                "imageInsertAlign": "none",
+                "imageUrlPrefix": "",
+                "imagePathFormat": "/ueditor/php/upload/image/{yyyy}{mm}{dd}/{time}{rand:6}",
+
+                "fileActionName": "uploadfile",
+                "fileFieldName": "upfile",
+                "filePathFormat": "/ueditor/php/upload/file/{yyyy}{mm}{dd}/{time}{rand:6}",
+                "fileUrlPrefix": "",
+                "fileMaxSize": 51200000,
+                "fileAllowFiles": [
+                    ".png", ".jpg", ".jpeg", ".gif", ".bmp",
+                    ".flv", ".swf", ".mkv", ".avi", ".rm", ".rmvb", ".mpeg", ".mpg",
+                    ".ogg", ".ogv", ".mov", ".wmv", ".mp4", ".webm", ".mp3", ".wav", ".mid",
+                    ".rar", ".zip", ".tar", ".gz", ".7z", ".bz2", ".cab", ".iso",
+                    ".doc", ".docx", ".xls", ".xlsx", ".ppt", ".pptx", ".pdf", ".txt", ".md", ".xml"
+                ],
+
+
+                "imageManagerActionName": "listimage",
+                "imageManagerListPath": "/ueditor/php/upload/image/",
+                "imageManagerListSize": 20,
+                "imageManagerUrlPrefix": "",
+                "imageManagerInsertAlign": "none",
+                "imageManagerAllowFiles": [".png", ".jpg", ".jpeg", ".gif", ".bmp"],
+
+
+                "fileManagerActionName": "listfile",
+                "fileManagerListPath": "/ueditor/php/upload/file/",
+                "fileManagerUrlPrefix": "",
+                "fileManagerListSize": 20,
+                "fileManagerAllowFiles": [
+                    ".png", ".jpg", ".jpeg", ".gif", ".bmp",
+                    ".flv", ".swf", ".mkv", ".avi", ".rm", ".rmvb", ".mpeg", ".mpg",
+                    ".ogg", ".ogv", ".mov", ".wmv", ".mp4", ".webm", ".mp3", ".wav", ".mid",
+                    ".rar", ".zip", ".tar", ".gz", ".7z", ".bz2", ".cab", ".iso",
+                    ".doc", ".docx", ".xls", ".xlsx", ".ppt", ".pptx", ".pdf", ".txt", ".md", ".xml"
+                ]
+
+            });
+            break;
             case "uploadimage": console.log("uploadimage"); break;
             case "uploadscrawl": console.log("uploadscrawl"); break;
             case "uploadvideo": console.log("uploadvideo"); break;
@@ -81,4 +129,21 @@ module.exports = function (app, options) {
             default: break;
         }
     });
+
+    //app.post(apiUrl + '/uploads', function(req,res){
+    //    var action = req.body.action;
+    //    console.log(action);
+    //    switch(action){
+    //        case "config":
+    //            break;
+    //        case "uploadimage": console.log("uploadimage"); break;
+    //        case "uploadscrawl": console.log("uploadscrawl"); break;
+    //        case "uploadvideo": console.log("uploadvideo"); break;
+    //        case "uploadfile": console.log("uploadfile"); break;
+    //        case "listimage": console.log("listimage"); break;
+    //        case "listfile": console.log("listfile"); break;
+    //        case "catchimage": console.log("catchimage"); break;
+    //        default: break;
+    //    }
+    //});
 };

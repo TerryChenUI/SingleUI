@@ -10,8 +10,8 @@ angular.module('app.admin.content', ['common.services']);
 
 var appAdmin = angular.module('app.admin', [
     'ngCookies',
+    'ngFileUpload',
     'ui.router',
-    'angularFileUpload',
     'common.services',
     'common.directives',
     'common.config',
