@@ -4,7 +4,12 @@
 node_modules/
 lib/
 .temp/
-dist/
+/webui/dist/admin/
+/webui/dist/app/
+/webui/dist/assets/
+/webui/dist/common/
+/webui/dist/lib/
+/webui/dist/index.html
 
 # Web Storm
 
