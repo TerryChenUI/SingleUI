@@ -20,7 +20,7 @@ angular.module('app.admin.content')
 
         $scope.initController();
     }])
-    .controller('EditArticleCtrl', ['$scope', '$stateParams', '$state', 'CategoryService', 'ArticleService', 'Upload', function ($scope, $stateParams, $state, CategoryService, ArticleService, Upload) {
+    .controller('EditArticleCtrl', ['$scope', '$stateParams', '$state', '$timeout', 'CategoryService', 'ArticleService', 'Upload', function ($scope, $stateParams, $state, $timeout, CategoryService, ArticleService, Upload) {
         var articleId = ($stateParams.id) ? parseInt($stateParams.id) : 0;
         var original = {};
         //var ue = UE.getEditor('editor');
@@ -66,24 +66,30 @@ angular.module('app.admin.content')
             return angular.equals(original, $scope.article);
         };
 
-        $scope.uploadPic = function(file) {
-            file.upload = Upload.upload({
-                url: 'https://angular-file-upload-cors-srv.appspot.com/upload',
-                data: {file: file}
-            });
-
-            file.upload.then(function (response) {
-                $timeout(function () {
-                    file.result = response.data;
+        $scope.uploadFiles = function(file, errFiles) {
+            $scope.f = file;
+            $scope.errFile = errFiles && errFiles[0];
+            if (file) {
+                file.upload = Upload.upload({
+                    url: '/api/uploads',
+                    data: {file: file}
                 });
-            }, function (response) {
-                if (response.status > 0)
-                    $scope.errorMsg = response.status + ': ' + response.data;
-            }, function (evt) {
-                // Math.min is to fix IE which reports 200% sometimes
-                file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
-            });
-        }
+
+                file.upload.then(function (response) {
+                    $timeout(function () {
+                        file.result = response.data.success;
+                        $scope.showImg = response.data.success;
+                        $scope.imgUrl = response.data.imgUrl;
+                    });
+                }, function (response) {
+                    if (response.status > 0)
+                        $scope.errorMsg = response.status + ': ' + response.data;
+                }, function (evt) {
+                    file.progress = Math.min(100, parseInt(100.0 *
+                        evt.loaded / evt.total));
+                });
+            }
+        };
 
         $scope.initController();
     }]);
