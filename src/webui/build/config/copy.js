@@ -14,6 +14,7 @@ module.exports = {
                     'angular-bootstrap/**',
                     'ng-file-upload/**.*',
                     'jquery/dist/**',
+                    'ng-tasty/**',
                     'underscore/**',
                     'bootstrap/**'
                 ],

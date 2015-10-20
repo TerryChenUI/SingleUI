@@ -31,15 +31,14 @@ module.exports = {
             './dist/admin/assets/css/themes/default.css',
 
             './dist/admin/../lib/jquery/dist/jquery.js',
+            './dist/admin/../lib/bootstrap/dist/js/bootstrap.min.js',
             './dist/admin/../lib/angular/angular.js',
             './dist/admin/../lib/angular-cookies/angular-cookies.min.js',
             './dist/admin/../lib/angular-ui-router/release/angular-ui-router.js',
-            './dist/admin/../lib/bootstrap/dist/js/bootstrap.min.js',
-            './dist/admin/../lib/angular-bootstrap/ui-bootstrap.js',
-            './dist/admin/../lib/angular-bootstrap/ui-bootstrap-tpls.js',
             './dist/admin/../lib/ng-file-upload/ng-file-upload.js',
+            //'./dist/admin/../lib/ng-tasty/ng-tasty.js',
+            './dist/admin/../lib/ng-tasty/ng-tasty-tpls.js',
             './dist/admin/../lib/underscore/underscore.js',
-
             './dist/admin/app/app.js',
             './dist/admin/../common/**/*.js',
             './dist/admin/app/**/*.js'

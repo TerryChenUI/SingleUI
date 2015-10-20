@@ -10,7 +10,7 @@
     </div>
 </div>
 
-<div class="table-responsive">
+<div tasty-table bind-resource="resource" watch-resource="collection">
     <table class="table datatable table-striped table-bordered table-hover">
         <thead>
         <tr>
@@ -38,15 +38,16 @@
         </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="article in articles">
-            <td>{{article.Id}}</td>
-            <td>{{article.Title}}</td>
-            <td>{{article.Publish}}</td>
-            <td>{{article.Views}}</td>
-            <td>{{article.CreateTime}}</td>
-            <td><a ui-sref="editArticle({id:article.Id})">编辑</a></td>
-            <td><a href="javascript:void(0)" ng-click="deleteArticle(article.Id)">删除</a></td>
+        <tr ng-repeat="row in rows">
+            <td>{{row.Id}}</td>
+            <td>{{row.Title}}</td>
+            <td>{{row.Publish}}</td>
+            <td>{{row.Views}}</td>
+            <td>{{row.CreateTime}}</td>
+            <td><a ui-sref="editArticle({id:row.Id})">编辑</a></td>
+            <td><a href="javascript:void(0)" ng-click="deleteArticle(row.Id)">删除</a></td>
         </tr>
         </tbody>
     </table>
+    <div tasty-pagination></div>
 </div>

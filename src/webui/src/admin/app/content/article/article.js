@@ -3,10 +3,20 @@
  */
 angular.module('app.admin.content')
     .controller('ListArticleCtrl', ['$scope', 'ArticleService', function ($scope, ArticleService) {
+        $scope.resource = {
+            "header": [],
+            "rows": [],
+            "pagination": {
+                "count": 5,
+                "page": 1,
+                "pages": 7,
+                "size": 34
+            }
+        };
         $scope.initController = function () {
             $scope.articleId = 1;
             ArticleService.getArticles($scope.articleId, 1, 5, function (res) {
-                $scope.articles = res.data;
+                $scope.resource.rows = res.data;
             });
         };
 
@@ -66,7 +76,7 @@ angular.module('app.admin.content')
             return angular.equals(original, $scope.article);
         };
 
-        $scope.uploadFiles = function(file, errFiles) {
+        $scope.uploadFiles = function (file, errFiles) {
             $scope.f = file;
             $scope.errFile = errFiles && errFiles[0];
             if (file) {
