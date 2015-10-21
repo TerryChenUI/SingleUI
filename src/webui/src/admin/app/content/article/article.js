@@ -2,21 +2,24 @@
  * Created by tchen on 7/8/2015.
  */
 angular.module('app.admin.content')
-    .controller('ListArticleCtrl', ['$scope', 'ArticleService', function ($scope, ArticleService) {
-        $scope.resource = {
-            "header": [],
-            "rows": [],
-            "pagination": {
-                "count": 5,
-                "page": 1,
-                "pages": 7,
-                "size": 34
-            }
+    .controller('ListArticleCtrl', ['$scope', '$http', 'ArticleService', function ($scope, $http, ArticleService) {
+        $scope.init = {
+            'count': 3,
+            'page': 1,
+            'sortBy': '',
+            'sortOrder': ''
         };
-        $scope.initController = function () {
-            $scope.articleId = 1;
-            ArticleService.getArticles($scope.articleId, 1, 5, function (res) {
-                $scope.resource.rows = res.data;
+
+        $scope.getResource = function (params, paramsObj) {
+            var urlApi = '/api/articles?' + params;
+            return $http.get(urlApi).then(function (response) {
+                return {
+                    'rows': response.data.data,
+                    'header': [],
+                    'pagination': {},
+                    'sortBy': '',
+                    'sortOrder': ''
+                }
             });
         };
 
@@ -27,8 +30,6 @@ angular.module('app.admin.content')
                 });
             }
         };
-
-        $scope.initController();
     }])
     .controller('EditArticleCtrl', ['$scope', '$stateParams', '$state', '$timeout', 'CategoryService', 'ArticleService', 'Upload', function ($scope, $stateParams, $state, $timeout, CategoryService, ArticleService, Upload) {
         var articleId = ($stateParams.id) ? parseInt($stateParams.id) : 0;

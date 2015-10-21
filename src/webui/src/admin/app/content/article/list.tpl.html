@@ -10,7 +10,7 @@
     </div>
 </div>
 
-<div tasty-table bind-resource="resource" watch-resource="collection">
+<div tasty-table bind-resource-callback="getResource" bind-init="init">
     <table class="table datatable table-striped table-bordered table-hover">
         <thead>
         <tr>
@@ -37,6 +37,7 @@
             </th>
         </tr>
         </thead>
+        <!--<thead tasty-thead></thead>-->
         <tbody>
         <tr ng-repeat="row in rows">
             <td>{{row.Id}}</td>

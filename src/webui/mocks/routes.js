@@ -29,8 +29,8 @@ module.exports = function (app, options) {
 
     //articles
     app.get(apiUrl + "/articles", function (req, res) {
-        var begin = ((req.query.pageIndex - 1) * req.query.pageSize);
-        var end = begin + parseInt(req.query.pageSize);
+        var begin = ((req.query.page - 1) * req.query.count);
+        var end = begin + parseInt(req.query.count);
         //console.log("begin:" + begin + "end:" + end);
         //console.log(getArticles.data.length);
 

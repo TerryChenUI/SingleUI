@@ -22,13 +22,13 @@ var ArticleService = (function () {
         });
     };
 
-    ArticleService.prototype.getArticles = function (categoryId, pageIndex, pageSize, successCallback) {
+    ArticleService.prototype.getArticles = function (params, successCallback) {
         var config = {
             method: 'GET',
             url: this.serviceEndpoint + "articles",
-            params: {categoryId: categoryId, pageIndex: pageIndex, pageSize: pageSize}
+            params: params
         };
-        this.$log.debug('getArticlesByCategoryId', config);
+        this.$log.debug('getArticles', config);
         return this.$http(config).success(function (res) {
             return successCallback(res);
         });
