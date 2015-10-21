@@ -22,16 +22,14 @@ var ArticleService = (function () {
         });
     };
 
-    ArticleService.prototype.getArticles = function (params, successCallback) {
+    ArticleService.prototype.getArticles = function (params) {
         var config = {
             method: 'GET',
             url: this.serviceEndpoint + "articles",
             params: params
         };
         this.$log.debug('getArticles', config);
-        return this.$http(config).success(function (res) {
-            return successCallback(res);
-        });
+        return this.$http(config);
     };
 
     ArticleService.prototype.getArticleById = function (id, successCallback) {

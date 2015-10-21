@@ -3,16 +3,8 @@
  */
 angular.module('app.admin.content')
     .controller('ListArticleCtrl', ['$scope', '$http', 'ArticleService', function ($scope, $http, ArticleService) {
-        $scope.init = {
-            'count': 3,
-            'page': 1,
-            'sortBy': '',
-            'sortOrder': ''
-        };
-
         $scope.getResource = function (params, paramsObj) {
-            var urlApi = '/api/articles?' + params;
-            return $http.get(urlApi).then(function (response) {
+            return ArticleService.getArticles(paramsObj).then(function (response) {
                 return {
                     'rows': response.data.data,
                     'header': [],
@@ -21,6 +13,17 @@ angular.module('app.admin.content')
                     'sortOrder': ''
                 }
             });
+
+            //var urlApi = '/api/articles?' + params;
+            //return $http.get(urlApi).then(function (response) {
+            //    return {
+            //        'rows': response.data.data,
+            //        'header': [],
+            //        'pagination': {},
+            //        'sortBy': '',
+            //        'sortOrder': ''
+            //    }
+            //});
         };
 
         $scope.deleteArticle = function (id) {

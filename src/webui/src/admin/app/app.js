@@ -23,6 +23,15 @@ var appAdmin = angular.module('app.admin', [
 ]);
 
 appAdmin.run(function($rootScope, $window, $location, $cookieStore, $http){
+    //pagination setting
+    $rootScope.paginationSetting = {
+        'count': 15,
+        'page': 1,
+        'sortBy': '',
+        'sortOrder': ''
+    };
+
+    //cookie
     $rootScope.globals = $cookieStore.get('globals') || {};
     if ($rootScope.globals.currentUser) {
         $http.defaults.headers.common['Authorization'] = 'Basic ' + $rootScope.globals.currentUser.authdata; // jshint ignore:line
