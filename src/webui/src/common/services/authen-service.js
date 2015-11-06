@@ -1,6 +1,4 @@
 (function () {
-    'use strict';
-
     angular.module('common.services')
         .factory('AuthenService', ['$rootScope', '$cookieStore', '$http', 'UserService', function ($rootScope, $cookieStore, $http, UserService) {
             return {
