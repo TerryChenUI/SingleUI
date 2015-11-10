@@ -1,10 +1,4 @@
-/**
- * Created by TerryChen on 2015/10/11.
- */
-/**
- * Created by TerryChen on 2015/7/2.
- */
-'use strict';
+"use strict";
 module.exports = {
     dev: {
         src: [

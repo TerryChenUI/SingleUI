@@ -12,7 +12,7 @@ module.exports = function (connect, options) {
     app.use(bodyParser.json());
     app.use(methodOverride());
     app.use(errorhandler());
-    app.use(express["static"](options.base[0]));
+    app.use(express["static"](options.root));
     app.use(express.Router());
     routeService(app, options);
 

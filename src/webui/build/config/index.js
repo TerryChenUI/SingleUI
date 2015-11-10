@@ -1,6 +1,3 @@
-/**
- * Created by TerryChen on 2015/7/2.
- */
 'use strict';
 module.exports = {
     dev_index: {

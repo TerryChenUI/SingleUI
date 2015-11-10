@@ -1,12 +1,6 @@
-/**
- * Created by tchen on 7/2/2015.
- */
-'use strict';
-module.exports = function(grunt) {
-    grunt.registerTask('default',
-        [
-            'dev',
-            'connect:dev',
-            'watch'
-        ]);
-};
+"use strict";
+var gulp = require("gulp");
+
+gulp.task("default", ['dev', 'connect'], function(cb) {
+    console.log('clean');
+});
