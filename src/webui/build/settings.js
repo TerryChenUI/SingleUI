@@ -29,7 +29,7 @@ module.exports = {
                     'lib/underscore/**',
                     'lib/bootstrap/**'
                 ],
-                src: ['src/**', '!src/index.html'],
+                src: ['src/**', '!src/index.html', '!src/admin/index.html', '!src/admin/login.html'],
                 css: ['src/**/*.css', '!src/admin/**/*.css'],
                 js: ['src/**/*.js', '!src/admin/**/*.js'],
                 index: 'src/index.html'
