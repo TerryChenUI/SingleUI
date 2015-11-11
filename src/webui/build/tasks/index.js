@@ -1,47 +1,29 @@
 'use strict';
 var gulp = require("gulp");
-var template = require('gulp-template');
-var data = require('gulp-data');
 var dev_index = require("../config/index").dev_index;
+var inject = require('gulp-inject');
 
-var filter = function (files, pattern) {
-	return files.filter((function (file) {
-		return file.match(pattern);
-	}));
+var getNewPath = function (filePath, type) {
+	var newPath = filePath.replace('/src/', '/');
+    console.log('inject '+ type +' = '+ newPath);
+    return newPath;
 };
 
 gulp.task('dev_index', [], function () {
 
-	var dirRE = new RegExp("^./dist/", "g");
-
-	//styles
-	var styles = filter(dev_index.src, /\.css$/).map(function (file) {
-		return file.replace(dirRE, "");
-    });
-	if ((styles != null) && styles.length !== 0) {
-		console.log('styles:');
-    }
-    for (var i = 0; i < styles.length; i++) {
-        console.log(styles[i]);
-    }
-
-    //scripts
-    var scripts = filter(dev_index.src, /\.js$/).map(function (file) {
-		return file.replace(dirRE, "");
-    });
-    if ((scripts != null) && scripts.length !== 0) {
-    	console.log('scripts:');
-    }
-    for (var j = 0; j < scripts.length; j++) {
-    	console.log(scripts[j]);
-    }
-    return gulp.src('./src/index.html')
-        .pipe(data(function () {
-            return {
-    			styles: styles,
-    			scripts: scripts
-            };
+    var target = gulp.src('./src/index.html');
+    var cssSources = gulp.src(dev_index.src.css, { read : false });
+    var jsSources = gulp.src(dev_index.src.js, { read : false });
+    
+    return target.pipe(inject(cssSources, {
+            transform : function (filePath) {
+                return '<link rel="stylesheet" type="text/css" href="' + getNewPath(filePath, 'css')  + '" />';
+            }
         }))
-        .pipe(template())
+        .pipe(inject(jsSources, {
+            transform : function (filePath) {
+                return '<script type="text/javascript" src="' + getNewPath(filePath, 'js')  + '"></script>';
+            }
+        }))
         .pipe(gulp.dest('./dist'));
 });

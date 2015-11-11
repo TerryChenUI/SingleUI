@@ -1,20 +1,24 @@
 'use strict';
 module.exports = {
     dev_index: {
-        src: [
-            './dist/lib/bootstrap/dist/css/bootstrap.css',
-            './dist/assets/css/style.css',
-            './dist/lib/jquery/dist/jquery.js',
-            './dist/lib/bootstrap/dist/js/bootstrap.js',
-            './dist/lib/angular/angular.js',
-            './dist/lib/angular-ui-router/release/angular-ui-router.js',
-            './dist/lib/angular-bootstrap/ui-bootstrap.js',
-            './dist/lib/angular-bootstrap/ui-bootstrap-tpls.js',
-            './dist/lib/underscore/underscore.js',
-            './dist/app/app.js',
-            './dist/common/**/*.js',
-            './dist/app/**/*.js'
-        ]
+        src: {
+            css: [
+                'lib/bootstrap/dist/css/bootstrap.css',
+                'src/assets/css/style.css'
+                ],
+            js: [
+                'lib/jquery/dist/jquery.js',
+                'lib/bootstrap/dist/js/bootstrap.js',
+                'lib/angular/angular.js',
+                'lib/angular-ui-router/release/angular-ui-router.js',
+                'lib/angular-bootstrap/ui-bootstrap.js',
+                'lib/angular-bootstrap/ui-bootstrap-tpls.js',
+                'lib/underscore/underscore.js',
+                'src/app/app.js',
+                'src/app/**/*.js',
+                'src/common/**/*.js'
+            ]
+        }
     },
     dev_admin_index: {
         src: [
