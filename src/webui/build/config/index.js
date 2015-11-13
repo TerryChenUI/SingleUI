@@ -24,7 +24,7 @@ module.exports = {
         src: {
             css: [
             'src/admin/assets/plugins/font-awesome/css/font-awesome.min.css',
-            'src/admin/../lib/bootstrap/dist/css/bootstrap.min.css',
+            'lib/bootstrap/dist/css/bootstrap.min.css',
             'src/admin/assets/css/style-metronic.css',
             'src/admin/assets/css/style.css',
             'src/admin/assets/css/style-responsive.css',
@@ -43,7 +43,7 @@ module.exports = {
             'lib/underscore/underscore.js',
             'src/admin/app/app.js',
             'src/admin/app/**/*.js',
-            'src/admin/../common/**/*.js'
+            'src/common/**/*.js'
             ]
         }
     },
