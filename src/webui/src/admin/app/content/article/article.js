@@ -4,29 +4,19 @@
 angular.module('app.admin.content')
     .controller('ListArticleCtrl', ['$scope', '$http', 'ArticleService', function ($scope, $http, ArticleService) {
         $scope.getResource = function (params, paramsObj) {
+            paramsObj.count = 2;
             return ArticleService.getArticles(paramsObj).then(function (response) {
                 return {
-                    'rows': response.data.data,
+                    'rows': response.data.rows,
                     'header': [],
-                    'pagination': {},
+                    'pagination':response.data.pagination,
                     'sortBy': '',
                     'sortOrder': ''
                 }
             });
-
-            //var urlApi = '/api/articles?' + params;
-            //return $http.get(urlApi).then(function (response) {
-            //    return {
-            //        'rows': response.data.data,
-            //        'header': [],
-            //        'pagination': {},
-            //        'sortBy': '',
-            //        'sortOrder': ''
-            //    }
-            //});
         };
 
-        $scope.deleteArticle = function (id) {
+        $scope.remove = function (id) {
             if (confirm("Are you sure to delete the data?")) {
                 ArticleService.deleteArticle(id, function () {
                     alert("Delete successfully");

@@ -34,7 +34,7 @@
                                     <label class="control-label col-md-2">类别</label>
 
                                     <div class="col-md-4">
-                                        <select ng-model="article.CategoryId"
+                                        <select class="form-control" ng-model="article.CategoryId"
                                                 ng-options="option.value as option.name for option in categories"></select>
                                     </div>
                                 </div>
@@ -66,35 +66,34 @@
                                             上传图片
                                         </button>
                                         <div ng-if="showImg">
-                                            <!--<img src="{{imgUrl}}" width="200"/>-->
+                                            <img src="{{imgUrl}}" width="200"/>
                                         </div>
                                         <!--File:-->
                                         <!--<div>{{f.name}} {{errFile.name}} {{errFile.$error}}-->
-                                            <!--{{errFile.$errorParam}}-->
-      <!--<span class="progress" ng-show="f.progress >= 0">-->
-          <!--<div style="width:{{f.progress}}%"-->
-               <!--ng-bind="f.progress + '%'"></div>-->
-      <!--</span>-->
-                                        </div>
-                                        {{errorMsg}}
+                                        <!--{{errFile.$errorParam}}-->
+                                        <!--<span class="progress" ng-show="f.progress >= 0">-->
+                                        <!--<div style="width:{{f.progress}}%"-->
+                                        <!--ng-bind="f.progress + '%'"></div>-->
+                                        <!--</span>-->
                                     </div>
+                                    {{errorMsg}}
                                 </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-2">正文</label>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-2">正文</label>
 
-                                    <div class="col-md-8">
-                                        <ueditor ng-model="article.Content"></ueditor>
-                                    </div>
+                                <div class="col-md-8">
+                                    <ueditor ng-model="article.Content"></ueditor>
                                 </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-2">已发布</label>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-2">已发布</label>
 
-                                    <div class="col-md-4">
-                                        <div class="checkbox-list">
-                                            <label class="checkbox-inline">
-                                                <input type="checkbox" ng-model="article.Publish"/>
-                                            </label>
-                                        </div>
+                                <div class="col-md-4">
+                                    <div class="checkbox-list">
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" ng-model="article.Publish"/>
+                                        </label>
                                     </div>
                                 </div>
                             </div>
@@ -102,13 +101,14 @@
                     </div>
                 </div>
             </div>
-            <div class="form-actions fluid">
-                <div class="col-md-offset-2 col-md-9">
-                    <input type="submit" name="save" ng-disabled="isClean() || form.$invalid" class="btn blue"
-                           value="保存" ng-click="saveArticle()"/>
-                    <input type="submit" name="save-continue" class="btn dark" value="保存并继续"/>
-                </div>
-            </div>
-        </form>
     </div>
+    <div class="form-actions fluid">
+        <div class="col-md-offset-2 col-md-9">
+            <input type="submit" name="save" ng-disabled="isClean() || form.$invalid" class="btn blue"
+                   value="保存" ng-click="saveArticle()"/>
+            <input type="submit" name="save-continue" class="btn dark" value="保存并继续"/>
+        </div>
+    </div>
+    </form>
+</div>
 </div>

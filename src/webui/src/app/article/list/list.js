@@ -21,15 +21,15 @@ angular.module('app.article')
         };
 
         getData = function () {
-            ArticleService.getArticlesByCategoryId(
-                $stateParams.categoryId,
-                $scope.currentPage,
-                $scope.itemsPerPage,
-                function (res) {
-                    $scope.articles = res.data;
-                    $scope.totalItems = res.pagination.total;
-                }
-            );
+            paramsObj = {
+                categoryId: $stateParams.categoryId,
+                page: $scope.currentPage,
+                count: $scope.itemsPerPage
+            };
+            ArticleService.getArticles(paramsObj).then(function (res) {
+                $scope.articles = res.data.rows;
+                $scope.totalItems = res.data.pagination.size;
+            });
         };
 
         $scope.initController();

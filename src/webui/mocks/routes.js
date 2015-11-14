@@ -12,7 +12,34 @@ module.exports = function (app, options) {
 
     //categories
     app.get(apiUrl + "/categories", function (req, res) {
-        return res.json(getCategories);
+        var begin = ((req.query.page - 1) * req.query.count);
+        var end = begin + parseInt(req.query.count);
+        //console.log("begin:" + begin + "end:" + end);
+        //console.log(getArticles.data.length);
+        data = getCategories.data.slice(begin, end);
+        if(req.query.parentId == 0){
+            data = _und.filter(getCategories.data, function(data){
+                return data.ParentId === 0;
+            });
+        }
+        if(req.query.filters){
+            console.log(req.query.filters[0].ParentId);
+            if(req.query.filters.ParentId){
+                data = _und.filter(getCategories.data, function(data){
+                    return data.ParentId === req.query.filters.ParentId;
+                });
+            }
+        }
+        return res.json(
+            {
+                "rows": data,
+                "pagination": {
+                    "count": parseInt(req.query.count),
+                    "page": parseInt(req.query.page),
+                    "pages": Math.round(getCategories.data.length / req.query.count),
+                    "size": getCategories.data.length
+                }
+            });
     });
     app.get(apiUrl + "/categories/:id", function (req, res) {
         return res.json(getCategory);
@@ -34,16 +61,15 @@ module.exports = function (app, options) {
         //console.log("begin:" + begin + "end:" + end);
         //console.log(getArticles.data.length);
 
-        resArticles = {
-            "error": "",
-            "data": [],
+        return res.json({
+            "rows": getArticles.data.slice(begin, end),
             "pagination": {
-                "total": getArticles.data.length
+                "count": parseInt(req.query.count),
+                "page": parseInt(req.query.page),
+                "pages": Math.round(getArticles.data.length / req.query.count),
+                "size": getArticles.data.length
             }
-        };
-
-        resArticles.data = getArticles.data.slice(begin, end);
-        return res.json(resArticles);
+        });
     });
 
     app.get(apiUrl + "/articles/:id", function (req, res) {
@@ -107,7 +133,12 @@ module.exports = function (app, options) {
                         });
                     });
                     total = list.length;
-                    res.json({state: total === 0 ? 'no match file' : 'SUCCESS', list: list, total: total, start: req.query.start});
+                    res.json({
+                        state: total === 0 ? 'no match file' : 'SUCCESS',
+                        list: list,
+                        total: total,
+                        start: req.query.start
+                    });
                 });
                 break;
             case "listfile":

@@ -7,13 +7,14 @@
             this.serviceEndpoint = ServerConfig.apiUrl;
         }
 
-        CategoryService.prototype.getCategories = function () {
+        CategoryService.prototype.getCategories = function (params) {
             var config = {
                 method: 'GET',
-                url: this.serviceEndpoint + "categories"
+                url: this.serviceEndpoint + "categories",
+                params: params
             };
             this.$log.debug('getCategories', config);
-            return this.appHttp.request(config);
+            return this.$http(config);
         };
 
         CategoryService.prototype.getCategoryById = function (id) {

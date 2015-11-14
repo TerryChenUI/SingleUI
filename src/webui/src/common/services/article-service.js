@@ -7,17 +7,17 @@
             this.serviceEndpoint = ServerConfig.apiUrl;
         }
 
-        ArticleService.prototype.getArticlesByCategoryId = function (categoryId, pageIndex, pageSize, successCallback) {
-            var config = {
-                method: 'GET',
-                url: this.serviceEndpoint + "articles",
-                params: {categoryId: categoryId, pageIndex: pageIndex, pageSize: pageSize}
-            };
-            this.$log.debug('getArticlesByCategoryId', config);
-            return this.$http(config).success(function (res) {
-                return successCallback(res);
-            });
-        };
+        //ArticleService.prototype.getArticlesByCategoryId = function (categoryId, pageIndex, pageSize, successCallback) {
+        //    var config = {
+        //        method: 'GET',
+        //        url: this.serviceEndpoint + "articles",
+        //        params: {categoryId: categoryId, pageIndex: pageIndex, pageSize: pageSize}
+        //    };
+        //    this.$log.debug('getArticlesByCategoryId', config);
+        //    return this.$http(config).success(function (res) {
+        //        return successCallback(res);
+        //    });
+        //};
 
         ArticleService.prototype.getArticles = function (params) {
             var config = {

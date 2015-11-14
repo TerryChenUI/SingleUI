@@ -37,7 +37,6 @@
             </th>
         </tr>
         </thead>
-        <!--<thead tasty-thead></thead>-->
         <tbody>
         <tr ng-repeat="row in rows">
             <td>{{row.Id}}</td>
@@ -46,7 +45,7 @@
             <td>{{row.Views}}</td>
             <td>{{row.CreateTime}}</td>
             <td><a ui-sref="editArticle({id:row.Id})">编辑</a></td>
-            <td><a href="javascript:void(0)" ng-click="deleteArticle(row.Id)">删除</a></td>
+            <td><a href="javascript:void(0)" ng-click="remove(row.Id)">删除</a></td>
         </tr>
         </tbody>
     </table>
