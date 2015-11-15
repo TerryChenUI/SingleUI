@@ -101,14 +101,14 @@
                     </div>
                 </div>
             </div>
+        </form>
     </div>
     <div class="form-actions fluid">
         <div class="col-md-offset-2 col-md-9">
+            <input type="button" name="cancel" class="btn dark" value="取消"/>
             <input type="submit" name="save" ng-disabled="isClean() || form.$invalid" class="btn blue"
                    value="保存" ng-click="saveArticle()"/>
-            <input type="submit" name="save-continue" class="btn dark" value="保存并继续"/>
         </div>
     </div>
-    </form>
 </div>
 </div>

@@ -12,32 +12,41 @@ module.exports = function (app, options) {
 
     //categories
     app.get(apiUrl + "/categories", function (req, res) {
-        var begin = ((req.query.page - 1) * req.query.count);
-        var end = begin + parseInt(req.query.count);
-        //console.log("begin:" + begin + "end:" + end);
-        //console.log(getArticles.data.length);
-        data = getCategories.data.slice(begin, end);
+        var datas = getCategories.data;
+        var rows = datas;
+
+        //获取父分类列表
         if(req.query.parentId == 0){
-            data = _und.filter(getCategories.data, function(data){
-                return data.ParentId === 0;
+            datas = _und.filter(datas, function(t){
+                return t.ParentId == 0;
             });
+            return res.json(datas);
         }
+
+        //分页筛选
         if(req.query.filters){
-            console.log(req.query.filters[0].ParentId);
-            if(req.query.filters.ParentId){
-                data = _und.filter(getCategories.data, function(data){
-                    return data.ParentId === req.query.filters.ParentId;
+            var filter = JSON.parse(req.query.filters);
+            if(filter.ParentId){
+                rows = _und.filter(datas, function(t){
+                    return t.ParentId == filter.ParentId || t.Id == filter.ParentId;
                 });
+                datas = rows;
             }
         }
+        if(req.query.page){
+            var begin = ((req.query.page - 1) * req.query.count);
+            var end = begin + parseInt(req.query.count);
+            rows = rows.slice(begin, end);
+        }
+
         return res.json(
             {
-                "rows": data,
+                "rows": rows,
                 "pagination": {
                     "count": parseInt(req.query.count),
                     "page": parseInt(req.query.page),
-                    "pages": Math.round(getCategories.data.length / req.query.count),
-                    "size": getCategories.data.length
+                    "pages": Math.round(datas.length / req.query.count),
+                    "size": datas.length
                 }
             });
     });

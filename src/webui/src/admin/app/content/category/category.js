@@ -1,18 +1,12 @@
-/**
- * Created by tchen on 7/8/2015.
- */
 angular.module('app.admin.content')
     .controller('ListCategoryCtrl', ['$scope', 'CategoryService', function ($scope, CategoryService) {
-        var paramsObj = {
-            parentId: 0,
-            page: 0,
-            count: 9999
+
+        var actionParams = {
+            parentId: 0
         };
-
         $scope.categoryOptions = [{name: '--所有--', value: 0}];
-
-        CategoryService.getCategories(paramsObj).then(function (response) {
-            _.each(response.data.rows, function (data) {
+        CategoryService.getCategories(actionParams).then(function (response) {
+            _.each(response.data, function (data) {
                 $scope.categoryOptions.push({
                     name: data.Name,
                     value: data.Id
@@ -25,12 +19,17 @@ angular.module('app.admin.content')
         };
 
         $scope.getResource = function (params, paramsObj) {
+            paramsObj.count = 2;
             return CategoryService.getCategories(paramsObj).then(function (response) {
                 response.data.rows = _.each(response.data.rows, function (data) {
                     data.EnabledText = data.Enabled ? "已启用" : "禁用";
-                    CategoryService.getCategoryById(data.ParentId).then(function (response) {
-                        data.ParentName = response.Name;
-                    });
+                    if (data.ParentId == 0) {
+                        data.ParentName = "父类别"
+                    } else {
+                        CategoryService.getCategoryById(data.ParentId).then(function (response) {
+                            data.ParentName = response.Name;
+                        });
+                    }
                 });
                 return {
                     'rows': response.data.rows,
@@ -58,13 +57,11 @@ angular.module('app.admin.content')
         $scope.categoryOptions = [{name: '--父类别--', value: 0}];
 
         $scope.initController = function () {
-            var paramsObj = {
-                parentId: 0,
-                page: 0,
-                count: 9999
+            var actionParams = {
+                parentId: 0
             };
-            CategoryService.getCategories(paramsObj).then(function (response) {
-                _.each(response.data.rows, function (data) {
+            CategoryService.getCategories(actionParams).then(function (response) {
+                _.each(response.data, function (data) {
                     $scope.categoryOptions.push({
                         name: data.Name,
                         value: data.Id
@@ -76,21 +73,18 @@ angular.module('app.admin.content')
             if (id > 0) {
                 CategoryService.getCategoryById(id).then(function (data) {
                     $scope.category = data;
-                    original = angular.copy(data);
                 });
             }
         };
 
         $scope.saveCategory = function () {
-            if (id <= 0) {
-                CategoryService.insertCategory($scope.category, function () {
-                    alert("Add successfully");
-                    $state.go('category');
+            if (id > 0) {
+                CategoryService.updateCategory(id, $scope.category, function () {
+                    alert("更新成功");
                 });
             } else {
-                CategoryService.updateCategory(id, $scope.category, function () {
-                    alert("update successfully");
-                    $state.go('category');
+                CategoryService.insertCategory($scope.category, function () {
+                    alert("新增成功");
                 });
             }
         };

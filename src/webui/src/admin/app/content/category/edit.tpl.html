@@ -8,7 +8,8 @@
         <form class="form-horizontal" name="form">
             <div class="form-body">
                 <input type="hidden" class="form-control" ng-model="category.Id"/>
-                <div class="table table-custom table-full-width">
+
+                <div class="tabbable tabbable-custom tabbable-full-width">
                     <ul class="nav nav-tabs">
                         <li class="active">
                             <a href="#tab_1" data-toggle="tab">基本信息</a>
@@ -19,8 +20,10 @@
                             <div class="form-body">
                                 <div class="form-group">
                                     <label class="control-label col-md-2">类别</label>
+
                                     <div class="col-md-4">
-                                        <input type="text" name="name" class="form-control" ng-model="category.Name" required=""/>
+                                        <input type="text" name="name" class="form-control" ng-model="category.Name"
+                                               required=""/>
                                         <div ng-show="form.$submitted || form.name.$touched">
                                             <span ng-show="form.name.$error.required" class="help-block">请填写类别</span>
                                         </div>
@@ -28,33 +31,37 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-md-2">父类别</label>
+
                                     <div class="col-md-2">
-                                        <select class="form-control" ng-model="category.ParentId" ng-options="option.value as option.name for option in categoryOptions"></select>
+                                        <select class="form-control" ng-model="category.ParentId"
+                                                ng-options="option.value as option.name for option in categoryOptions"></select>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-md-2">排序</label>
+
                                     <div class="col-md-4">
                                         <input type="text" class="form-control" ng-model="category.DisplayOrder"/>
+
                                         <div ng-show="form.$submitted || form.displayOrder.$touched">
-                                            <span ng-show="form.displayOrder.$error.required" class="help-block">请填写排序</span>
+                                            <span ng-show="form.displayOrder.$error.required"
+                                                  class="help-block">请填写排序</span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-md-2">描述</label>
                                     <div class="col-md-4">
-                                        <input type="text" class="form-control" ng-model="category.Description"/>
+                                        <textarea class="form-control" ng-model="category.Description"  rows="4" cols="20" name="description"></textarea>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-md-2">已启用</label>
+
                                     <div class="col-md-4">
-                                        <div class="checkbox-list">
-                                            <label class="checkbox-inline">
-                                                <input type="checkbox" ng-model="category.Enabled"/>
-                                            </label>
-                                        </div>
+                                        <label class="form-checkbox">
+                                            <input type="checkbox" ng-model="category.Enabled"/>
+                                        </label>
                                     </div>
                                 </div>
                             </div>
@@ -64,8 +71,9 @@
             </div>
             <div class="form-actions fluid">
                 <div class="col-md-offset-2 col-md-9">
-                    <input type="submit" name="save" ng-disabled="form.$invalid" class="btn blue" value="保存" ng-click="saveCategory(category)"/>
-                    <input type="submit" name="save-continue" class="btn dark" value="保存并继续"/>
+                    <input type="button" name="cancel" class="btn dark" value="取消" ui-sref="category"/>
+                    <input type="submit" name="save" ng-disabled="form.$invalid" class="btn blue" value="保存"
+                           ng-click="saveCategory()"/>
                 </div>
             </div>
         </form>
