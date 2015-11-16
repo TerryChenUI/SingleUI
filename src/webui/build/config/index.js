@@ -47,6 +47,29 @@ module.exports = {
             ]
         }
     },
+    dev_login : {
+        src: {
+            css : [
+               'src/admin/assets/plugins/font-awesome/css/font-awesome.min.css',
+                'lib/bootstrap/dist/css/bootstrap.min.css',
+                'src/admin/assets/css/style-metronic.css',
+                'src/admin/assets/css/style.css',
+                'src/admin/assets/css/style-responsive.css',
+                'src/admin/assets/css/themes/default.css',
+                'src/admin/assets/css/login.css'
+            ],
+            js : [
+                'lib/jquery/dist/jquery.js',
+                'lib/angular/angular.js',
+                'lib/angular-cookies/angular-cookies.js',
+                'lib/angular-ui-router/release/angular-ui-router.js',
+                'lib/bootstrap/dist/js/bootstrap.min.js',
+                'src/admin/app/app.js',
+                'src/admin/app/common/login.js',
+                'src/common/**/*.js'
+            ]
+        }
+    },
     prod_index: {
         src: [
 
@@ -55,7 +78,6 @@ module.exports = {
     prod_admin_index: {
         src: [
 
-        ],
-        environment: 'admin'
+        ]
     }
 };
