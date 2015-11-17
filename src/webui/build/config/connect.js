@@ -1,30 +1,13 @@
-/**
- * Created by tchen on 7/2/2015.
- */
-'use strict';
-module.exports = {
-    dev: {
-        options: {
-            localhost: 'localhost',
-            base: '<%= directory.dist %>',
-            livereload: true,
-            middleware: require('../../middleware'),
-            open: true,
-            port: '<%= ports.connect %>',
-            mockTimeout: 1000
-        }
-    },
-    server: {
-        options: {
-            localhost: 'localhost',
-            base: '<%= directory.dist %>',
-            livereload: true,
-            middleware: require('../../middleware'),
-            open: true,
-            port: '<%= ports.connect %>',
-            mockTimeout: 1000
-        }
-    }
-};
+"use strict";
+var gulp = require('gulp'),
+    connect = require('gulp-connect'),
+    server = require("../settings").settings.ports;
 
-
+gulp.task('connect', [], function () {
+    connect.server({
+        root: server.root,
+        port: server.connect,
+        livereload: true,
+        middleware: require('../../middleware')
+    });
+});
