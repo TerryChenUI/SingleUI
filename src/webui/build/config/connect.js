@@ -1,13 +1,13 @@
 "use strict";
-var gulp = require('gulp')
-var connect = require('gulp-connect')
-var settings = require("../settings").settings
+var gulp = require('gulp'),
+    connect = require('gulp-connect'),
+    server = require("../settings").settings.ports;
 
-gulp.task('connect', [], function(){
-	connect.server({
-    	root: settings.folder.dist,
-    	port: settings.ports.connect,
-    	middleware: require('../../middleware'),
-    	livereload: true
-  	});
+gulp.task('connect', [], function () {
+    connect.server({
+        root: server.root,
+        port: server.connect,
+        livereload: true,
+        middleware: require('../../middleware')
+    });
 });

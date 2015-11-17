@@ -8,7 +8,7 @@ module.exports = function (connect, options) {
     var routeService = require('./mocks/routes');
 
     var app = express();
-
+    app.use(require('connect-livereload')());
     app.use(bodyParser.json());
     app.use(methodOverride());
     app.use(errorhandler());

@@ -1,8 +1,8 @@
 "use strict";
-var gulp = require("gulp");
-var del = require("del");
-var path = require("../settings").settings.clean.dist;
+var gulp = require("gulp"),
+    del = require("del"),
+    path = require("../settings").settings.clean;
 
 gulp.task("clean", [], function (cb) {
-    del.sync(path);
+    del.sync(path.dist);
 });

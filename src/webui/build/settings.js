@@ -1,11 +1,6 @@
 "use strict";
-
 module.exports = {
     settings: {
-        folder: {
-            src: "src",
-            dist: "dist"
-        },
         clean: {
             dist: [
                 'dist/admin',
@@ -18,28 +13,29 @@ module.exports = {
         },
         copy: {
             dev: {
-               lib: [
+                lib: [
                     'lib/angular/**',
                     'lib/angular-cookies/**',
                     'lib/angular-ui-router/**',
                     'lib/angular-bootstrap/**',
-                    'lib/ng-file-upload/**.*',
+                    'lib/ng-file-upload/**',
                     'lib/jquery/dist/**',
                     'lib/ng-tasty/**',
                     'lib/underscore/**',
                     'lib/bootstrap/**'
                 ],
-                src: ['src/**', '!src/index.html', '!src/admin/index.html', '!src/admin/login.html'],
-                css: ['src/**/*.css', '!src/admin/**/*.css'],
-                js: ['src/**/*.js', '!src/admin/**/*.js'],
-                index: 'src/index.html'
+                assets: ['src/**/assets/**'],
+                css: ['src/**/*.css'],
+                js: ['src/**/*.js'],
+                html: ['src/**/*.html', '!src/index.html', '!src/admin/index.html', '!src/admin/login.html']
             },
             dist: {
-                src: 'dist/',
+                root: 'dist/',
                 lib: 'dist/lib/'
             }
         },
         ports: {
+            root: 'dist',
             livereload: 35729,
             connect: 8000
         }
