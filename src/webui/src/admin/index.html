@@ -2,9 +2,8 @@
 <html ng-app="app.admin" ng-controller="AppAdminCtrl">
 <head>
     <title>Next Blog</title>
-    <% styles.forEach(function(file) { %>
-    <link rel="stylesheet" type="text/css" href="<%= file %>"/>
-    <% }); %>
+    <!-- inject:css -->
+    <!-- endinject -->
 </head>
 
 <!-- Body开始 -->
@@ -49,9 +48,8 @@
 <!-- 底部开始 -->
 <footer></footer>
 
-<% scripts.forEach(function(file) { %>
-<script type="text/javascript" src="<%= file %>"></script>
-<% }); %>
+<!-- inject:js -->
+<!-- endinject -->
 
 </body>
 </html>
