@@ -12,10 +12,10 @@ angular.module('app.nav')
                 $scope.$state = $state;
 
                 $scope.initController = function () {
-                    CategoryService.getCategories().then(function (data) {
-                        $scope.menus = _.where(data, {ParentId: 0});
+                    CategoryService.getCategories().then(function (res) {
+                        $scope.menus = _.where(res.data.rows, {ParentId: 0});
                         $scope.menus = _.sortBy($scope.menus, 'DisplayOrder');
-                        HandleMenu(data);
+                        HandleMenu(res.data.rows);
                     });
 
                 };

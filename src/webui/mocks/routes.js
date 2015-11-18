@@ -65,18 +65,29 @@ module.exports = function (app, options) {
 
     //articles
     app.get(apiUrl + "/articles", function (req, res) {
-        var begin = ((req.query.page - 1) * req.query.count);
-        var end = begin + parseInt(req.query.count);
-        //console.log("begin:" + begin + "end:" + end);
-        //console.log(getArticles.data.length);
+        var datas = getArticles.data;
+        var rows = datas;
+
+        if(req.query.categoryId){
+            rows = _und.filter(datas, function(t){
+                return t.CategoryId == req.query.categoryId;
+            });
+            datas = rows;
+        }
+
+        if(req.query.page){
+            var begin = ((req.query.page - 1) * req.query.count);
+            var end = begin + parseInt(req.query.count);
+            rows = rows.slice(begin, end);
+        }
 
         return res.json({
-            "rows": getArticles.data.slice(begin, end),
+            "rows": rows,
             "pagination": {
                 "count": parseInt(req.query.count),
                 "page": parseInt(req.query.page),
-                "pages": Math.round(getArticles.data.length / req.query.count),
-                "size": getArticles.data.length
+                "pages": Math.round(datas.length / req.query.count),
+                "size": datas.length
             }
         });
     });
