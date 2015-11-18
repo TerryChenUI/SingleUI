@@ -23,7 +23,8 @@ module.exports = {
                     'lib/ng-tasty/**',
                     'lib/underscore/**',
                     'lib/bootstrap/**',
-                    'lib/sweetalert/**'
+                    'lib/sweetalert/**',
+                    'lib/angular-breadcrumb/**'
                 ],
                 assets: ['src/**/assets/**'],
                 css: ['src/**/*.css'],
