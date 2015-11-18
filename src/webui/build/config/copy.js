@@ -1,134 +1,36 @@
-/**
- * Created by tchen on 7/2/2015.
- */
-'use strict';
-module.exports = {
-    dev_lib: {
-        files: [
-            {
-                cwd: 'lib',
-                src: [
-                    'angular/**',
-                    'angular-cookies/**',
-                    'angular-ui-router/**',
-                    'angular-bootstrap/**',
-                    'ng-file-upload/**.*',
-                    'jquery/dist/**',
-                    'ng-tasty/**',
-                    'underscore/**',
-                    'bootstrap/**'
-                ],
-                dest: '<%= directory.dist %>/lib/',
-                expand: true
-            }
-        ]
-    },
-    prod_lib: {
-        files: [
-            {
-                cwd: 'lib',
-                src: [
+"use strict";
+var gulp = require("gulp"),
+    connect = require('gulp-connect'),
+    jshint = require('gulp-jshint'),
+    path = require("../settings").settings.copy;
 
-                ],
-                dest: '<%= directory.dist %>/lib/',
-                expand: true
-            }
-        ]
-    },
-    dev_src: {
-        files: [
-            {
-                cwd: '<%= directory.src %>',
-                src: ['**'],
-                dest: '<%= directory.dist %>',
-                expand: true
-            }
-        ]
-    },
-    css: {
-        files: [
-            {
-                cwd: '<%= directory.src %>',
-                src: [
-                    '**/*.css',
-                    '!admin/**/*.css'
-                ],
-                dest: '<%= directory.dist %>',
-                expand: true
-            }
-        ]
-    },
-    js: {
-        files: [
-            {
-                cwd: '<%= directory.src %>',
-                src: [
-                    '**/*.js',
-                    '!admin/app/**/*.js'
-                ],
-                dest: '<%= directory.dist %>',
-                expand: true
-            }
-        ]
-    },
-    index: {
-        files: [
-            {
-                cwd: '<%= directory.src %>',
-                src: 'index.html',
-                dest: '<%= directory.dist %>',
-                expand: true
-            }
-        ]
-    },
-    admin_css: {
-        files: [
-            {
-                cwd: '<%= directory.src %>',
-                src: 'admin/**/*.css',
-                dest: '<%= directory.dist %>',
-                expand: true
-            }
-        ]
-    },
-    admin_js: {
-        files: [
-            {
-                cwd: '<%= directory.src %>',
-                src: 'admin/app/**/*.js',
-                dest: '<%= directory.dist %>',
-                expand: true
-            }
-        ]
-    },
-    admin_index: {
-        files: [
-            {
-                cwd: '<%= directory.src %>',
-                src: 'admin/index.html',
-                dest: '<%= directory.dist %>',
-                expand: true
-            }
-        ]
-    },
-    login: {
-        files: [
-            {
-                cwd: '<%= directory.src %>',
-                src: 'admin/login.html',
-                dest: '<%= directory.dist %>',
-                expand: true
-            }
-        ]
-    },
-    tpl: {
-        files: [
-            {
-                cwd: '<%= directory.src %>',
-                src: ['**/*.tpl.html'],
-                dest: '<%= directory.dist %>',
-                expand: true
-            }
-        ]
-    }
-};
+gulp.task('copy', ['dev_lib', 'dev_assets', 'dev_html', 'dev_css', 'dev_js']);
+
+gulp.task('dev_lib', [], function () {
+    gulp.src(path.dev.lib, {base: 'lib'})
+        .pipe(gulp.dest(path.dist.lib))
+});
+
+gulp.task('dev_assets', [], function () {
+    gulp.src(path.dev.assets, {base: 'src'})
+        .pipe(gulp.dest(path.dist.root))
+        .pipe(connect.reload());
+});
+
+gulp.task('dev_html', [], function () {
+    gulp.src(path.dev.html, {base: 'src'})
+        .pipe(gulp.dest(path.dist.root))
+        .pipe(connect.reload());
+});
+
+gulp.task('dev_css', [], function () {
+    gulp.src(path.dev.css, {base: 'src'})
+        .pipe(gulp.dest(path.dist.root))
+        .pipe(connect.reload());
+});
+
+gulp.task('dev_js', ['lint'], function () {
+    gulp.src(path.dev.js, {base: 'src'})
+        .pipe(gulp.dest(path.dist.root))
+        .pipe(connect.reload());
+});

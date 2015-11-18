@@ -3,9 +3,8 @@
 <head>
     <meta charset="utf-8"/>
     <title>SingleUI - Login</title>
-    <% styles.forEach(function(file) { %>
-    <link rel="stylesheet" type="text/css" href="<%= file %>"/>
-    <% }); %>
+    <!-- inject:css -->
+    <!-- endinject -->
 </head>
 
 <body class="login" ng-controller="LoginCtrl">
@@ -54,8 +53,7 @@
     2015 &copy; SingleUI by Terry Chen.
 </div>
 
-<% scripts.forEach(function(file) { %>
-<script type="text/javascript" src="<%= file %>"></script>
-<% }); %>
+<!-- inject:js -->
+<!-- endinject -->
 </body>
 </html>

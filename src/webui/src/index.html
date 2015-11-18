@@ -3,9 +3,8 @@
 <head>
     <title>Next Blog</title>
     <!--<base href="/">-->
-    <% styles.forEach(function(file) { %>
-    <link rel="stylesheet" type="text/css" href="<%= file %>"/>
-    <% }); %>
+    <!-- inject:css -->
+    <!-- endinject -->
 </head>
 <body>
 <div class="blog-masthead">
@@ -28,8 +27,7 @@
     </p>
 </footer>
 
-<% scripts.forEach(function(file) { %>
-<script type="text/javascript" src="<%= file %>"></script>
-<% }); %>
+<!-- inject:js -->
+<!-- endinject -->
 </body>
 </html>
