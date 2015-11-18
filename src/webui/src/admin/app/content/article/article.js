@@ -2,7 +2,7 @@
  * Created by tchen on 7/8/2015.
  */
 angular.module('app.admin.content')
-    .controller('ListArticleCtrl', ['$scope', '$http', 'ArticleService', function ($scope, $http, ArticleService) {
+    .controller('ListArticleCtrl', ['$scope', 'SweetAlert', 'ArticleService', function ($scope, SweetAlert, ArticleService) {
         $scope.getResource = function (params, paramsObj) {
             paramsObj.count = 2;
             return ArticleService.getArticles(paramsObj).then(function (response) {
@@ -17,11 +17,23 @@ angular.module('app.admin.content')
         };
 
         $scope.remove = function (id) {
-            if (confirm("Are you sure to delete the data?")) {
-                ArticleService.deleteArticle(id, function () {
-                    alert("Delete successfully");
+            SweetAlert.swal({
+                    title: "你确认要删除此数据?",
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "删除",
+                    cancelButtonText: "取消",
+                    closeOnConfirm: false,
+                    closeOnCancel: true
+                },
+                function (isConfirm) {
+                    if (isConfirm) {
+                        ArticleService.deleteArticle(id, function () {
+                            SweetAlert.swal("删除成功");
+                        });
+                    }
                 });
-            }
         };
     }])
     .controller('EditArticleCtrl', ['$scope', '$stateParams', '$state', '$timeout', 'CategoryService', 'ArticleService', 'Upload', function ($scope, $stateParams, $state, $timeout, CategoryService, ArticleService, Upload) {

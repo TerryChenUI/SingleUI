@@ -22,7 +22,8 @@ module.exports = {
                     'lib/jquery/dist/**',
                     'lib/ng-tasty/**',
                     'lib/underscore/**',
-                    'lib/bootstrap/**'
+                    'lib/bootstrap/**',
+                    'lib/sweetalert/**'
                 ],
                 assets: ['src/**/assets/**'],
                 css: ['src/**/*.css'],
