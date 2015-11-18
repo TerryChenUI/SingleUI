@@ -5,13 +5,16 @@
 angular.module('app.admin')
     .config(["$locationProvider", '$stateProvider', '$urlRouterProvider', function ($locationProvider, $stateProvider, $urlRouterProvider) {
         //$locationProvider.html5Mode(true);
-        //$urlRouterProvider.otherwise('/admin');
+        $urlRouterProvider.otherwise('/home');
 
         $stateProvider
             .state('home', {
                 url: '/home',
                 views: {
                     '': {templateUrl: 'app/home/home.tpl.html'}
+                },
+                ncyBreadcrumb: {
+                    label: '首页'
                 }
             })
             .state('category', {

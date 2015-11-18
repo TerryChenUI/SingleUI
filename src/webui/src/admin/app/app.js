@@ -12,6 +12,8 @@ var appAdmin = angular.module('app.admin', [
     'ngCookies',
     'ngFileUpload',
     'ngTasty',
+    'ngSweetAlert',
+    'ncy-angular-breadcrumb',
     'ui.router',
     'common.services',
     'common.directives',

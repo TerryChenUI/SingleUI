@@ -1,5 +1,5 @@
 angular.module('app.admin.content')
-    .controller('ListCategoryCtrl', ['$scope', 'CategoryService', function ($scope, CategoryService) {
+    .controller('ListCategoryCtrl', ['$scope', 'SweetAlert', 'CategoryService', function ($scope, SweetAlert, CategoryService) {
 
         var actionParams = {
             parentId: 0
@@ -42,11 +42,23 @@ angular.module('app.admin.content')
         };
 
         $scope.remove = function (id) {
-            if (confirm("Are you sure to delete the data?")) {
-                CategoryService.deleteCategory(id, function () {
-                    alert("Delete successfully");
+            SweetAlert.swal({
+                    title: "你确认要删除此数据?",
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "删除",
+                    cancelButtonText: "取消",
+                    closeOnConfirm: false,
+                    closeOnCancel: true
+                },
+                function (isConfirm) {
+                    if (isConfirm) {
+                        CategoryService.deleteCategory(id, function () {
+                            SweetAlert.swal("删除成功");
+                        });
+                    }
                 });
-            }
         };
 
     }])

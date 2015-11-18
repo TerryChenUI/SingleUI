@@ -19,6 +19,8 @@
     "angular-bootstrap": "~0.13.0",
     "angular-cookies": "~1.4.7",
     "ng-file-upload": "~9.0.9",
-    "ng-tasty": "~0.5.8"
+    "ng-tasty": "~0.5.8",
+    "angular-breadcrumb": "~0.4.1",
+    "sweetalert": "~1.1.3"
   }
 }
