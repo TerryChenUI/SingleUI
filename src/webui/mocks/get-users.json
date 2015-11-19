@@ -1,0 +1,19 @@
+{
+    "error": "",
+    "data": [
+        {
+            "UserName": "admin",
+            "Passwrod": "123456",
+            "Email": "1575973150@qq.com",
+            "CreateTime": "2015-11-19",
+            "LastLoginTime": "2015-11-19"
+        },
+        {
+            "UserName": "terrychen",
+            "Passwrod": "123456",
+            "Email": "terrychen.ui@outlook.com",
+            "CreateTime": "2015-11-19",
+            "LastLoginTime": "2015-11-19"
+        }
+    ]
+}
