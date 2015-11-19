@@ -19,7 +19,7 @@ angular.module('app.admin.content')
             paramsObj.count = 2;
             return ArticleService.getArticles(paramsObj).then(function (response) {
                 response.data.rows = _.each(response.data.rows, function (data) {
-                    data.PublishText = data.Publish ? "已发布" : "草稿";
+                    data.PublishText = data.Publish ? "发布" : "未发布";
                 });
                 return {
                     'rows': response.data.rows,
@@ -53,7 +53,7 @@ angular.module('app.admin.content')
 
         $scope.initController();
     }])
-    .controller('EditArticleCtrl', ['$scope', '$stateParams', '$state', '$timeout', 'SweetAlert', 'CategoryService', 'ArticleService', 'Upload', function ($scope, $stateParams, $state, $timeout, SweetAlert, CategoryService, ArticleService, Upload) {
+    .controller('EditArticleCtrl', ['$rootScope', '$scope', '$stateParams', '$state', '$timeout', 'SweetAlert', 'CategoryService', 'ArticleService', 'Upload', function ($rootScope, $scope, $stateParams, $state, $timeout, SweetAlert, CategoryService, ArticleService, Upload) {
         var articleId = ($stateParams.id) ? parseInt($stateParams.id) : 0;
         //var ue = UE.getEditor('editor');
         $scope.article = {};

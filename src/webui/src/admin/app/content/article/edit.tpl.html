@@ -1,8 +1,3 @@
-<h3 class="page-title-recover">
-    <span>{{title}}</span>
-    <small></small>
-</h3>
-
 <div class="portlet box">
     <div class="portlet-body form">
         <form class="form-horizontal" name="form">
@@ -87,6 +82,24 @@
                                     <label class="form-checkbox">
                                         <input type="checkbox" ng-model="article.Publish"/>
                                     </label>
+                                </div>
+                            </div>
+                            <div class="form-group" ng-if="article.Id">
+                                <label class="control-label col-md-2">创建时间</label>
+                                <div class="col-md-4">
+                                    {{article.CreateTime}}
+                                </div>
+                            </div>
+                            <div class="form-group" ng-if="article.Id">
+                                <label class="control-label col-md-2">更新时间</label>
+                                <div class="col-md-4">
+                                    {{article.UpdateTime}}
+                                </div>
+                            </div>
+                            <div class="form-group" ng-if="article.Id">
+                                <label class="control-label col-md-2">发布时间</label>
+                                <div class="col-md-4">
+                                    {{article.PublishTime}}
                                 </div>
                             </div>
                         </div>

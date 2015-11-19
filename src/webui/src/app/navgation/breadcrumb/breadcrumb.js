@@ -1,6 +1,3 @@
-/**
- * Created by tchen on 7/8/2015.
- */
 angular.module('app.nav')
     .directive('breadPanel', function () {
         return {
