@@ -7,10 +7,22 @@
                 </div>
             </div>
         </div>
+        <div class="col-md-8">
+            <form class="search-form">
+                <label>
+                    <button type="button" class="btn dark btn-search" onclick=""><i class="fa fa-search"></i> 搜索</button>
+                </label>
+                <label>
+                    <span>类别：</span>
+                    <select class="form-control" ng-model="filterBy.CategoryId"
+                            ng-options="option.value as option.name for option in categoryOptions"></select>
+                </label>
+            </form>
+        </div>
     </div>
 </div>
 
-<div tasty-table bind-resource-callback="getResource" bind-init="paginationSetting">
+<div tasty-table bind-resource-callback="getResource" bind-init="paginationSetting" bind-filters="filterBy">
     <table class="table datatable table-striped table-bordered table-hover">
         <thead>
         <tr>
@@ -20,19 +32,19 @@
             <th>
                 标题
             </th>
-            <th>
+            <th width="100">
                 发布状态
             </th>
-            <th>
+            <th width="100">
                 页面浏览
             </th>
-            <th>
+            <th width="150">
                 创建时间
             </th>
-            <th>
+            <th width="80">
                 编辑
             </th>
-            <th>
+            <th width="80">
                 删除
             </th>
         </tr>
@@ -41,11 +53,11 @@
         <tr ng-repeat="row in rows">
             <td>{{row.Id}}</td>
             <td>{{row.Title}}</td>
-            <td>{{row.Publish}}</td>
+            <td>{{row.PublishText}}</td>
             <td>{{row.Views}}</td>
             <td>{{row.CreateTime}}</td>
-            <td><a ui-sref="editArticle({id:row.Id})">编辑</a></td>
-            <td><a href="javascript:void(0)" ng-click="remove(row.Id)">删除</a></td>
+            <td><a class="btn btn-xs purple" ui-sref="editArticle({id:row.Id})"><i class="fa fa-edit"></i>编辑</a></td>
+            <td><a class="btn btn-xs red" href="javascript:void(0)" ng-click="remove(row.Id)"><i class="fa fa-times"></i>删除</a></td>
         </tr>
         </tbody>
     </table>

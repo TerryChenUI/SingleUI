@@ -25,7 +25,6 @@
                 url: this.serviceEndpoint + "articles",
                 params: params
             };
-            this.$log.debug('getArticles', config);
             return this.$http(config);
         };
 
@@ -44,7 +43,6 @@
                 url: this.serviceEndpoint + "articles",
                 data: article
             };
-            this.$log.debug('insertArticle', config);
             return this.$http(config).success(function (res) {
                 return successCallback(res);
             });
@@ -56,7 +54,6 @@
                 url: this.serviceEndpoint + "articles/" + id,
                 data: article
             };
-            this.$log.debug('updateArticle', config);
             return this.$http(config).success(function (res) {
                 return successCallback(res);
             });
@@ -67,7 +64,6 @@
                 method: 'DELETE',
                 url: this.serviceEndpoint + "articles/" + id
             };
-            this.$log.debug('deleteArticle', config);
             return this.$http(config).success(function (res) {
                 return successCallback(res);
             });

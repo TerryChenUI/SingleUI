@@ -13,7 +13,6 @@
                 url: this.serviceEndpoint + "categories",
                 params: params
             };
-            this.$log.debug('getCategories', config);
             return this.$http(config);
         };
 
@@ -22,7 +21,6 @@
                 method: 'GET',
                 url: this.serviceEndpoint + "categories/" + id
             };
-            this.$log.debug('getCategoryById', config);
             return this.appHttp.request(config);
         };
 
@@ -32,7 +30,6 @@
                 url: this.serviceEndpoint + "categories",
                 data: category
             };
-            this.$log.debug('insertCategory', config);
             return this.$http(config).success(function (res) {
                 return successCallback(res);
             });
@@ -44,7 +41,6 @@
                 url: this.serviceEndpoint + "categories/" + id,
                 data: category
             };
-            this.$log.debug('updateCategory', config);
             return this.$http(config).success(function (res) {
                 return successCallback(res);
             });
@@ -55,7 +51,6 @@
                 method: 'DELETE',
                 url: this.serviceEndpoint + "categories/" + id
             };
-            this.$log.debug('deleteCategory', config);
             return this.$http(config).success(function (res) {
                 return successCallback(res);
             });

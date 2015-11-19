@@ -20,7 +20,10 @@ angular.module('app.admin')
             .state('category', {
                 url: '/category/list',
                 templateUrl: 'app/content/category/list.tpl.html',
-                controller: 'ListCategoryCtrl'
+                controller: 'ListCategoryCtrl',
+                ncyBreadcrumb: {
+                    label: '类别管理'
+                }
             })
             .state('editCategory', {
                 url: '/category/edit/:id',

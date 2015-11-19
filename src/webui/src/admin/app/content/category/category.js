@@ -1,22 +1,22 @@
 angular.module('app.admin.content')
-    .controller('ListCategoryCtrl', ['$scope', 'SweetAlert', 'CategoryService', function ($scope, SweetAlert, CategoryService) {
+    .controller('ListCategoryCtrl', ['$scope', 'SweetAlert', 'CategoryService', function ($scope, SweetAlert, CategoryService) {       
+        $scope.filterBy = {'ParentId': 0};
+        $scope.categoryOptions = [{name: '--请选择--', value: 0}];
 
-        var actionParams = {
-            parentId: 0
-        };
-        $scope.categoryOptions = [{name: '--所有--', value: 0}];
-        CategoryService.getCategories(actionParams).then(function (response) {
-            _.each(response.data, function (data) {
-                $scope.categoryOptions.push({
-                    name: data.Name,
-                    value: data.Id
+        $scope.initController = function(){
+            //category filter
+            var actionParams = {
+                parentId: 0
+            };
+            CategoryService.getCategories(actionParams).then(function (response) {
+                _.each(response.data, function (data) {
+                    $scope.categoryOptions.push({
+                        name: data.Name,
+                        value: data.Id
+                    });
                 });
-            });
-        });
-
-        $scope.filterBy = {
-            'ParentId': 0
-        };
+            }); 
+        }
 
         $scope.getResource = function (params, paramsObj) {
             paramsObj.count = 2;
@@ -61,19 +61,17 @@ angular.module('app.admin.content')
                 });
         };
 
+        $scope.initController();
     }])
-    .controller('EditCategoryCtrl', ['$scope', '$stateParams', '$state', 'CategoryService', function ($scope, $stateParams, $state, CategoryService) {
+    .controller('EditCategoryCtrl', ['$scope', '$stateParams', '$state', 'SweetAlert', 'CategoryService', function ($scope, $stateParams, $state, SweetAlert, CategoryService) {
         var id = ($stateParams.id) ? parseInt($stateParams.id) : 0;
         $scope.category = {};
         $scope.title = id > 0 ? '编辑类别' : '添加类别';
-        $scope.categoryOptions = [{name: '--父类别--', value: 0}];
+        $scope.categoryOptions = [{name: '--请选择--', value: 0}];
 
         $scope.initController = function () {
-            var actionParams = {
-                parentId: 0
-            };
-            CategoryService.getCategories(actionParams).then(function (response) {
-                _.each(response.data, function (data) {
+            CategoryService.getCategories().then(function (response) {
+                _.each(response.data.rows, function (data) {
                     $scope.categoryOptions.push({
                         name: data.Name,
                         value: data.Id
@@ -92,11 +90,13 @@ angular.module('app.admin.content')
         $scope.saveCategory = function () {
             if (id > 0) {
                 CategoryService.updateCategory(id, $scope.category, function () {
-                    alert("更新成功");
+                    SweetAlert.swal("更新成功");
+                    $state.go('category');
                 });
             } else {
                 CategoryService.insertCategory($scope.category, function () {
-                    alert("新增成功");
+                    SweetAlert.swal("新增成功");
+                    $state.go('category');
                 });
             }
         };

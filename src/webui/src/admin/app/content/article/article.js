@@ -1,11 +1,26 @@
-/**
- * Created by tchen on 7/8/2015.
- */
 angular.module('app.admin.content')
-    .controller('ListArticleCtrl', ['$scope', 'SweetAlert', 'ArticleService', function ($scope, SweetAlert, ArticleService) {
+    .controller('ListArticleCtrl', ['$scope', 'SweetAlert', 'CategoryService', 'ArticleService', function ($scope, SweetAlert, CategoryService, ArticleService) {
+        $scope.filterBy = {'CategoryId': 0};
+        $scope.categoryOptions = [{name: '--请选择--', value: 0}];
+
+        $scope.initController = function(){
+            //category filter
+            CategoryService.getCategories().then(function (response) {
+                _.each(response.data.rows, function (data) {
+                    $scope.categoryOptions.push({
+                        name: data.Name,
+                        value: data.Id
+                    });
+                });
+            });
+        }
+        
         $scope.getResource = function (params, paramsObj) {
             paramsObj.count = 2;
             return ArticleService.getArticles(paramsObj).then(function (response) {
+                response.data.rows = _.each(response.data.rows, function (data) {
+                    data.PublishText = data.Publish ? "已发布" : "草稿";
+                });
                 return {
                     'rows': response.data.rows,
                     'header': [],
@@ -35,54 +50,50 @@ angular.module('app.admin.content')
                     }
                 });
         };
+
+        $scope.initController();
     }])
-    .controller('EditArticleCtrl', ['$scope', '$stateParams', '$state', '$timeout', 'CategoryService', 'ArticleService', 'Upload', function ($scope, $stateParams, $state, $timeout, CategoryService, ArticleService, Upload) {
+    .controller('EditArticleCtrl', ['$scope', '$stateParams', '$state', '$timeout', 'SweetAlert', 'CategoryService', 'ArticleService', 'Upload', function ($scope, $stateParams, $state, $timeout, SweetAlert, CategoryService, ArticleService, Upload) {
         var articleId = ($stateParams.id) ? parseInt($stateParams.id) : 0;
-        var original = {};
         //var ue = UE.getEditor('editor');
         $scope.article = {};
         $scope.title = articleId > 0 ? '编辑文章' : '添加文章';
-        $scope.categories = [];
+        $scope.categories = [{name: '--请选择--', value: 0}];
 
         $scope.initController = function () {
-            CategoryService.getCategories().then(function (data) {
-                for (var i = 0; i < data.length; i++) {
+            CategoryService.getCategories().then(function (response) {
+                _.each(response.data.rows, function (data) {
                     $scope.categories.push({
-                        name: data[i].Name,
-                        value: data[i].Id
+                        name: data.Name,
+                        value: data.Id
                     });
-                }
+                });
                 $scope.article.CategoryId = $scope.categories[0].value;
             });
 
             if (articleId > 0) {
                 ArticleService.getArticleById(articleId).then(function (data) {
                     $scope.article = data;
-                    original = angular.copy(data);
                 });
             }
         };
 
         $scope.saveArticle = function () {
             $scope.article.Content = UE.getEditor('editor').getContent();
-            if (articleId <= 0) {
-                ArticleService.insertArticle($scope.article, function () {
-                    alert("Add successfully");
+            if (articleId > 0) {
+                ArticleService.updateArticle(articleId, $scope.article, function () {
+                    SweetAlert.swal("更新成功");
                     $state.go('article');
                 });
             } else {
-                ArticleService.updateArticle(articleId, $scope.article, function () {
-                    alert("update successfully");
+                ArticleService.insertArticle($scope.article, function () {
+                    SweetAlert.swal("新增成功");
                     $state.go('article');
                 });
             }
         };
 
-        $scope.isClean = function () {
-            return angular.equals(original, $scope.article);
-        };
-
-        $scope.uploadFiles = function (file, errFiles) {
+        $scope.uploadImage = function (file, errFiles) {
             $scope.f = file;
             $scope.errFile = errFiles && errFiles[0];
             if (file) {
