@@ -11,6 +11,8 @@
         "PublishTime": "2014-12-24 22:58",
         "CategoryId": 3,
         "Content": "很久没有跟大家再聊聊并发了，今天LZ闲来无事，跟大家再聊聊并发。由于时间过去的有点久，因此LZ就不按照常理出牌了，只是把自己的理解记录在此，如果各位猿友觉得有所收获，就点个推荐或者留言激励下LZ，如果觉得浪费了自己宝贵的时间，也可以发下牢骚。 好了，废话就不多说了，现在就开始咱们的并发之旅",
-        "Publish": true
+        "CoverImgPath": "/assets/upload/images/16433e01-c.jpg",
+        "Publish": true,
+        "CategoryId": 3
     }
 }

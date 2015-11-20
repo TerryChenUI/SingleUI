@@ -1,0 +1,15 @@
+{
+    "error": "",
+    "data": [
+        {
+            "Id": 1,
+            "key": "Framework",
+            "value": "框架"
+        },
+        {
+            "Id": 2,
+            "key": "Project",
+            "value": "项目"
+        }
+    ]
+}

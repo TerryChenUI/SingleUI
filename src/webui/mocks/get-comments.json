@@ -1,0 +1,32 @@
+{
+    "error": "",
+    "data": [
+        {
+            "Id": 1,
+            "ReplyId": 2,
+            "UserName": "terry1",
+            "Email": "terry1@qq.com",
+            "Content": "留言留言",
+            "CreateTime": "2015-11-20",
+            "ArticleId": 1
+        },
+        {
+            "Id": 2,
+            "ReplyId": 0,
+            "UserName": "Admin",
+            "Email": "terry1@qq.com",
+            "Content": "留言留言2",
+            "CreateTime": "2015-11-20",
+            "ArticleId": 1
+        },
+        {
+            "Id": 3,
+            "ReplyId": 0,
+            "UserName": "terry2",
+            "Email": "terry1@qq.com",
+            "Content": "留言留言2",
+            "CreateTime": "2015-11-20",
+            "ArticleId": 1
+        }
+    ]
+}
