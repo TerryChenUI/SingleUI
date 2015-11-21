@@ -4,11 +4,16 @@ var gulp = require("gulp"),
     jshint = require('gulp-jshint'),
     path = require("../settings").settings.copy;
 
-gulp.task('copy', ['dev_lib', 'dev_assets', 'dev_html', 'dev_css', 'dev_js']);
+gulp.task('copy', ['dev_lib', 'dev_plugins', 'dev_assets', 'dev_html', 'dev_css', 'dev_js']);
 
 gulp.task('dev_lib', [], function () {
     gulp.src(path.dev.lib, {base: 'lib'})
         .pipe(gulp.dest(path.dist.lib))
+});
+
+gulp.task('dev_plugins', [], function () {
+    gulp.src(path.dev.plugins, {base: 'src'})
+        .pipe(gulp.dest(path.dist.root))
 });
 
 gulp.task('dev_assets', [], function () {

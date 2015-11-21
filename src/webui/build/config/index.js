@@ -4,7 +4,7 @@ module.exports = {
         src: {
             css: [
                 'lib/bootstrap/dist/css/bootstrap.css',
-                'src/assets/css/style.css'
+                'src/styles/style.css'
             ],
             js: [
                 'lib/jquery/dist/jquery.js',
@@ -23,15 +23,13 @@ module.exports = {
     dev_admin_index: {
         src: {
             css: [
-                'src/admin/assets/plugins/font-awesome/css/font-awesome.min.css',
+                'src/plugins/font-awesome/css/font-awesome.min.css',
                 'lib/bootstrap/dist/css/bootstrap.min.css',
                 'lib/sweetalert/dist/sweetalert.css',
-                'src/admin/assets/css/style-metronic.css',
-                'src/admin/assets/css/style.css',
-                'src/admin/assets/css/style-responsive.css',
-                'src/admin/assets/css/admin.main.css',
-                'src/admin/assets/css/admin.main-responsive.css',
-                'src/admin/assets/css/themes/default.css'
+                'src/admin/styles/style-metronic.css',
+                'src/admin/styles/style.css',
+                'src/admin/styles/style-responsive.css',
+                'src/admin/styles/themes/default.css'
             ],
             js: [
                 'lib/jquery/dist/jquery.js',
@@ -53,13 +51,13 @@ module.exports = {
     dev_login: {
         src: {
             css: [
-                'src/admin/assets/plugins/font-awesome/css/font-awesome.min.css',
+                'src/plugins/font-awesome/css/font-awesome.min.css',
                 'lib/bootstrap/dist/css/bootstrap.min.css',
-                'src/admin/assets/css/style-metronic.css',
-                'src/admin/assets/css/style.css',
-                'src/admin/assets/css/style-responsive.css',
-                'src/admin/assets/css/themes/default.css',
-                'src/admin/assets/css/login.css'
+                'src/admin/styles/style-metronic.css',
+                'src/admin/styles/style.css',
+                'src/admin/styles/style-responsive.css',
+                'src/admin/styles/themes/default.css',
+                'src/admin/styles/login.css'
             ],
             js: [
                 'lib/jquery/dist/jquery.js',
@@ -71,7 +69,7 @@ module.exports = {
                 'lib/ng-tasty/ng-tasty-tpls.js',
                 'lib/underscore/underscore.js',
                 'src/admin/app/app.js',
-                'src/admin/app/common/login.js',
+                'src/admin/app/login/login.js',
                 'src/common/**/*.js'
             ]
         }

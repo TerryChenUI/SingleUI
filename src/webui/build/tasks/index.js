@@ -41,7 +41,13 @@ gulp.task('dev_admin_index', [], function () {
 
     return target.pipe(inject(cssSources, {
         transform: function (filePath) {
-            return '<link rel="stylesheet" type="text/css" href="' + getNewPath(filePath, '/src/admin/', '/admin/', 'css') + '" />';
+            var newPath = filePath;
+            if(filePath.match('/src/plugins/')) {
+                newPath = getNewPath(filePath, '/src/plugins/', '/plugins/', 'css');
+            }else{
+                newPath = getNewPath(filePath, '/src/admin/', '/admin/', 'css');
+            }
+            return '<link rel="stylesheet" type="text/css" href="' + newPath + '" />';
         }
     }))
         .pipe(inject(jsSources, {

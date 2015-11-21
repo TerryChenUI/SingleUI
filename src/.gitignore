@@ -9,6 +9,9 @@ lib/
 /webui/dist/assets/
 /webui/dist/common/
 /webui/dist/lib/
+/webui/dist/plugins/
+/webui/dist/styles/
+/webui/dist/scripts/
 /webui/dist/index.html
 
 # Web Storm

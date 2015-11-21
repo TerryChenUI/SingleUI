@@ -7,6 +7,37 @@ Login page
     background-color: #444 !important;
 }
 
+/* input with left aligned icons */
+.input-icon {
+    position: relative;
+}
+
+
+.input-icon input {
+    padding-left: 33px !important;
+}
+
+.input-icon i {
+    color: #ccc;
+    display: block;
+    position: absolute;
+    margin: 11px 2px 4px 10px;
+    width: 16px;
+    height: 16px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.input-icon.right input {
+    padding-left: 12px !important;
+    padding-right: 33px !important;
+}
+
+.input-icon.right i {
+    right: 8px;
+    float: right;
+}
+
 .login .logo {
     margin: 0 auto;
     margin-top:60px;

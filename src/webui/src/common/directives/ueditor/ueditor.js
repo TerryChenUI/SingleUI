@@ -1,6 +1,3 @@
-/**
- * Created by tchen on 2015/7/23.
- */
 angular.module('common.directives')
     .directive('ueditor', function(){
         return {

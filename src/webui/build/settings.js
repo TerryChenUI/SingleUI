@@ -7,7 +7,10 @@ module.exports = {
                 'dist/app',
                 'dist/assets',
                 'dist/common',
+                'dist/styles',
+                'dist/scripts',
                 'dist/lib',
+                'dist/plugins',
                 'dist/index.html'
             ]
         },
@@ -26,6 +29,7 @@ module.exports = {
                     'lib/sweetalert/**',
                     'lib/angular-breadcrumb/**'
                 ],
+                plugins: ['src/plugins/**'],
                 assets: ['src/**/assets/**'],
                 css: ['src/**/*.css'],
                 js: ['src/**/*.js'],
