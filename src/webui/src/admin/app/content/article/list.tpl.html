@@ -9,13 +9,17 @@
         </div>
         <div class="col-md-8">
             <form class="search-form">
-                <label>
-                    <button type="button" class="btn dark btn-search" onclick=""><i class="fa fa-search"></i> 搜索</button>
-                </label>
+                <!--<label>-->
+                    <!--<button type="button" class="btn dark btn-search" onclick=""><i class="fa fa-search"></i> 搜索</button>-->
+                <!--</label>-->
                 <label>
                     <span>类别：</span>
                     <select class="form-control" ng-model="filterBy.CategoryId"
                             ng-options="option.value as option.name for option in categoryOptions"></select>
+                </label>
+                <label>
+                    <span>标题：</span>
+                    <input class="form-control" name="title" ng-model="filterBy.Title"/>
                 </label>
             </form>
         </div>

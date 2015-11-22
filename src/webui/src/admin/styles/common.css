@@ -38,60 +38,8 @@ a {
 /***
 Fix link outlines after click
 ***/
-a,a:focus, a:hover, a:active {
+a, a:focus, a:hover, a:active {
     outline: 0;
-}
-
-/***
-General backgrounds. Can be applied to any block or panel
-***/
-
-.bg-blue {
-    background-image: none !important;
-    background-color: #4b8df8 !important;
-    border-color:#4b8df8 !important;
-    color: #fff !important;
-}
-
-.bg-red {
-    background-image: none !important;
-    background-color: #e02222 !important;
-    border-color: #e02222 !important;
-    color: #fff !important;
-}
-
-.bg-yellow {
-    background-image: none !important;
-    background-color: #ffb848 !important;
-    border-color: #ffb848 !important;
-    color: #fff !important;
-}
-
-.bg-green {
-    background-image: none !important;
-    background-color: #35aa47 !important;
-    border-color: #35aa47 !important;
-    color: #fff !important;
-}
-
-.bg-purple {
-    background-image: none !important;
-    background-color: #852b99 !important;
-    border-color: #852b99 !important;
-    color: #fff !important;
-}
-
-.bg-dark {
-    background-image: none !important;
-    background-color: #555555 !important;
-    border-color: #555555 !important;
-    color: #fff !important;
-}
-
-.be-grey {
-    background-image: none !important;
-    background-color: #fafafa !important;
-    border-color: #fafafa !important;
 }
 
 /***
@@ -115,6 +63,7 @@ li [class*=" fa-"] {
     width: 1.25em;
     text-align: center;
 }
+
 li [class^="fa-"].icon-large,
 li [class*=" fa-"].icon-large {
     /* increased font size for icon-large */
@@ -174,7 +123,7 @@ Tools
 }
 
 .bold {
-    font-weight:600 !important;
+    font-weight: 600 !important;
 }
 
 .fix-margin {

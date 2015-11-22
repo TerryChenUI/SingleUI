@@ -28,8 +28,7 @@ module.exports = {
                 'lib/sweetalert/dist/sweetalert.css',
                 'src/admin/styles/style-metronic.css',
                 'src/admin/styles/style.css',
-                'src/admin/styles/style-responsive.css',
-                'src/admin/styles/themes/default.css'
+                'src/admin/styles/style-responsive.css'
             ],
             js: [
                 'lib/jquery/dist/jquery.js',

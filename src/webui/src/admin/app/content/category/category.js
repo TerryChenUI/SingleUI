@@ -16,7 +16,7 @@ angular.module('app.admin.content')
                     });
                 });
             }); 
-        }
+        };
 
         $scope.getResource = function (params, paramsObj) {
             paramsObj.count = 2;

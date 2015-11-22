@@ -53,7 +53,7 @@ angular.module('app.admin.content')
 
         $scope.initController();
     }])
-    .controller('EditArticleCtrl', ['$rootScope', '$scope', '$stateParams', '$state', '$timeout', 'SweetAlert', 'CategoryService', 'ArticleService', 'Upload', function ($rootScope, $scope, $stateParams, $state, $timeout, SweetAlert, CategoryService, ArticleService, Upload) {
+    .controller('EditArticleCtrl', ['$scope', '$stateParams', '$state', '$timeout', 'SweetAlert', 'CategoryService', 'ArticleService', 'Upload', function ($scope, $stateParams, $state, $timeout, SweetAlert, CategoryService, ArticleService, Upload) {
         var articleId = ($stateParams.id) ? parseInt($stateParams.id) : 0;
         //var ue = UE.getEditor('editor');
         $scope.article = {};
