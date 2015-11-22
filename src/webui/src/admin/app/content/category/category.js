@@ -15,11 +15,10 @@ angular.module('app.admin.content')
                         value: data.Id
                     });
                 });
-            }); 
+            });
         };
 
         $scope.getResource = function (params, paramsObj) {
-            paramsObj.count = 2;
             return CategoryService.getCategories(paramsObj).then(function (response) {
                 response.data.rows = _.each(response.data.rows, function (data) {
                     data.EnabledText = data.Enabled ? "已启用" : "禁用";
@@ -65,36 +64,39 @@ angular.module('app.admin.content')
     }])
     .controller('EditCategoryCtrl', ['$scope', '$stateParams', '$state', 'SweetAlert', 'CategoryService', function ($scope, $stateParams, $state, SweetAlert, CategoryService) {
         var id = ($stateParams.id) ? parseInt($stateParams.id) : 0;
-        $scope.category = {};
+        $scope.model = {};
         $scope.title = id > 0 ? '编辑类别' : '添加类别';
         $scope.categoryOptions = [{name: '--请选择--', value: 0}];
 
         $scope.initController = function () {
-            CategoryService.getCategories().then(function (response) {
-                _.each(response.data.rows, function (data) {
+            var actionParams = {
+                parentId: 0
+            };
+            CategoryService.getCategories(actionParams).then(function (response) {
+                _.each(response.data, function (data) {
                     $scope.categoryOptions.push({
                         name: data.Name,
                         value: data.Id
                     });
                 });
-                $scope.category.ParentId = $scope.categoryOptions[0].value;
+                $scope.model.ParentId = $scope.categoryOptions[0].value;
             });
 
             if (id > 0) {
                 CategoryService.getCategoryById(id).then(function (data) {
-                    $scope.category = data;
+                    $scope.model = data;
                 });
             }
         };
 
         $scope.saveCategory = function () {
             if (id > 0) {
-                CategoryService.updateCategory(id, $scope.category, function () {
+                CategoryService.updateCategory(id, $scope.model, function () {
                     SweetAlert.swal("更新成功");
                     $state.go('category');
                 });
             } else {
-                CategoryService.insertCategory($scope.category, function () {
+                CategoryService.insertCategory($scope.model, function () {
                     SweetAlert.swal("新增成功");
                     $state.go('category');
                 });

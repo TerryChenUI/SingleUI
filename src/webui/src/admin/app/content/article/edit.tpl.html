@@ -2,7 +2,7 @@
     <div class="portlet-body form">
         <form class="form-horizontal" name="form">
             <div class="form-body">
-                <input type="hidden" class="form-control" ng-model="category.Id"/>
+                <!--<input type="hidden" class="form-control" ng-model="category.Id"/>-->
 
                 <div class="tabtable table-custom table-full-width">
                     <ul class="nav nav-tabs">
@@ -17,7 +17,7 @@
                                     <label class="control-label col-md-2">标题</label>
 
                                     <div class="col-md-4">
-                                        <input type="text" name="title" class="form-control" ng-model="article.Title"
+                                        <input type="text" name="title" class="form-control" ng-model="model.Title"
                                                required=""/>
                                         <div ng-show="form.$submitted || form.title.$touched">
                                             <span ng-show="form.title.$error.required" class="help-block">请填写标题</span>
@@ -27,14 +27,14 @@
                                 <div class="form-group">
                                     <label class="control-label col-md-2">类别</label>
                                     <div class="col-md-2">
-                                        <select class="form-control" ng-model="article.CategoryId"
+                                        <select class="form-control" ng-model="model.CategoryId"
                                                 ng-options="option.value as option.name for option in categories"></select>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-md-2">作者</label>
                                     <div class="col-md-4">
-                                        <input type="text" name="author" class="form-control" ng-model="article.Author"
+                                        <input type="text" name="author" class="form-control" ng-model="model.Author"
                                                required=""/>
 
                                         <div ng-show="form.$submitted || form.author.$touched">
@@ -46,7 +46,7 @@
                                     <label class="control-label col-md-2">简介</label>
 
                                     <div class="col-md-4">
-                                        <textarea class="form-control" ng-model="article.Description"  rows="4" cols="20" name="description"></textarea>
+                                        <textarea class="form-control" ng-model="model.Description"  rows="4" cols="20" name="description"></textarea>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -73,33 +73,33 @@
                             <div class="form-group">
                                 <label class="control-label col-md-2">正文</label>
                                 <div class="col-md-8">
-                                    <ueditor ng-model="article.Content"></ueditor>
+                                    <ueditor ng-model="model.Content"></ueditor>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-md-2">已发布</label>
                                 <div class="col-md-4">
                                     <label class="form-checkbox">
-                                        <input type="checkbox" ng-model="article.Publish"/>
+                                        <input type="checkbox" ng-model="model.Publish"/>
                                     </label>
                                 </div>
                             </div>
-                            <div class="form-group" ng-if="article.Id">
+                            <div class="form-group" ng-if="model.Id">
                                 <label class="control-label col-md-2">创建时间</label>
                                 <div class="col-md-4">
-                                    <label class="form-label">{{article.CreateTime}}</label>
+                                    <label class="form-label">{{model.CreateTime}}</label>
                                 </div>
                             </div>
-                            <div class="form-group" ng-if="article.Id">
+                            <div class="form-group" ng-if="model.Id">
                                 <label class="control-label col-md-2">更新时间</label>
                                 <div class="col-md-4">
-                                    <label class="form-label">{{article.UpdateTime}}</label>
+                                    <label class="form-label">{{model.UpdateTime}}</label>
                                 </div>
                             </div>
-                            <div class="form-group" ng-if="article.Id">
+                            <div class="form-group" ng-if="model.Id">
                                 <label class="control-label col-md-2">发布时间</label>
                                 <div class="col-md-4">
-                                    <label class="form-label">{{article.PublishTime}}</label>
+                                    <label class="form-label">{{model.PublishTime}}</label>
                                 </div>
                             </div>
                         </div>
@@ -110,7 +110,7 @@
     </div>
     <div class="form-actions fluid">
         <div class="col-md-offset-2 col-md-9">
-            <input type="button" name="cancel" class="btn dark" value="取消" ui-sref="article"/>
+            <input type="button" name="cancel" class="btn dark" value="取消" ui-sref="model"/>
             <input type="submit" name="save" ng-disabled="form.$invalid" class="btn blue"
                    value="保存" ng-click="saveArticle()"/>
         </div>

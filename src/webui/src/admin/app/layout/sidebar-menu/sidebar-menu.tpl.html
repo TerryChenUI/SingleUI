@@ -14,7 +14,6 @@
                     </span>
                 </a>
             </li>
-
             <li class="active open">
                 <a href="javascript:void(0)" title="内容管理">
                     <i class="fa "></i>
@@ -26,55 +25,19 @@
                 </a>
                 <ul class="sub-menu">
                     <li>
-                        <a ui-sref="category" title="类别管理" key="">
+                        <a ui-sref="category" title="类别管理">
                             <i class="fa "></i>
                             类别管理
                         </a>
                     </li>
                     <li>
-                        <a ui-sref="article" title="文章管理" key="">
+                        <a ui-sref="article" title="文章管理">
                             <i class="fa "></i>
                             文章管理
                         </a>
                     </li>
                 </ul>
             </li>
-
-            <!--@foreach (var menu in Model)-->
-            <!--{-->
-            <!--@RenderMenu(menu, 1);-->
-            <!--}-->
-
-            <!--@helper RenderMenu(SideBarMenuModel menu, int level)-->
-            <!--{-->
-            <!--<li>-->
-                <!--@if (menu.ChildMenus.Count > 0)-->
-                <!--{-->
-                <!--<a href="javascript:void(0)" title="@menu.Name">-->
-                    <!--<i class="fa @menu.Icon"></i>-->
-                        <!--<span class="title">-->
-                            <!--@menu.Name-->
-                        <!--</span>-->
-                        <!--<span class="arrow">-->
-                        <!--</span>-->
-                <!--</a>-->
-
-                <!--<ul class="sub-menu">-->
-                    <!--@foreach (var cm in menu.ChildMenus)-->
-                    <!--{-->
-                    <!--@RenderMenu(cm, level + 1);-->
-                    <!--}-->
-                <!--</ul>-->
-                <!--}-->
-                <!--else-->
-                <!--{-->
-                <!--<a href="@Url.Action(menu.Action, menu.Controller)" title="@menu.Name" key="@(menu.Controller.ToLower())">-->
-                    <!--<i class="fa @menu.Icon"></i>-->
-                    <!--@menu.Name-->
-                <!--</a>-->
-                <!--}-->
-            <!--</li>-->
-            <!--}-->
         </ul>
     </div>
 </div>

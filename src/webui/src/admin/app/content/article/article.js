@@ -13,10 +13,9 @@ angular.module('app.admin.content')
                     });
                 });
             });
-        }
+        };
         
         $scope.getResource = function (params, paramsObj) {
-            paramsObj.count = 2;
             return ArticleService.getArticles(paramsObj).then(function (response) {
                 response.data.rows = _.each(response.data.rows, function (data) {
                     data.PublishText = data.Publish ? "发布" : "未发布";
@@ -55,8 +54,7 @@ angular.module('app.admin.content')
     }])
     .controller('EditArticleCtrl', ['$scope', '$stateParams', '$state', '$timeout', 'SweetAlert', 'CategoryService', 'ArticleService', 'Upload', function ($scope, $stateParams, $state, $timeout, SweetAlert, CategoryService, ArticleService, Upload) {
         var articleId = ($stateParams.id) ? parseInt($stateParams.id) : 0;
-        //var ue = UE.getEditor('editor');
-        $scope.article = {};
+        $scope.model = {};
         $scope.title = articleId > 0 ? '编辑文章' : '添加文章';
         $scope.categories = [{name: '--请选择--', value: 0}];
 
@@ -68,25 +66,25 @@ angular.module('app.admin.content')
                         value: data.Id
                     });
                 });
-                $scope.article.CategoryId = $scope.categories[0].value;
+                $scope.model.CategoryId = $scope.categories[0].value;
             });
 
             if (articleId > 0) {
                 ArticleService.getArticleById(articleId).then(function (data) {
-                    $scope.article = data;
+                    $scope.model = data;
                 });
             }
         };
 
         $scope.saveArticle = function () {
-            $scope.article.Content = UE.getEditor('editor').getContent();
+            $scope.model.Content = UE.getEditor('editor').getContent();
             if (articleId > 0) {
-                ArticleService.updateArticle(articleId, $scope.article, function () {
+                ArticleService.updateArticle(articleId, $scope.model, function () {
                     SweetAlert.swal("更新成功");
                     $state.go('article');
                 });
             } else {
-                ArticleService.insertArticle($scope.article, function () {
+                ArticleService.insertArticle($scope.model, function () {
                     SweetAlert.swal("新增成功");
                     $state.go('article');
                 });
