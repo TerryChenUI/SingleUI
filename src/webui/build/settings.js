@@ -1,19 +1,18 @@
 "use strict";
 module.exports = {
     settings: {
-        clean: {
-            dist: [
-                'dist/admin',
-                'dist/app',
-                'dist/assets',
-                'dist/common',
-                'dist/styles',
-                'dist/scripts',
-                'dist/lib',
-                'dist/plugins',
-                'dist/index.html'
-            ]
-        },
+        clean: [
+            'dist/admin',
+            'dist/app',
+            'dist/assets',
+            'dist/common',
+            'dist/styles',
+            'dist/scripts',
+            'dist/lib',
+            'dist/plugins',
+            'dist/index.html',
+            'test_out'
+        ],
         copy: {
             dev: {
                 lib: [

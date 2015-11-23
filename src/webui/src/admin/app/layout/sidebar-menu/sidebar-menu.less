@@ -1,0 +1,334 @@
+/***
+Page sidebar
+***/
+
+.page-sidebar.navbar-collapse {
+    padding: 0;
+}
+
+.page-sidebar-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.page-sidebar-menu > li {
+    display: block;
+    margin: 0;
+    padding: 0;
+    border: 0px;
+}
+
+.page-sidebar-menu > li.start > a {
+    border-top-color: transparent !important;
+}
+
+.page-sidebar-menu > li:last-child > a,
+.page-sidebar-menu > li.last > a {
+    border-bottom-color: transparent !important;
+}
+
+.page-sidebar-menu > li > a {
+    display: block;
+    position: relative;
+    margin: 0;
+    border: 0px;
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.page-sidebar-menu > li > a i {
+    font-size: 16px;
+    margin-right: 5px;
+    text-shadow: none;
+}
+
+.page-sidebar-menu > li.break {
+    margin-bottom: 20px;
+}
+
+.page-sidebar-menu > li.active > a {
+    border: none;
+    text-shadow: none;
+}
+
+.page-sidebar-menu > li.active > a .selected {
+    display: block;
+    width: 8px;
+    height: 25px;
+    background-image: url("../assets/img/sidebar-menu-arrow.png");
+    float: right;
+    position: absolute;
+    right: 0px;
+    top: 8px;
+}
+
+.page-sidebar ul > li > a > .arrow:before {
+    float: right;
+    margin-top: 0px;
+    margin-right: 5px;
+    display: inline;
+    font-size: 16px;
+    font-family: FontAwesome;
+    height: auto;
+    content: "\f104";
+    font-weight: 300;
+    text-shadow: none;
+}
+
+.page-sidebar-menu > li > a > .arrow.open:before {
+    float: right;
+    margin-top: 0px;
+    margin-right: 3px;
+    display: inline;
+    font-family: FontAwesome;
+    height: auto;
+    font-size: 16px;
+    content: "\f107";
+    font-weight: 300;
+    text-shadow: none;
+}
+
+/* bagin: sidebar menu badges */
+.page-sidebar-menu li > a > .badge {
+    float: right;
+    margin-top: 1px;
+    margin-right: 13px;
+}
+
+/* end: sidebar menu badges */
+
+.page-sidebar-menu .sub-menu {
+    padding: 0;
+}
+
+.page-sidebar-menu > li > ul.sub-menu {
+    display: none;
+    list-style: none;
+    clear: both;
+    margin: 8px 0px 8px 0px;
+}
+
+.page-sidebar-menu > li.active > ul.sub-menu {
+    display: block;
+}
+
+.page-sidebar-menu > li > ul.sub-menu > li {
+    background: none;
+    margin: 0px;
+    padding: 0px;
+    margin-top: 1px !important;
+}
+
+.page-sidebar-menu > li > ul.sub-menu > li > a {
+    display: block;
+    margin: 0px 0px 0px 0px;
+    padding: 5px 0px;
+    padding-left: 44px !important;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 300;
+    background: none;
+}
+
+/* 3rd level sub menu */
+.page-sidebar-menu > li > ul.sub-menu > li ul.sub-menu {
+    display: none;
+    list-style: none;
+    clear: both;
+    margin: 0px 0px 0px 0px;
+}
+
+.page-sidebar-menu > li > ul.sub-menu li > a > .arrow:before {
+    float: right;
+    margin-top: 1px;
+    margin-right: 20px;
+    display: inline;
+    font-size: 16px;
+    font-family: FontAwesome;
+    height: auto;
+    content: "\f104";
+    font-weight: 300;
+    text-shadow: none;
+}
+
+.page-sidebar-menu > li > ul.sub-menu li > a > .arrow.open:before {
+    float: right;
+    margin-top: 1px;
+    margin-right: 18px;
+    display: inline;
+    font-family: FontAwesome;
+    height: auto;
+    font-size: 16px;
+    content: "\f107";
+    font-weight: 300;
+    text-shadow: none;
+}
+
+.page-sidebar-menu > li.active > ul.sub-menu > li.active ul.sub-menu {
+    display: block;
+}
+
+.page-sidebar-menu > li > ul.sub-menu > li ul.sub-menu li {
+    background: none;
+    margin: 0px;
+    padding: 0px;
+    margin-top: 1px !important;
+}
+
+.page-sidebar-menu > li > ul.sub-menu li > ul.sub-menu > li > a {
+    display: block;
+    margin: 0px 0px 0px 0px;
+    padding: 5px 0px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 300;
+    background: none;
+}
+
+.page-sidebar-menu > li > ul.sub-menu > li > ul.sub-menu > li > a {
+    padding-left: 60px;
+}
+
+.page-sidebar-menu > li > ul.sub-menu > li > ul.sub-menu > li > ul.sub-menu > li > a {
+    padding-left: 80px;
+}
+
+.page-sidebar-menu > li.active > ul.sub-menu > li.active ul.sub-menu > li.active ul.sub-menu {
+    display: block;
+}
+
+.page-sidebar-menu > li > ul.sub-menu li > ul.sub-menu > li > a > i {
+    font-size: 13px;
+}
+
+.sidebar-toggler {
+    background-image: url(../assets/img/sidebar-toggler.jpg);
+    background-color: #242424;
+}
+
+/* search box bg color on expanded */
+.page-sidebar-closed .page-sidebar .sidebar-search.open .form-container {
+    background-color: #3d3d3d !important;
+}
+
+.page-sidebar-closed .page-sidebar .sidebar-search.open .form-container .remove {
+    background-image: url("../assets/img/sidebar-search-close.png");
+}
+
+/* sub menu bg color on hover menu item */
+.page-sidebar-closed ul.page-sidebar-menu > li:hover .sub-menu {
+    background-color: #3d3d3d;
+}
+
+/* font color for all sub menu links*/
+ul.page-sidebar-menu li > ul.sub-menu > li > a {
+    color: #bdbdbd;
+}
+
+/* menu arrows */
+ul.page-sidebar-menu > li > a .arrow:before,
+ul.page-sidebar-menu > li > a .arrow.open:before {
+    color: #7d7d7d !important;
+}
+
+ul.page-sidebar-menu > li > ul.sub-menu a .arrow:before,
+ul.page-sidebar-menu > li > ul.sub-menu a .arrow.open:before {
+    color: #707070 !important;
+}
+
+ul.page-sidebar-menu > li > a > .arrow.open:before {
+    color: #8a8a8a !important;
+}
+
+ul.page-sidebar-menu > li.active > a .arrow:before,
+ul.page-sidebar-menu > li.active > a .arrow.open:before {
+    color: #ffffff !important;
+}
+
+.page-sidebar {
+    background-color: #3d3d3d;
+}
+
+ul.page-sidebar-menu > li > a {
+    border-top: 1px solid #5c5c5c !important;
+    color: #ffffff !important;
+}
+
+ul.page-sidebar-menu > li:last-child > a {
+    border-bottom: 1px solid transparent !important;
+}
+
+ul.page-sidebar-menu > li a i {
+    color: #969696;
+}
+
+ul.page-sidebar-menu > li.open > a,
+ul.page-sidebar-menu > li > a:hover,
+ul.page-sidebar-menu > li:hover > a {
+    background: #303030;
+}
+
+ul.page-sidebar-menu > li.active > a {
+    background: #e02222 !important;
+    border-top-color: transparent !important;
+    color: #ffffff;
+}
+
+ul.page-sidebar-menu > li.active > a i {
+    color: #ffffff;
+}
+
+ul.page-sidebar-menu > li > ul.sub-menu > li:first-child > a {
+    border-top: 0px !important;
+}
+
+ul.page-sidebar-menu > li > ul.sub-menu > li.active > a,
+ul.page-sidebar-menu > li > ul.sub-menu > li > a:hover {
+    color: #ffffff !important;
+    background: #575757 !important;
+}
+
+ul.page-sidebar-menu > li > ul.sub-menu > li > a:hover {
+    background: #575757 !important;
+}
+
+/* 3rd level sub menu */
+ul.page-sidebar-menu > li > ul.sub-menu li > ul.sub-menu > li.active > a,
+ul.page-sidebar-menu > li > ul.sub-menu li > ul.sub-menu > li > a:hover,
+ul.page-sidebar-menu > li > ul.sub-menu li.open > a {
+    color: #ffffff !important;
+    background: #575757 !important;
+}
+
+/***
+Sidebar toggler(show/hide)
+***/
+.sidebar-toggler {
+    cursor: pointer;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+    width: 29px;
+    height: 29px;
+    background-repeat: no-repeat;
+}
+
+.sidebar-toggler:hover {
+    filter: alpha(opacity=100);
+    opacity: 1;
+}
+
+.page-sidebar .sidebar-toggler {
+    margin-top: 15px;
+    margin-left: 175px;
+}
+
+.header .sidebar-toggler {
+    display: inline-block;
+    margin-top: 6px;
+    margin-left: -42px;
+}

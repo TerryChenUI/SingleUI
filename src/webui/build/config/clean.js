@@ -4,5 +4,5 @@ var gulp = require("gulp"),
     path = require("../settings").settings.clean;
 
 gulp.task("clean", [], function (cb) {
-    del.sync(path.dist);
+    del.sync(path);
 });
