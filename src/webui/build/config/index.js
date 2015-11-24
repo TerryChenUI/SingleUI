@@ -4,7 +4,7 @@ module.exports = {
         src: {
             css: [
                 'lib/bootstrap/dist/css/bootstrap.css',
-                'src/styles/style.css'
+                'dist/app.css'
             ],
             js: [
                 'lib/jquery/dist/jquery.js',
@@ -16,6 +16,7 @@ module.exports = {
                 'lib/underscore/underscore.js',
                 'src/app/app.js',
                 'src/app/**/*.js',
+                '!src/app/**/*.spec.js',
                 'src/common/**/*.js'
             ]
         }
@@ -26,9 +27,7 @@ module.exports = {
                 'src/plugins/font-awesome/css/font-awesome.min.css',
                 'lib/bootstrap/dist/css/bootstrap.min.css',
                 'lib/sweetalert/dist/sweetalert.css',
-                'src/admin/styles/style-metronic.css',
-                'src/admin/styles/style.css',
-                'src/admin/styles/style-responsive.css'
+                'dist/admin/app.css'
             ],
             js: [
                 'lib/jquery/dist/jquery.js',
@@ -43,6 +42,7 @@ module.exports = {
                 'lib/angular-breadcrumb/dist/angular-breadcrumb.js',
                 'src/admin/app/app.js',
                 'src/admin/app/**/*.js',
+                '!src/admin/app/**/*.spec.js',
                 'src/common/**/*.js'
             ]
         }

@@ -1,22 +1,25 @@
 "use strict";
-var gulp = require('gulp');
-var sass = require('gulp-sass');
-var concat = require('gulp-concat');
+var gulp = require('gulp'),
+    sass = require('gulp-sass'),
+    concat = require('gulp-concat'),
+    sourcemaps = require('gulp-sourcemaps');
 
-gulp.task('sass', ['sass_front', 'sass_admin'])
+gulp.task('sass', ['sass_front', 'sass_admin']);
 
-gulp.task('sass_front', function () {
-  gulp.src(['./src/app/**/*.scss', './src/style/**/*.scss'])
-  	.pipe(gulp.dest('./dist/admin/'))
-    .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest('./dist'))
-    .pipe(concat("./dist/app.css"));
+gulp.task('sass:front_index', function (cb) {
+    gulp.src('./src/app.scss')
+        .pipe(sourcemaps.init())
+        .pipe(sass().on('error', sass.logError))
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest('./dist/'))
+        .on('end', cb);
 });
 
-gulp.task('sass_admin', function () {
-  gulp.src('./src/admin/**/*.scss')
-    .pipe(gulp.dest('./dist/admin/'))
-    .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest('./dist/admin/'))
-    .pipe(concat("./dist/admin/app.css"));
+gulp.task('sass:admin_index', function (cb) {
+    gulp.src('./src/admin/app.scss')
+        .pipe(sourcemaps.init())
+        .pipe(sass.sync().on('error', sass.logError))
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest('./dist/admin/'))
+        .on('end', cb);
 });

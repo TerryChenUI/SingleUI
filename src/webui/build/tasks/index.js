@@ -8,12 +8,11 @@ var gulp = require("gulp"),
 
 var getNewPath = function (filePath, pattern, replaceStr, type) {
     var newPath = filePath.replace(pattern, replaceStr);
-    //console.log('inject '+ type +' = '+ newPath);
+    //console.log('inject ' + type + ' = ' + newPath);
     return newPath;
 };
 
-
-gulp.task('dev_index', [], function () {
+gulp.task('dev_index', ['sass:front_index'], function () {
 
     var target = gulp.src('./src/index.html');
     var cssSources = gulp.src(dev_index.src.css, {read: false});
@@ -21,7 +20,13 @@ gulp.task('dev_index', [], function () {
 
     return target.pipe(inject(cssSources, {
         transform: function (filePath) {
-            return '<link rel="stylesheet" type="text/css" href="' + getNewPath(filePath, '/src/', '/', 'css') + '" />';
+            var newPath = filePath;
+            if (filePath.match('/dist/app.css')) {
+                newPath = getNewPath(filePath, '/dist/app.css', '/app.css', 'css');
+            } else {
+                newPath = getNewPath(filePath, '/src/', '/', 'css');
+            }
+            return '<link rel="stylesheet" type="text/css" href="' + newPath + '" />';
         }
     }))
         .pipe(inject(jsSources, {
@@ -30,22 +35,20 @@ gulp.task('dev_index', [], function () {
             }
         }))
         .pipe(gulp.dest('./dist'))
-        .pipe(connect.reload());
 });
 
-gulp.task('dev_admin_index', [], function () {
-
+gulp.task('dev_admin_index', ['sass:admin_index'], function () {
     var target = gulp.src('./src/admin/index.html');
-    var cssSources = gulp.src(dev_admin_index.src.css, {read: false});
-    var jsSources = gulp.src(dev_admin_index.src.js, {read: false});
+    var cssSources = gulp.src(dev_admin_index.src.css);
+    var jsSources = gulp.src(dev_admin_index.src.js);
 
     return target.pipe(inject(cssSources, {
         transform: function (filePath) {
             var newPath = filePath;
-            if(filePath.match('/src/plugins/')) {
+            if (filePath.match('/src/plugins/')) {
                 newPath = getNewPath(filePath, '/src/plugins/', '/plugins/', 'css');
-            }else{
-                newPath = getNewPath(filePath, '/src/admin/', '/admin/', 'css');
+            } else {
+                newPath = getNewPath(filePath, '/dist/admin/', '/admin/', 'css');
             }
             return '<link rel="stylesheet" type="text/css" href="' + newPath + '" />';
         }
@@ -62,7 +65,7 @@ gulp.task('dev_admin_index', [], function () {
             }
         }))
         .pipe(gulp.dest('./dist/admin'))
-        .pipe(connect.reload());
+        .pipe(connect.reload())
 });
 
 gulp.task('dev_login', [], function () {

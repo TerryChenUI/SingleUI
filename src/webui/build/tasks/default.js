@@ -1,4 +1,4 @@
 "use strict";
 var gulp = require("gulp");
 
-gulp.task("default", ['dev', 'connect']);
+gulp.task("default", ['dev', 'connect', 'watch']);

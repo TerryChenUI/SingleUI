@@ -1,41 +1,50 @@
 "use strict";
 var gulp = require("gulp"),
     connect = require('gulp-connect'),
-    jshint = require('gulp-jshint'),
-    path = require("../settings").settings.copy;
+    jshint = require('gulp-jshint');
 
-gulp.task('copy', ['dev_lib', 'dev_plugins', 'dev_assets', 'dev_html', 'dev_css', 'dev_js']);
+gulp.task('copy', ['copy:lib', 'copy:plugins', 'copy:assets', 'copy:html', 'copy:scss', 'copy:js'])
 
-gulp.task('dev_lib', [], function () {
-    gulp.src(path.dev.lib, {base: 'lib'})
-        .pipe(gulp.dest(path.dist.lib))
+gulp.task('copy:lib', [], function () {
+    gulp.src([
+        'lib/angular/**',
+        'lib/angular-cookies/**',
+        'lib/angular-ui-router/**',
+        'lib/angular-bootstrap/**',
+        'lib/ng-file-upload/**',
+        'lib/jquery/dist/**',
+        'lib/ng-tasty/**',
+        'lib/underscore/**',
+        'lib/bootstrap/**',
+        'lib/sweetalert/**',
+        'lib/angular-breadcrumb/**'], {base: 'lib'})
+        .pipe(gulp.dest('dist/lib/'))
 });
 
-gulp.task('dev_plugins', [], function () {
-    gulp.src(path.dev.plugins, {base: 'src'})
-        .pipe(gulp.dest(path.dist.root))
+gulp.task('copy:plugins', [], function () {
+    gulp.src('src/plugins/**', {base: 'src'})
+        .pipe(gulp.dest('dist/'))
 });
 
-gulp.task('dev_assets', [], function () {
-    gulp.src(path.dev.assets, {base: 'src'})
-        .pipe(gulp.dest(path.dist.root))
+gulp.task('copy:assets', [], function () {
+    gulp.src('src/**/assets/**', {base: 'src'})
+        .pipe(gulp.dest('dist/'))
+});
+
+gulp.task('copy:html', [], function () {
+    gulp.src('src/**/*.tpl.html', {base: 'src'})
+        .pipe(gulp.dest('dist/'))
         .pipe(connect.reload());
 });
 
-gulp.task('dev_html', [], function () {
-    gulp.src(path.dev.html, {base: 'src'})
-        .pipe(gulp.dest(path.dist.root))
+gulp.task('copy:scss', [], function () {
+    gulp.src(['src/**/*.scss'], {base: 'src'})
+        .pipe(gulp.dest('dist/'))
         .pipe(connect.reload());
 });
 
-gulp.task('dev_css', [], function () {
-    gulp.src(path.dev.css, {base: 'src'})
-        .pipe(gulp.dest(path.dist.root))
-        .pipe(connect.reload());
-});
-
-gulp.task('dev_js', ['lint'], function () {
-    gulp.src(path.dev.js, {base: 'src'})
-        .pipe(gulp.dest(path.dist.root))
+gulp.task('copy:js', [], function () {
+    gulp.src(['src/**/*.js', '!src/**/*.spec.js'], {base: 'src'})
+        .pipe(gulp.dest('dist/'))
         .pipe(connect.reload());
 });
