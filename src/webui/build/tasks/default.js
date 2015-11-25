@@ -5,7 +5,7 @@ gulp.task("default", [
 	'dev', 
 	'karma:unit', 
 	'karma:e2e',
-	//'webserver', 
 	'connect',
+	'open',
 	'watch'
 	]);
