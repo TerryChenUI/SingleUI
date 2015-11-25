@@ -4,15 +4,9 @@
 node_modules/
 lib/
 .temp/
-/webui/dist/admin/
-/webui/dist/app/
-/webui/dist/assets/
-/webui/dist/common/
-/webui/dist/lib/
-/webui/dist/plugins/
-/webui/dist/styles/
-/webui/dist/scripts/
-/webui/dist/index.html
+dist/
+test_out/
+
 
 # Web Storm
 

@@ -10,6 +10,6 @@ gulp.task('watch', [], function (cb) {
     gulp.watch(['src/**/*.html'], ["copy:html"]);
     gulp.watch(['src/**/*.scss'], ["copy:scss"]);
     gulp.watch(['src/**/*.js','!src/**/*.spec.js','!src/**/*.scenario.js'], ["copy:js"]);
-    gulp.watch(['./src/**/*.spec.js'], []);
-    gulp.watch(['./src/**/*.scenario.js'], []);
+    // gulp.watch(['./src/**/*.spec.js'], ['karma:unit']);
+    // gulp.watch(['./src/**/*.scenario.js'], ['karma:e2e']);
 });

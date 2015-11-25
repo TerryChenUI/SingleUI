@@ -6,34 +6,17 @@ var gulp = require('gulp'),
  * Run test
  */
 gulp.task('karma:unit', function (done) {
-    new Server({
-        port: 9877,
-        background: true,
-        runnerPort: 9102,
-        files: [
-            './src/**/*.spec.js'
-        ],
-        preprocessors: {
-            'test/**/*.spec.js': 'coverage',
-        },
+	var karma = new Server({
+        singleRun: false,
         configFile: __dirname + '/../../test/config/unit.js'
-    }, done).start();
+    }, done);
+    karma.start();
 });
 
 gulp.task('karma:e2e', function (done) {
-    new Server({
-        port: 9876,
-        runnerPort: 9101,
-        background: true,
-        files: [
-            './src/**/*.scenario.js'
-        ],
-        preprocessors: {
-            'test/**/*.scenario.js': 'coverage'
-        },
-        proxies:{
-            '/': 'http://localhost:8000/'
-        },
+    var karma = new Server({
+        singleRun: false, 
         configFile: __dirname + '/../../test/config/e2e.js'
-    }, done).start();
+    }, done);
+    karma.start();
 });

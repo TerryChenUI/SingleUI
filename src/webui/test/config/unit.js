@@ -5,28 +5,41 @@ module.exports = function(config) {
 
     frameworks: ['jasmine'],
 
+    files: [
+        './src/**/*.spec.js'
+    ],
+
+    preprocessors: {
+        'test/**/*.spec.js': 'coverage',
+    },
+
+    port: 9877,
+
+    background: true,
+
+    runnerPort: 9102,
+
+    autoWatch: true,
+
+    browsers: ['PhantomJS'],
+
+    urlRoot: '/__karma/',
+
     reporters: [
         'progress',
         'junit',
         'coverage'
     ],
 
-    autoWatch: false,
-
-    browsers: ['PhantomJS'],
-
-    singleRun: false,
-
-    urlRoot: '/__karma/',
-
     junitReporter: {
-        outputFile: './test_out/unit.xml',
-        suite: 'unit'
+        outputFile: './test_out/junit/unit.xml',
+        suite: 'unit',
+        useBrowserName: false
     },
 
     coverageReporter: {
         type: 'html',
-        dir: './test_out/unit/'
+        dir: './test_out/coverage/'
     }
     
   })

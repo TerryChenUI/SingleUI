@@ -5,28 +5,45 @@ module.exports = function(config) {
 
     frameworks: ['ng-scenario'],
 
+    files: [
+        './src/**/*.scenario.js'
+    ],
+
+    preprocessors: {
+        'test/**/*.scenario.js': 'coverage'
+    },
+
+    proxies:{
+        '/': 'http://localhost:8000/'
+    },
+
+    port: 9876,
+
+    runnerPort: 9101,
+
+    background: true,
+    
+    autoWatch: true,
+
+    browsers: ['Chrome'],
+
+    urlRoot: '/__karma/',
+    
     reporters: [
         'progress',
         'junit',
         'coverage'
     ],
 
-    autoWatch: false,
-
-    browsers: ['Chrome'],
-
-    singleRun: false,
-
-    urlRoot: '/__karma/',
-
     junitReporter: {
-        outputFile: './test_out/e2e.xml',
-        suite: 'e2e'
+        outputFile: './test_out/junit/e2e.xml',
+        suite: 'e2e',
+        useBrowserName: false
     },
 
     coverageReporter: {
         type: 'html',
-        dir: './test_out/unit/'
+        dir: './test_out/coverage/'
     }
 
   })
