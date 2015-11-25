@@ -1,6 +1,5 @@
 'use strict';
 module.exports = function (connect, options) {
-
     var express = require('express');
     var bodyParser = require('body-parser');
     var methodOverride = require('method-override');
@@ -14,7 +13,7 @@ module.exports = function (connect, options) {
     app.use(errorhandler());
     app.use(express["static"](options.root));
     app.use(express.Router());
-    routeService(app, options);
+    routeService(app);
 
     return [connect(app)];
 };

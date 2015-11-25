@@ -1,35 +1,33 @@
 module.exports = function(config) {
   config.set({
 
-    basePath: '../..'
+    basePath: '../..',
 
-    frameworks: [''],
+    frameworks: ['ng-scenario'],
 
-    files: [
-        './src/**/*.spec.js'
+    reporters: [
+        'progress',
+        'junit',
+        'coverage'
     ],
 
-    exclude: [
-    ],
-
-    preprocessors: {
-    },
-
-    reporters: ['progress'],
-
-    port: 9877,
-
-    colors: true,
-
-    logLevel: config.LOG_INFO,
-
-    autoWatch: true,
+    autoWatch: false,
 
     browsers: ['Chrome'],
 
     singleRun: false,
 
-    urlRoot: '/__karma/'
+    urlRoot: '/__karma/',
+
+    junitReporter: {
+        outputFile: './test_out/e2e.xml',
+        suite: 'e2e'
+    },
+
+    coverageReporter: {
+        type: 'html',
+        dir: './test_out/unit/'
+    }
 
   })
 }

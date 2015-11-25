@@ -5,29 +5,13 @@ module.exports = function(config) {
 
     frameworks: ['jasmine'],
 
-    files: [
-        './src/**/*.spec.js'
-    ],
-
-    exclude: [
-    ],
-
-    preprocessors: {
-    },
-
     reporters: [
         'progress',
         'junit',
         'coverage'
     ],
 
-    port: 9876,
-
-    colors: true,
-
-    logLevel: config.LOG_INFO,
-
-    autoWatch: true,
+    autoWatch: false,
 
     browsers: ['PhantomJS'],
 
@@ -44,6 +28,6 @@ module.exports = function(config) {
         type: 'html',
         dir: './test_out/unit/'
     }
-
+    
   })
 }
