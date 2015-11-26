@@ -5,39 +5,31 @@
                 <div class="sidebar-toggler hidden-phone">
                 </div>
             </li>
-            <!-- 菜单 -->
-            <li class="start">
-                <a ui-sref="home">
-                <i class="fa fa-home"></i>
+            <li ng-class="{active: tab.active}" ng-repeat="tab in tabs">
+                <a ng-if="!tab.childs.length" ui-sref="{{tab.key}}" title="{{tab.title}}">
+                <i class="fa {{tab.icon}}"></i>
                     <span class="title">
-                        首页
+                        {{tab.title}}
                     </span>
                 </a>
-            </li>
-            <li class="active open">
-                <a href="javascript:void(0)" title="内容管理">
-                    <i class="fa "></i>
-                        <span class="title">
-                           内容管理
-                        </span>
-                        <span class="arrow">
-                        </span>
+
+                <a ng-if="tab.childs.length" href="javascript:void(0)" title="{{tab.title}}">
+                <i class="fa {{tab.icon}}"></i>
+                    <span class="title">
+                        {{tab.title}}
+                    </span>
                 </a>
-                <ul class="sub-menu">
-                    <li>
-                        <a ui-sref="category" title="类别管理">
-                            <i class="fa "></i>
-                            类别管理
-                        </a>
-                    </li>
-                    <li>
-                        <a ui-sref="article" title="文章管理">
-                            <i class="fa "></i>
-                            文章管理
+
+                <ul class="sub-menu" ng-if="tab.childs.length !=0">
+                    <li ng-repeat="child in tab.childs">
+                        <a ui-sref="{{child.key}}" title="{{child.title}}">
+                            <i class="fa {{child.icon}}"></i>
+                            {{child.title}}
                         </a>
                     </li>
                 </ul>
             </li>
+
         </ul>
     </div>
 </div>

@@ -33,7 +33,6 @@
                 method: 'GET',
                 url: this.serviceEndpoint + "articles/" + id
             };
-            this.$log.debug('getArticleById', config);
             return this.appHttp.request(config);
         };
 
