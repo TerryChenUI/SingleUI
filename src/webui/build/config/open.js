@@ -1,5 +1,6 @@
-var gulp = require('gulp')
-open = require('gulp-open');
+"use strict";
+var gulp = require('gulp'),
+    open = require('gulp-open');
 
 gulp.task('open', function () {
     gulp.src("index.html")

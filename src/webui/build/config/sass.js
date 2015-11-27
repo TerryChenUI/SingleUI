@@ -17,7 +17,7 @@ gulp.task('renderSass', ['copy:scss'], function(){
 
     gulp.src('./src/admin/app.scss')
         .pipe(sourcemaps.init())
-        .pipe(sass.sync().on('error', sass.logError))
+        .pipe(sass().on('error', sass.logError))
         .pipe(sourcemaps.write())
         .pipe(gulp.dest('./dist/admin/'))
         .pipe(connect.reload());
@@ -35,7 +35,7 @@ gulp.task('sass:front_app', function (cb) {
 gulp.task('sass:admin_app', function (cb) {
     gulp.src('./src/admin/app.scss')
         .pipe(sourcemaps.init())
-        .pipe(sass.sync().on('error', sass.logError))
+        .pipe(sass().on('error', sass.logError))
         .pipe(sourcemaps.write())
         .pipe(gulp.dest('./dist/admin/'))
         .on('end', cb);

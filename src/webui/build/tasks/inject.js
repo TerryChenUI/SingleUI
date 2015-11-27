@@ -72,4 +72,4 @@ function getPath(filePath, filters) {
         }
     }
     return filePath;
-};
+}

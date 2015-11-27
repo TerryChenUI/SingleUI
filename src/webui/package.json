@@ -7,7 +7,7 @@
     "prebuild": "npm install --registry https://registry.npm.taobao.org",
     "prestart": "npm install"
   },
-  "author": "terrychen_uu@163.com",
+  "author": "terrychen.ui@outlook.com",
   "license": "ISC",
   "devDependencies": {
     "body-parser": "^1.13.1",
