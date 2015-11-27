@@ -12,8 +12,31 @@ var getNewPath = function (filePath, pattern, replaceStr, type) {
     return newPath;
 };
 
-gulp.task('dev_index', ['sass:front_index'], function () {
+function executeTasks(sourceTpl, destFolder, configIndex, cssFilters, jsFilters) {
+    var target = gulp.src(sourceTpl);
+    var cssSources = gulp.src(configIndex.src.css, {read: false});
+    var jsSources = gulp.src(configIndex.src.js, {read: false});
 
+    return target.pipe(inject(cssSources, {
+        transform: function (filePath) {
+            var newPath = '';
+            if (filePath.match('/dist/app.css')) {
+                newPath = filePath.replace('/dist/app.css', '/app.css')
+            } else {
+                newPath = filePath.replace('/src/', '/');
+            }
+            return '<link rel="stylesheet" type="text/css" href="' + newPath + '" />';
+        }
+    }))
+        .pipe(inject(jsSources, {
+            transform: function (filePath) {
+                return '<script type="text/javascript" src="' + getNewPath(filePath, '/src/', '/', 'js') + '"></script>';
+            }
+        }))
+        .pipe(gulp.dest(destFolder))
+}
+
+gulp.task('dev_index', ['sass:front_app'], function () {
     var target = gulp.src('./src/index.html');
     var cssSources = gulp.src(dev_index.src.css, {read: false});
     var jsSources = gulp.src(dev_index.src.js, {read: false});
@@ -37,7 +60,7 @@ gulp.task('dev_index', ['sass:front_index'], function () {
         .pipe(gulp.dest('./dist'))
 });
 
-gulp.task('dev_admin_index', ['sass:admin_index'], function () {
+gulp.task('dev_admin_index', ['sass:admin_app'], function () {
     var target = gulp.src('./src/admin/index.html');
     var cssSources = gulp.src(dev_admin_index.src.css);
     var jsSources = gulp.src(dev_admin_index.src.js);
@@ -68,7 +91,7 @@ gulp.task('dev_admin_index', ['sass:admin_index'], function () {
         .pipe(connect.reload())
 });
 
-gulp.task('dev_login', [], function () {
+gulp.task('dev_login', ['sass:admin_app'], function () {
 
     var target = gulp.src('./src/admin/login.html');
     var cssSources = gulp.src(dev_login.src.css, {read: false});
@@ -76,7 +99,13 @@ gulp.task('dev_login', [], function () {
 
     return target.pipe(inject(cssSources, {
         transform: function (filePath) {
-            return '<link rel="stylesheet" type="text/css" href="' + getNewPath(filePath, '/src/admin/', '/admin/', 'css') + '" />';
+            var newPath = filePath;
+            if (filePath.match('/src/plugins/')) {
+                newPath = getNewPath(filePath, '/src/plugins/', '/plugins/', 'css');
+            } else {
+                newPath = getNewPath(filePath, '/dist/admin/', '/admin/', 'css');
+            }
+            return '<link rel="stylesheet" type="text/css" href="' + newPath + '" />';
         }
     }))
         .pipe(inject(jsSources, {

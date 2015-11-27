@@ -46,6 +46,8 @@ angular.module('app.admin.layout')
                             if (path.indexOf(child.route) > -1) {
                                 tab.active = true;
                                 child.active = true;
+                            }else{
+                                child.active = false;
                             }
                             return tab;
                         });

@@ -52,11 +52,8 @@ module.exports = {
             css: [
                 'src/plugins/font-awesome/css/font-awesome.min.css',
                 'lib/bootstrap/dist/css/bootstrap.min.css',
-                'src/admin/styles/style-metronic.css',
-                'src/admin/styles/style.css',
-                'src/admin/styles/style-responsive.css',
-                'src/admin/styles/themes/default.css',
-                'src/admin/styles/login.css'
+                'lib/sweetalert/dist/sweetalert.css',
+                'dist/admin/app.css'
             ],
             js: [
                 'lib/jquery/dist/jquery.js',
@@ -67,6 +64,8 @@ module.exports = {
                 'lib/ng-file-upload/ng-file-upload.js',
                 'lib/ng-tasty/ng-tasty-tpls.js',
                 'lib/underscore/underscore.js',
+                'lib/sweetalert/dist/sweetalert.min.js',
+                'lib/angular-breadcrumb/dist/angular-breadcrumb.js',
                 'src/admin/app/app.js',
                 'src/admin/app/login/login.js',
                 'src/common/**/*.js'

@@ -6,7 +6,7 @@
                 </div>
             </li>
             <li ng-class="{active: tab.active}" ng-repeat="tab in tabs">
-                <a ng-if="!tab.childs.length" ui-sref="{{tab.route}}" title="{{tab.title}}">
+                <a ng-if="!tab.childs.length" ui-sref="{{tab.route}}" title="{{tab.title}}" ng-click="expandTab(tab)">
                     <i class="fa {{tab.icon}}"></i>
                     <span class="title">
                         {{tab.title}}
@@ -21,7 +21,7 @@
                     </span>
                 </a>
                 <ul class="sub-menu" ng-if="tab.childs.length !=0">
-                    <li ng-repeat="child in tab.childs">
+                    <li ng-repeat="child in tab.childs" ng-class="{active: child.active}">
                         <a ui-sref="{{child.route}}" title="{{child.title}}">
                             <i class="fa {{child.icon}}"></i>
                             {{child.title}}

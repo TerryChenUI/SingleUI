@@ -1,8 +1,5 @@
-/**
- * Created by TerryChen on 2015/9/20.
- */
 angular.module('app.admin.common')
-    .controller('LoginCtrl', ["$scope", "$window", "StateService", "AuthenService", function ($scope, $window, StateService, AuthenService) {
+    .controller('LoginCtrl', ["$scope", "$window", "AuthenService", function ($scope, $window, AuthenService) {
         $scope.model = {};
 
         $scope.Login = function () {

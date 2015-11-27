@@ -37,7 +37,7 @@ gulp.task('copy:html', [], function () {
         .pipe(connect.reload());
 });
 
-gulp.task('copy:scss', [], function () {
+gulp.task('copy:scss', function () {
     gulp.src(['src/**/*.scss'], {base: 'src'})
         .pipe(gulp.dest('dist/'))
         .pipe(connect.reload());
