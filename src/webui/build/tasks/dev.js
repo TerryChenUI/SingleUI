@@ -4,7 +4,7 @@ var gulp = require("gulp");
 gulp.task("dev", [
     'clean',
     'copy',
-    'dev_index',
-    'dev_admin_index',
-    'dev_login'
+    'inject_index',
+    'inject_admin_index',
+    'inject_login'
 ]);

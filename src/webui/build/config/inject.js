@@ -17,6 +17,7 @@ module.exports = {
                 'src/app/app.js',
                 'src/app/**/*.js',
                 '!src/app/**/*.spec.js',
+                '!src/app/**/*.scenario.js',
                 'src/common/**/*.js'
             ]
         }
@@ -43,6 +44,7 @@ module.exports = {
                 'src/admin/app/app.js',
                 'src/admin/app/**/*.js',
                 '!src/admin/app/**/*.spec.js',
+                '!src/app/**/*.scenario.js',
                 'src/common/**/*.js'
             ]
         }
