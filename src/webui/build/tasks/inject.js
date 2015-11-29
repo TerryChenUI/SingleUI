@@ -4,7 +4,8 @@ var gulp = require("gulp"),
     connect = require('gulp-connect'),
     config = require("../config/inject");
 
-gulp.task('inject_index', ['sass:front_app'], function () {
+//inject dev
+gulp.task('inject:dev_index', ['sass:front_app'], function () {
     var filters = {
         "css": [
             {"pattern": "/dist/app.css", "replaceStr": "/app.css"}
@@ -16,7 +17,7 @@ gulp.task('inject_index', ['sass:front_app'], function () {
     executeTasks("./src/index.html", "./dist", config.dev_index, filters);
 });
 
-gulp.task('inject_admin_index', ['sass:admin_app'], function () {
+gulp.task('inject:dev_admin_index', ['sass:admin_app'], function () {
     var filters = {
         "css": [
             {"pattern": "/src/plugins/", "replaceStr": "/plugins/"},
@@ -30,7 +31,7 @@ gulp.task('inject_admin_index', ['sass:admin_app'], function () {
     executeTasks("./src/admin/index.html", "./dist/admin", config.dev_admin_index, filters);
 });
 
-gulp.task('inject_login', ['sass:admin_app'], function () {
+gulp.task('inject:dev_login', ['sass:admin_app'], function () {
     var filters = {
         "css": [
             {"pattern": "/src/plugins/", "replaceStr": "/plugins/"},
@@ -44,7 +45,48 @@ gulp.task('inject_login', ['sass:admin_app'], function () {
     executeTasks("./src/admin/login.html", "./dist/admin", config.dev_login, filters);
 });
 
+//inject prod
+gulp.task('inject:prod_index', ['sass:front_app'], function () {
+    var filters = {
+        "css": [
+            {"pattern": "/dist/app-*.css", "replaceStr": "/"}
+        ],
+        "js": [
+            {"pattern": "/src/app-*.js", "replaceStr": "/"}
+        ]
+    };
+    executeTasks("./src/index.html", "./dist", config.prod_index, filters);
+});
 
+gulp.task('inject:prod_admin_index', ['sass:admin_app'], function () {
+    var filters = {
+        "css": [
+            {"pattern": "/src/plugins/", "replaceStr": "/plugins/"},
+            {"pattern": "/dist/admin/", "replaceStr": "/admin/"}
+        ],
+        "js": [
+            {"pattern": "/src/common/", "replaceStr": "../common/"},
+            {"pattern": "/src/admin/", "replaceStr": "/admin/"}
+        ]
+    };
+    executeTasks("./src/admin/index.html", "./dist/admin", config.prod_admin_index, filters);
+});
+
+gulp.task('inject:prod_login', ['sass:admin_app'], function () {
+    var filters = {
+        "css": [
+            {"pattern": "/src/plugins/", "replaceStr": "/plugins/"},
+            {"pattern": "/dist/admin/", "replaceStr": "/admin/"}
+        ],
+        "js": [
+            {"pattern": "/src/common/", "replaceStr": "../common/"},
+            {"pattern": "/src/admin/", "replaceStr": "/admin/"}
+        ]
+    };
+    executeTasks("./src/admin/login.html", "./dist/admin", config.prod_login, filters);
+});
+
+//common
 function executeTasks(sourceTpl, destFolder, configIndex, filters) {
     var target = gulp.src(sourceTpl);
     var cssSources = gulp.src(configIndex.src.css, {read: false});

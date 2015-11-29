@@ -6,7 +6,9 @@ gulp.task("prod", [
     'copy:lib',
     'copy:plugins',
     'copy:assets',
-    'inject_index',
-    'inject_admin_index',
-    'inject_login'
+    'concat:js',
+    'templateCache',
+    'inject:prod_index',
+    'inject:prod_admin_index',
+    'inject:prod_login'
 ]);

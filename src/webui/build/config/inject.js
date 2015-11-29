@@ -90,11 +90,54 @@ module.exports = {
                 'lib/angular-bootstrap/ui-bootstrap.min.js',
                 'lib/angular-bootstrap/ui-bootstrap-tpls.min.js',
                 'lib/underscore/underscore.min.js',
-                'src/app.js'
+                'dist/app.*.js'
             ]
         }
     },
     prod_admin_index: {
-        src: []
+        src: {
+            css: [
+                'src/plugins/font-awesome/css/font-awesome.css',
+                'lib/bootstrap/dist/css/bootstrap.css',
+                'lib/sweetalert/dist/sweetalert.css',
+                'dist/admin/app.*.css'
+            ],
+            js: [
+                'lib/jquery/dist/jquery.js',
+                'lib/bootstrap/dist/js/bootstrap.js',
+                'lib/angular/angular.js',
+                'lib/angular-cookies/angular-cookies.js',
+                'lib/angular-ui-router/release/angular-ui-router.js',
+                'lib/ng-file-upload/ng-file-upload.js',
+                'lib/ng-tasty/ng-tasty-tpls.js',
+                'lib/underscore/underscore.js',
+                'lib/sweetalert/dist/sweetalert.js',
+                'lib/angular-breadcrumb/dist/angular-breadcrumb.js',
+                'dist/admin/app/app.*.js'
+            ]
+        }
+    },
+    prod_login: {
+        src: {
+            css: [
+                'src/plugins/font-awesome/css/font-awesome.css',
+                'lib/bootstrap/dist/css/bootstrap.css',
+                'lib/sweetalert/dist/sweetalert.css',
+                'dist/admin/app.*.css'
+            ],
+            js: [
+                'lib/jquery/dist/jquery.js',
+                'lib/bootstrap/dist/js/bootstrap.js',
+                'lib/angular/angular.js',
+                'lib/angular-cookies/angular-cookies.js',
+                'lib/angular-ui-router/release/angular-ui-router.js',
+                'lib/ng-file-upload/ng-file-upload.js',
+                'lib/ng-tasty/ng-tasty-tpls.js',
+                'lib/underscore/underscore.js',
+                'lib/sweetalert/dist/sweetalert.js',
+                'lib/angular-breadcrumb/dist/angular-breadcrumb.js',
+                'dist/admin/app/app.*.js'
+            ]
+        }
     }
 };
