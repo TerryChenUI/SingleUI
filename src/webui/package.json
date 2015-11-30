@@ -1,7 +1,7 @@
 {
   "name": "SingleUI",
   "version": "1.0.0",
-  "description": "",
+  "description": "Single UI",
   "scripts": {
     "postinstall": "bower install",
     "prebuild": "npm install --registry https://registry.npm.taobao.org",

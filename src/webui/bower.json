@@ -1,8 +1,8 @@
 {
-  "name": "webui",
-  "version": "0.0.0",
+  "name": "SingleUI",
+  "version": "1.0.0",
   "authors": [
-    "Terry Chen <terrychen_uu@163.com>"
+    "Terry Chen <terrychen.ui@outlook.com>"
   ],
   "license": "MIT",
   "ignore": [

@@ -4,8 +4,8 @@ var gulp = require("gulp"),
 
 gulp.task("default", [
     'dev',
-    'karma:unit',
-    'karma:e2e',
+    //'karma:unit',
+    //'karma:e2e',
     'connect',
     'watch',
     'open'

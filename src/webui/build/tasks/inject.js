@@ -8,26 +8,26 @@ var gulp = require("gulp"),
 gulp.task('inject:dev_index', ['sass:front_app', 'templateCache'], function () {
     var filters = {
         "css": [
-            {"pattern": "/dist/", "replaceStr": "/"}
+            {"pattern": "/dist", "replaceStr": ""}
         ],
         "js": [
-            {"pattern": "/src/", "replaceStr": "/"},
-            {"pattern": "/dist/", "replaceStr": "/"}
+            {"pattern": "/src", "replaceStr": ""},
+            {"pattern": "/dist", "replaceStr": ""}
         ]
     };
-    executeTasks("./src/index.html", "./dist", config.dev_index, filters);
+    executeTasks("src/index.html", "dist", config.dev_index, filters);
 });
 
 gulp.task('inject:dev_admin_index', ['sass:admin_app', 'templateCache'], function () {
     var filters = {
         "css": [
-            {"pattern": "/src/plugins/", "replaceStr": "/plugins/"},
-            {"pattern": "/dist/admin/", "replaceStr": "/admin/"}
+            {"pattern": "/src/plugins", "replaceStr": "/plugins"},
+            {"pattern": "/dist/admin", "replaceStr": "/admin"}
         ],
         "js": [
-            {"pattern": "/src/common/", "replaceStr": "../common/"},
-            {"pattern": "/src/admin/", "replaceStr": "/admin/"},
-            {"pattern": "/dist/admin/app/app.tpl.js", "replaceStr": "/admin/app/app.tpl.js"}
+            {"pattern": "/src/common", "replaceStr": "../common"},
+            {"pattern": "/src/admin", "replaceStr": "/admin"},
+            {"pattern": "/dist/admin", "replaceStr": "/admin"}
         ]
     };
     executeTasks("./src/admin/index.html", "./dist/admin", config.dev_admin_index, filters);
@@ -36,13 +36,13 @@ gulp.task('inject:dev_admin_index', ['sass:admin_app', 'templateCache'], functio
 gulp.task('inject:dev_login', ['sass:admin_app', 'templateCache'], function () {
     var filters = {
         "css": [
-            {"pattern": "/src/plugins/", "replaceStr": "/plugins/"},
-            {"pattern": "/dist/admin/", "replaceStr": "/admin/"}
+            {"pattern": "/src/plugins", "replaceStr": "/plugins"},
+            {"pattern": "/dist/admin", "replaceStr": "/admin"}
         ],
         "js": [
-            {"pattern": "/src/common/", "replaceStr": "../common/"},
-            {"pattern": "/src/admin/", "replaceStr": "/admin/"},
-            {"pattern": "/dist/admin/app/app.tpl.js", "replaceStr": "/admin/app/app.tpl.js"}
+            {"pattern": "/src/common", "replaceStr": "../common"},
+            {"pattern": "/src/admin", "replaceStr": "/admin"},
+            {"pattern": "/dist/admin", "replaceStr": "/admin"}
         ]
     };
     executeTasks("./src/admin/login.html", "./dist/admin", config.dev_login, filters);

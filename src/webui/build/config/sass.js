@@ -8,35 +8,35 @@ var gulp = require('gulp'),
 gulp.task('sass', ['sass:front_app', 'sass:admin_app']);
 
 gulp.task('renderSass', ['copy:scss'], function(){
-    gulp.src('./src/app.scss')
+    gulp.src('src/app.scss')
         .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest('./dist/'))
+        .pipe(gulp.dest('dist/'))
         .pipe(connect.reload());
 
-    gulp.src('./src/admin/app.scss')
+    gulp.src('src/admin/app.scss')
         .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest('./dist/admin/'))
+        .pipe(gulp.dest('dist/admin/'))
         .pipe(connect.reload());
 });
 
 gulp.task('sass:front_app', function (cb) {
-    gulp.src('./src/app.scss')
+    gulp.src('src/app.scss')
         .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest('./dist/'))
+        .pipe(gulp.dest('dist/'))
         .on('end', cb);
 });
 
 gulp.task('sass:admin_app', function (cb) {
-    gulp.src('./src/admin/app.scss')
+    gulp.src('src/admin/app.scss')
         .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest('./dist/admin/'))
+        .pipe(gulp.dest('dist/admin/'))
         .on('end', cb);
 });
