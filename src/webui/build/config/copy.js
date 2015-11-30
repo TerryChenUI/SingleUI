@@ -3,9 +3,9 @@ var gulp = require("gulp"),
     connect = require('gulp-connect'),
     jshint = require('gulp-jshint');
 
-gulp.task('copy', ['copy:lib', 'copy:plugins', 'copy:assets', 'copy:html', 'copy:scss', 'copy:js'])
+gulp.task('copy', ['copy:lib', 'copy:plugins', 'copy:assets', 'copy:html', 'copy:scss', 'copy:js']);
 
-gulp.task('copy:lib', [], function () {
+gulp.task('copy:lib', function (cb) {
     gulp.src([
         'lib/angular/angular.js',
         'lib/angular-bootstrap/ui-bootstrap.js',
@@ -14,8 +14,8 @@ gulp.task('copy:lib', [], function () {
         'lib/angular-sweetalert/SweetAlert.min.js',
         'lib/ng-file-upload/ng-file-upload.js',
         'lib/ng-tasty/ng-tasty-tpls',
-        'lib/underscore/dist/underscore.js'
-        ], {base: 'lib'})
+        'lib/underscore/underscore.js'
+    ], {base: 'lib'})
         .pipe(gulp.dest('dist/lib'));
 
     gulp.src('lib/angular-breadcrumb/dist/angular-breadcrumb.js')
@@ -30,24 +30,8 @@ gulp.task('copy:lib', [], function () {
     gulp.src('lib/jquery/dist/jquery.js')
         .pipe(gulp.dest('dist/lib/jquery'));
 
-    gulp.src('', {base: 'lib'})
-        .pipe(gulp.dest('dist/lib'));
-
     gulp.src('lib/sweetalert/dist/**')
         .pipe(gulp.dest('dist/lib/sweetalert/'));
-
-// 'lib/angular/**',
-// 'lib/angular-cookies/**',
-// 'lib/angular-ui-router/**',
-// 'lib/angular-bootstrap/**',
-// 'lib/ng-file-upload/**',
-// 'lib/jquery/dist/**',
-// 'lib/ng-tasty/**',
-// 'lib/underscore/**',
-// 'lib/bootstrap/**',
-// 'lib/sweetalert/**',
-// 'lib/angular-breadcrumb/**'
-
 });
 
 gulp.task('copy:plugins', [], function () {
@@ -65,7 +49,6 @@ gulp.task('copy:html', [], function () {
         .pipe(gulp.dest('dist/'))
         .pipe(connect.reload());
 });
-
 
 gulp.task('copy:scss', function () {
     gulp.src(['src/**/*.scss'], {base: 'src'})

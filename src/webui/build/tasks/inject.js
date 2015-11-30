@@ -8,11 +8,11 @@ var gulp = require("gulp"),
 gulp.task('inject:dev_index', ['sass:front_app', 'templateCache'], function () {
     var filters = {
         "css": [
-            {"pattern": "/dist/app.css", "replaceStr": "/app.css"}
+            {"pattern": "/dist/", "replaceStr": "/"}
         ],
         "js": [
             {"pattern": "/src/", "replaceStr": "/"},
-            {"pattern": "/dist/app/app.tpl.js", "replaceStr": "/app/app.tpl.js"}
+            {"pattern": "/dist/", "replaceStr": "/"}
         ]
     };
     executeTasks("./src/index.html", "./dist", config.dev_index, filters);

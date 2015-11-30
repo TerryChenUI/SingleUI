@@ -3,19 +3,18 @@ module.exports = {
     dev_index: {
         src: {
             css: [
-                'lib/bootstrap/dist/css/bootstrap.css',
+                'dist/lib/bootstrap/css/bootstrap.css',
                 'dist/app.css'
             ],
             js: [
-                'lib/jquery/dist/jquery.js',
-                'lib/bootstrap/dist/js/bootstrap.js',
-                'lib/angular/angular.js',
-                'lib/angular-ui-router/release/angular-ui-router.js',
-                'lib/angular-bootstrap/ui-bootstrap.js',
-                'lib/angular-bootstrap/ui-bootstrap-tpls.js',
-                'lib/underscore/underscore.js',
+                'dist/lib/jquery/jquery.js',
+                'dist/lib/bootstrap/js/bootstrap.js',
+                'dist/lib/angular/angular.js',
+                'dist/lib/angular-ui-router/angular-ui-router.js',
+                'dist/lib/angular-bootstrap/ui-bootstrap.js',
+                'dist/lib/angular-bootstrap/ui-bootstrap-tpls.js',
+                'dist/lib/underscore/underscore.js',
                 'src/app/app.js',
-                'dist/app/app.tpl.js',
                 'src/app/**/*.js',
                 'src/common/**/*.js',
                 '!src/app/**/*.spec.js',
@@ -27,23 +26,22 @@ module.exports = {
         src: {
             css: [
                 'src/plugins/font-awesome/css/font-awesome.css',
-                'lib/bootstrap/dist/css/bootstrap.css',
-                'lib/sweetalert/dist/sweetalert.css',
+                'lib/bootstrap/css/bootstrap.css',
+                'lib/sweetalert/sweetalert.css',
                 'dist/admin/app.css'
             ],
             js: [
-                'lib/jquery/dist/jquery.js',
-                'lib/bootstrap/dist/js/bootstrap.js',
+                'lib/jquery/jquery.js',
+                'lib/bootstrap/js/bootstrap.js',
                 'lib/angular/angular.js',
                 'lib/angular-cookies/angular-cookies.js',
-                'lib/angular-ui-router/release/angular-ui-router.js',
+                'lib/angular-ui-router/angular-ui-router.js',
                 'lib/ng-file-upload/ng-file-upload.js',
                 'lib/ng-tasty/ng-tasty-tpls.js',
                 'lib/underscore/underscore.js',
-                'lib/sweetalert/dist/sweetalert.js',
-                'lib/angular-breadcrumb/dist/angular-breadcrumb.js',
+                'lib/sweetalert/sweetalert.js',
+                'lib/angular-breadcrumb/angular-breadcrumb.js',
                 'src/admin/app/app.js',
-                'dist/admin/app/app.tpl.js',
                 'src/admin/app/**/*.js',
                 'src/common/**/*.js',
                 '!src/app/**/*.spec.js',
@@ -55,23 +53,22 @@ module.exports = {
         src: {
             css: [
                 'src/plugins/font-awesome/css/font-awesome.css',
-                'lib/bootstrap/dist/css/bootstrap.css',
-                'lib/sweetalert/dist/sweetalert.css',
+                'lib/bootstrap/css/bootstrap.css',
+                'lib/sweetalert/sweetalert.css',
                 'dist/admin/app.css'
             ],
             js: [
-                'lib/jquery/dist/jquery.js',
-                'lib/bootstrap/dist/js/bootstrap.js',
+                'lib/jquery/jquery.js',
+                'lib/bootstrap/js/bootstrap.js',
                 'lib/angular/angular.js',
                 'lib/angular-cookies/angular-cookies.js',
-                'lib/angular-ui-router/release/angular-ui-router.js',
+                'lib/angular-ui-router/angular-ui-router.js',
                 'lib/ng-file-upload/ng-file-upload.js',
                 'lib/ng-tasty/ng-tasty-tpls.js',
                 'lib/underscore/underscore.js',
-                'lib/sweetalert/dist/sweetalert.js',
-                'lib/angular-breadcrumb/dist/angular-breadcrumb.js',
+                'lib/sweetalert/sweetalert.js',
+                'lib/angular-breadcrumb/angular-breadcrumb.js',
                 'src/admin/app/app.js',
-                'dist/admin/app/app.tpl.js',
                 'src/admin/app/login/login.js',
                 'src/common/**/*.js',
                 '!src/app/**/*.spec.js',
@@ -82,14 +79,14 @@ module.exports = {
     prod_index: {
         src: {
             css: [
-                'lib/bootstrap/dist/css/bootstrap.min.css',
+                'lib/bootstrap/css/bootstrap.min.css',
                 'dist/app.*.css'
             ],
             js: [
-                'lib/jquery/dist/jquery.min.js',
-                'lib/bootstrap/dist/js/bootstrap.min.js',
+                'lib/jquery/jquery.min.js',
+                'lib/bootstrap/js/bootstrap.min.js',
                 'lib/angular/angular.min.js',
-                'lib/angular-ui-router/release/angular-ui-router.min.js',
+                'lib/angular-ui-router/angular-ui-router.min.js',
                 'lib/angular-bootstrap/ui-bootstrap.min.js',
                 'lib/angular-bootstrap/ui-bootstrap-tpls.min.js',
                 'lib/underscore/underscore.min.js',
@@ -101,21 +98,21 @@ module.exports = {
         src: {
             css: [
                 'src/plugins/font-awesome/css/font-awesome.css',
-                'lib/bootstrap/dist/css/bootstrap.css',
-                'lib/sweetalert/dist/sweetalert.css',
+                'lib/bootstrap/css/bootstrap.css',
+                'lib/sweetalert/sweetalert.css',
                 'dist/admin/app.*.css'
             ],
             js: [
-                'lib/jquery/dist/jquery.js',
-                'lib/bootstrap/dist/js/bootstrap.js',
+                'lib/jquery/jquery.js',
+                'lib/bootstrap/js/bootstrap.js',
                 'lib/angular/angular.js',
                 'lib/angular-cookies/angular-cookies.js',
-                'lib/angular-ui-router/release/angular-ui-router.js',
+                'lib/angular-ui-router/angular-ui-router.js',
                 'lib/ng-file-upload/ng-file-upload.js',
                 'lib/ng-tasty/ng-tasty-tpls.js',
                 'lib/underscore/underscore.js',
-                'lib/sweetalert/dist/sweetalert.js',
-                'lib/angular-breadcrumb/dist/angular-breadcrumb.js',
+                'lib/sweetalert/sweetalert.js',
+                'lib/angular-breadcrumb/angular-breadcrumb.js',
                 'dist/admin/app/app.*.js'
             ]
         }
@@ -124,21 +121,21 @@ module.exports = {
         src: {
             css: [
                 'src/plugins/font-awesome/css/font-awesome.css',
-                'lib/bootstrap/dist/css/bootstrap.css',
-                'lib/sweetalert/dist/sweetalert.css',
+                'lib/bootstrap/css/bootstrap.css',
+                'lib/sweetalert/sweetalert.css',
                 'dist/admin/app.*.css'
             ],
             js: [
-                'lib/jquery/dist/jquery.js',
-                'lib/bootstrap/dist/js/bootstrap.js',
+                'lib/jquery/jquery.js',
+                'lib/bootstrap/js/bootstrap.js',
                 'lib/angular/angular.js',
                 'lib/angular-cookies/angular-cookies.js',
-                'lib/angular-ui-router/release/angular-ui-router.js',
+                'lib/angular-ui-router/angular-ui-router.js',
                 'lib/ng-file-upload/ng-file-upload.js',
                 'lib/ng-tasty/ng-tasty-tpls.js',
                 'lib/underscore/underscore.js',
-                'lib/sweetalert/dist/sweetalert.js',
-                'lib/angular-breadcrumb/dist/angular-breadcrumb.js',
+                'lib/sweetalert/sweetalert.js',
+                'lib/angular-breadcrumb/angular-breadcrumb.js',
                 'dist/admin/app/app.*.js'
             ]
         }
