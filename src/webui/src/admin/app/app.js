@@ -21,7 +21,8 @@ var appAdmin = angular.module('app.admin', [
     'common.util',
     'app.admin.common',
     'app.admin.layout',
-    'app.admin.content'
+    'app.admin.content',
+    'templates'
 ]);
 
 appAdmin.run(function($rootScope, $window, $location, $cookieStore, $http){
