@@ -23,7 +23,7 @@ gulp.task('renderSass', ['copy:scss'], function(){
         .pipe(connect.reload());
 });
 
-gulp.task('sass:front_app', function (cb) {
+gulp.task('sass:front_app', ['templateCache:front_app'], function (cb) {
     gulp.src('src/app.scss')
         .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))
@@ -32,7 +32,7 @@ gulp.task('sass:front_app', function (cb) {
         .on('end', cb);
 });
 
-gulp.task('sass:admin_app', function (cb) {
+gulp.task('sass:admin_app', ['templateCache:admin_app'], function (cb) {
     gulp.src('src/admin/app.scss')
         .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))

@@ -1,7 +1,8 @@
 "use strict";
 var gulp = require("gulp"),
     connect = require('gulp-connect'),
-    jshint = require('gulp-jshint');
+    jshint = require('gulp-jshint'),
+    runSequence = require('run-sequence');
 
 gulp.task('copy', ['copy:lib', 'copy:plugins', 'copy:assets', 'copy:html', 'copy:scss', 'copy:js']);
 
@@ -33,7 +34,7 @@ gulp.task('copy:scss', function () {
 });
 
 gulp.task('copy:js', [], function () {
-    gulp.src(['src/**/*.js', '!src/**/*.spec.js'], {base: 'src'})
+    gulp.src(['src/**/*.js', '!src/**/*.spec.js', '!src/**/*.scenario.js'], {base: 'src'})
         .pipe(gulp.dest('dist/'))
         .pipe(connect.reload());
 });

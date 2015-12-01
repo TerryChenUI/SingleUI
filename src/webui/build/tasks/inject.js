@@ -5,20 +5,19 @@ var gulp = require("gulp"),
     config = require("../config/inject");
 
 //inject dev
-gulp.task('inject:dev_index', ['sass:front_app', 'templateCache'], function () {
+gulp.task('inject:dev_index', ['sass:front_app'], function () {
     var filters = {
         "css": [
             {"pattern": "/dist", "replaceStr": ""}
         ],
         "js": [
-            {"pattern": "/src", "replaceStr": ""},
-            {"pattern": "/dist", "replaceStr": ""}
+            {"pattern": "/src", "replaceStr": ""}
         ]
     };
     executeTasks("src/index.html", "dist", config.dev_index, filters);
 });
 
-gulp.task('inject:dev_admin_index', ['sass:admin_app', 'templateCache'], function () {
+gulp.task('inject:dev_admin_index', ['sass:admin_app'], function () {
     var filters = {
         "css": [
             {"pattern": "/src/plugins", "replaceStr": "/plugins"},
@@ -27,13 +26,12 @@ gulp.task('inject:dev_admin_index', ['sass:admin_app', 'templateCache'], functio
         "js": [
             {"pattern": "/src/common", "replaceStr": "../common"},
             {"pattern": "/src/admin", "replaceStr": "/admin"},
-            {"pattern": "/dist/admin", "replaceStr": "/admin"}
         ]
     };
     executeTasks("./src/admin/index.html", "./dist/admin", config.dev_admin_index, filters);
 });
 
-gulp.task('inject:dev_login', ['sass:admin_app', 'templateCache'], function () {
+gulp.task('inject:dev_login', ['sass:admin_app'], function () {
     var filters = {
         "css": [
             {"pattern": "/src/plugins", "replaceStr": "/plugins"},
@@ -49,7 +47,7 @@ gulp.task('inject:dev_login', ['sass:admin_app', 'templateCache'], function () {
 });
 
 //inject prod
-gulp.task('inject:prod_index', ['sass:front_app', 'templateCache'], function () {
+gulp.task('inject:prod_index', ['sass:front_app'], function () {
     var filters = {
         "css": [
             {"pattern": "/dist/app-*.css", "replaceStr": "/"}
@@ -61,7 +59,7 @@ gulp.task('inject:prod_index', ['sass:front_app', 'templateCache'], function () 
     executeTasks("./src/index.html", "./dist", config.prod_index, filters);
 });
 
-gulp.task('inject:prod_admin_index', ['sass:admin_app', 'templateCache'], function () {
+gulp.task('inject:prod_admin_index', ['sass:admin_app'], function () {
     var filters = {
         "css": [
             {"pattern": "/src/plugins/", "replaceStr": "/plugins/"},
@@ -75,7 +73,7 @@ gulp.task('inject:prod_admin_index', ['sass:admin_app', 'templateCache'], functi
     executeTasks("./src/admin/index.html", "./dist/admin", config.prod_admin_index, filters);
 });
 
-gulp.task('inject:prod_login', ['sass:admin_app', 'templateCache'], function () {
+gulp.task('inject:prod_login', ['sass:admin_app'], function () {
     var filters = {
         "css": [
             {"pattern": "/src/plugins/", "replaceStr": "/plugins/"},
