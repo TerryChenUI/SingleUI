@@ -12,3 +12,7 @@ WebUI
 1. 进入webui目录
 2. 执行命令 npm install prebuild
 3. gulp：启动项目，网站端口为localhost:8000，相关配置请查看对应文件
+
+目录：
+前台：http://localhost:8000/#/home
+后台管理：http://localhost:8000/admin/index.html#/home
