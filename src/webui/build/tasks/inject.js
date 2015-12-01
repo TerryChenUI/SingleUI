@@ -50,10 +50,10 @@ gulp.task('inject:dev_login', ['sass:admin_app'], function () {
 gulp.task('inject:prod_index', ['sass:front_app'], function () {
     var filters = {
         "css": [
-            {"pattern": "/dist/app-*.css", "replaceStr": "/"}
+            {"pattern": "/dist", "replaceStr": "/"}
         ],
         "js": [
-            {"pattern": "/src/app-*.js", "replaceStr": "/"}
+            {"pattern": "/src", "replaceStr": ""}
         ]
     };
     executeTasks("./src/index.html", "./dist", config.prod_index, filters);
