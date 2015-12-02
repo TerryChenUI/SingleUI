@@ -7,7 +7,8 @@ var gulp = require('gulp'),
     rev = require('gulp-rev'),
     gulpif = require('gulp-if'),
     runSequence = require('run-sequence').use(gulp),
-    isProductVersion = process.env.NODE_ENV == 'production' ? true : false;
+    args = require('yargs').argv,
+    isProductVersion = args.env === 'production';
 
 gulp.task('renderSass', function () {
     runSequence('copy:scss', ['sass:front_app', 'sass:admin_app'])
@@ -16,8 +17,7 @@ gulp.task('renderSass', function () {
 gulp.task('sass', ['sass:front_app', 'sass:admin_app']);
 
 gulp.task('sass:front_app', function () {
-    console.log(process.env.NODE_ENV);
-    console.log(process.env.NODE_ENV === "production");
+    console.log(isProductVersion);
     gulp.src('src/app.scss')
         .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))
