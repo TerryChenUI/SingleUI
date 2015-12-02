@@ -3,5 +3,5 @@ var gulp = require("gulp");
 
 gulp.task("server", [
     'connect:prod',
-    'open'
+    'open:prod'
 ]);

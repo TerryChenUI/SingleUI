@@ -4,7 +4,7 @@ angular.module('app.nav')
             restrict: 'E',
             transclude: true,
             replace: true,
-            templateUrl: 'app/navgation/breadcrumb/breadcrumb.tpl.html',
+            templateUrl: 'navgation/breadcrumb/breadcrumb.tpl.html',
             controller: ['$scope', '$stateParams', 'ArticleService', 'CategoryService', function ($scope, $stateParams, ArticleService, CategoryService) {
                 $scope.initController = function () {
                     ArticleService.getArticleById($stateParams.articleId).then(function (article) {

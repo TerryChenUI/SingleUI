@@ -17,7 +17,6 @@ gulp.task('renderSass', function () {
 gulp.task('sass', ['sass:front_app', 'sass:admin_app']);
 
 gulp.task('sass:front_app', function () {
-    console.log(isProductVersion);
     gulp.src('src/app.scss')
         .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))

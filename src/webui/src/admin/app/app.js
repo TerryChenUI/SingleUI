@@ -6,7 +6,7 @@ angular.module('common.services', ['common.config', 'common.util']);
 angular.module('app.admin.common', ['common.services']);
 angular.module('app.admin.layout', ['common.services']);
 angular.module('app.admin.content', ['common.services']);
-
+angular.module('app.templates', []);
 
 var appAdmin = angular.module('app.admin', [
     'ngCookies',
@@ -22,7 +22,7 @@ var appAdmin = angular.module('app.admin', [
     'app.admin.common',
     'app.admin.layout',
     'app.admin.content',
-    'templates'
+    'app.templates'
 ]);
 
 appAdmin.run(function($rootScope, $window, $location, $cookieStore, $http){

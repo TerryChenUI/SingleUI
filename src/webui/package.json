@@ -6,7 +6,7 @@
     "postinstall": "bower install",
     "prebuild": "npm install --registry https://registry.npm.taobao.org",
     "default": "gulp",
-    "publish": "set NODE_ENV=production && npm run prebuild && gulp prod --env production"
+    "publish": "set NODE_ENV=production && gulp prod --env production"
   },
   "author": "terrychen.ui@outlook.com",
   "license": "ISC",
@@ -43,7 +43,6 @@
     "karma-phantomjs-launcher": "^0.2.1",
     "method-override": "^2.3.3",
     "phantomjs": "^1.9.18",
-    "protractor": "^3.0.0",
     "requirejs": "^2.1.18",
     "run-sequence": "^1.1.5",
     "serve-favicon": "~2.2.1",

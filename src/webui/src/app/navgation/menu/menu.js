@@ -7,7 +7,7 @@ angular.module('app.nav')
             restrict: 'E',
             transclude: true,
             replace: true,
-            templateUrl: 'app/navgation/menu/menu.tpl.html',
+            templateUrl: 'navgation/menu/menu.tpl.html',
             controller: ['$scope', '$state', 'CategoryService', function ($scope, $state, CategoryService) {
                 $scope.$state = $state;
 

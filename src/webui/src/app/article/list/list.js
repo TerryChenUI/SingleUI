@@ -21,7 +21,7 @@ angular.module('app.article')
         };
 
         getData = function () {
-            paramsObj = {
+            var paramsObj = {
                 categoryId: $stateParams.categoryId,
                 page: $scope.currentPage,
                 count: $scope.itemsPerPage

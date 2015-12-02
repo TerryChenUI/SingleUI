@@ -14,7 +14,8 @@ gulp.task('connect:dev', function () {
 gulp.task('connect:prod', function () {
     return connect.server({
         root: 'dist',
-        port: 0,
+        port: 8001,
+        livereload: true,
         middleware: require('../../middleware')
     });
 });

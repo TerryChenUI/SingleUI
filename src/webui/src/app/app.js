@@ -9,6 +9,7 @@ angular.module('common.services', ['common.config', 'common.util']);
 angular.module('app.home', []);
 angular.module('app.nav', []);
 angular.module('app.article', ['ui.bootstrap', 'common.services']);
+angular.module('app.templates', []);
 
 var app = angular.module('app', [
     'ui.router',
@@ -20,7 +21,7 @@ var app = angular.module('app', [
     'app.home',
     'app.nav',
     'app.article',
-    'templates'
+    'app.templates'
 ]);
 
 app.controller('AppCtrl', [function () {
