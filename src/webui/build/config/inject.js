@@ -92,7 +92,7 @@ module.exports = {
                 'lib/angular-ui-router/angular-ui-router.min.js',
                 'lib/angular-bootstrap/ui-bootstrap.min.js',
                 'lib/angular-bootstrap/ui-bootstrap-tpls.min.js',
-                'lib/underscore/underscore.min.js',
+                'lib/underscore/underscore-min.js',
                 'dist/app-*.js',
                 'dist/templates-*.js'
             ]
@@ -107,16 +107,16 @@ module.exports = {
                 'dist/admin/app-*.css'
             ],
             js: [
-                'lib/jquery/jquery.js',
-                'lib/bootstrap/js/bootstrap.js',
-                'lib/angular/angular.js',
-                'lib/angular-cookies/angular-cookies.js',
-                'lib/angular-ui-router/angular-ui-router.js',
-                'lib/ng-file-upload/ng-file-upload.js',
-                'lib/ng-tasty/ng-tasty-tpls.js',
-                'lib/underscore/underscore.js',
-                'lib/sweetalert/sweetalert.js',
+                'lib/jquery/jquery.min.js',
+                'lib/bootstrap/js/bootstrap.min.js',
+                'lib/angular/angular.min.js',
+                'lib/angular-cookies/angular-cookies.min.js',
+                'lib/angular-ui-router/angular-ui-router.min.js',
+                'lib/ng-file-upload/ng-file-upload.min.js',
+                'lib/ng-tasty/ng-tasty-tpls.min.js',
+                'lib/sweetalert/sweetalert.min.js',
                 'lib/angular-breadcrumb/angular-breadcrumb.js',
+                'lib/underscore/underscore-min.js',
                 'dist/admin/app-*.js',
                 'dist/admin/templates-*.js'
             ]
@@ -131,16 +131,16 @@ module.exports = {
                 'dist/admin/app-*.css'
             ],
             js: [
-                'lib/jquery/jquery.js',
-                'lib/bootstrap/js/bootstrap.js',
-                'lib/angular/angular.js',
-                'lib/angular-cookies/angular-cookies.js',
-                'lib/angular-ui-router/angular-ui-router.js',
-                'lib/ng-file-upload/ng-file-upload.js',
-                'lib/ng-tasty/ng-tasty-tpls.js',
-                'lib/underscore/underscore.js',
-                'lib/sweetalert/sweetalert.js',
+                'lib/jquery/jquery.min.js',
+                'lib/bootstrap/js/bootstrap.min.js',
+                'lib/angular/angular.min.js',
+                'lib/angular-cookies/angular-cookies.min.js',
+                'lib/angular-ui-router/angular-ui-router.min.js',
+                'lib/ng-file-upload/ng-file-upload.min.js',
+                'lib/ng-tasty/ng-tasty-tpls.min.js',
+                'lib/sweetalert/sweetalert.min.js',
                 'lib/angular-breadcrumb/angular-breadcrumb.js',
+                'lib/underscore/underscore-min.js',
                 'dist/admin/app-*.js',
                 'dist/admin/templates-*.js'
             ]

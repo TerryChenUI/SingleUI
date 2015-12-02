@@ -49,7 +49,7 @@ gulp.task('inject:dev_login', function () {
 });
 
 //inject prod
-gulp.task('inject:prod_index', ['sass:front_app'], function () {
+gulp.task('inject:prod_index', function () {
     var filters = {
         "css": [
             {"pattern": "/dist", "replaceStr": ""}
@@ -61,7 +61,7 @@ gulp.task('inject:prod_index', ['sass:front_app'], function () {
     executeTasks("./src/index.html", "./dist", config.prod_index, filters);
 });
 
-gulp.task('inject:prod_admin_index', ['sass:admin_app'], function () {
+gulp.task('inject:prod_admin_index', function () {
     var filters = {
         "css": [
             {"pattern": "/src/plugins/", "replaceStr": "/plugins/"},
@@ -74,7 +74,7 @@ gulp.task('inject:prod_admin_index', ['sass:admin_app'], function () {
     executeTasks("./src/admin/index.html", "./dist/admin", config.prod_admin_index, filters);
 });
 
-gulp.task('inject:prod_login', ['sass:admin_app'], function () {
+gulp.task('inject:prod_login', function () {
     var filters = {
         "css": [
             {"pattern": "/src/plugins/", "replaceStr": "/plugins/"},

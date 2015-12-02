@@ -20,7 +20,7 @@ angular.module('app.article')
             //console.log('Page changed to: ' + $scope.currentPage);
         };
 
-        getData = function () {
+        function getData() {
             var paramsObj = {
                 categoryId: $stateParams.categoryId,
                 page: $scope.currentPage,

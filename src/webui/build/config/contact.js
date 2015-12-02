@@ -11,7 +11,8 @@ gulp.task('contact:front', function(){
         .pipe(concat('app.js'))
         .pipe(uglify())
         .pipe(rev())
-        .pipe(gulp.dest('./dist'));
+        .pipe(gulp.dest('./dist'))
+        .on('end', function(){console.log('contact:front finished')});
 });
 
 gulp.task('contact:admin', function(){
@@ -19,6 +20,7 @@ gulp.task('contact:admin', function(){
         .pipe(concat('app.js'))
         .pipe(uglify())
         .pipe(rev())
-        .pipe(gulp.dest('./dist/admin'));
+        .pipe(gulp.dest('./dist/admin'))
+        .on('end', function(){console.log('contact:admin finished')});
 });
 

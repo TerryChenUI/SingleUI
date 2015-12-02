@@ -20,7 +20,7 @@ angular.module('app.nav')
 
                 };
 
-                HandleMenu = function (data) {
+                function HandleMenu(data) {
                     data = _.filter(data, function (d) {
                         return d.ParentId != 0
                     });
@@ -30,7 +30,7 @@ angular.module('app.nav')
                         });
                         $scope.menus[i].subMenu = _.sortBy($scope.menus[i].subMenu, 'DisplayOrder');
                     }
-                };
+                }
 
                 $scope.initController();
             }]
