@@ -19,8 +19,8 @@ var app = angular.module('app', [
     'common.services',
     'app.home',
     'app.nav',
-    'app.article'
-    //'templates'
+    'app.article',
+    'templates'
 ]);
 
 app.controller('AppCtrl', [function () {

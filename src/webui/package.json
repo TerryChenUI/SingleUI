@@ -5,8 +5,8 @@
   "scripts": {
     "postinstall": "bower install",
     "prebuild": "npm install --registry https://registry.npm.taobao.org",
-    "prestart": "npm install",
-    "gulp": "gulp"
+    "default": "gulp",
+    "publish": "set NODE_ENV=production && npm run prebuild && gulp prod"
   },
   "author": "terrychen.ui@outlook.com",
   "license": "ISC",
@@ -23,6 +23,7 @@
     "gulp-concat": "^2.6.0",
     "gulp-connect": "^2.2.0",
     "gulp-csslint": "^0.2.0",
+    "gulp-if": "^2.0.0",
     "gulp-inject": "^3.0.0",
     "gulp-jshint": "^1.12.0",
     "gulp-minify-css": "^1.2.1",

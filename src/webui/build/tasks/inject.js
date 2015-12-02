@@ -5,42 +5,44 @@ var gulp = require("gulp"),
     config = require("../config/inject");
 
 //inject dev
-gulp.task('inject:dev_index', ['sass:front_app'], function () {
+gulp.task('inject:dev_index', function () {
     var filters = {
         "css": [
             {"pattern": "/dist", "replaceStr": ""}
         ],
         "js": [
-            {"pattern": "/src", "replaceStr": ""}
+            {"pattern": "/src", "replaceStr": ""},
+            {"pattern": "/dist", "replaceStr": ""}
         ]
     };
     executeTasks("src/index.html", "dist", config.dev_index, filters);
 });
 
-gulp.task('inject:dev_admin_index', ['sass:admin_app'], function () {
+gulp.task('inject:dev_admin_index', function () {
     var filters = {
         "css": [
-            {"pattern": "/src/plugins", "replaceStr": "/plugins"},
-            {"pattern": "/dist/admin", "replaceStr": "/admin"}
+            {"pattern": "/src", "replaceStr": ""},
+            {"pattern": "/dist", "replaceStr": ""}
         ],
         "js": [
             {"pattern": "/src/common", "replaceStr": "../common"},
-            {"pattern": "/src/admin", "replaceStr": "/admin"},
+            {"pattern": "/src", "replaceStr": ""},
+            {"pattern": "/dist", "replaceStr": ""}
         ]
     };
     executeTasks("./src/admin/index.html", "./dist/admin", config.dev_admin_index, filters);
 });
 
-gulp.task('inject:dev_login', ['sass:admin_app'], function () {
+gulp.task('inject:dev_login', function () {
     var filters = {
         "css": [
             {"pattern": "/src/plugins", "replaceStr": "/plugins"},
-            {"pattern": "/dist/admin", "replaceStr": "/admin"}
+            {"pattern": "/dist", "replaceStr": ""}
         ],
         "js": [
             {"pattern": "/src/common", "replaceStr": "../common"},
-            {"pattern": "/src/admin", "replaceStr": "/admin"},
-            {"pattern": "/dist/admin", "replaceStr": "/admin"}
+            {"pattern": "/src", "replaceStr": ""},
+            {"pattern": "/dist", "replaceStr": ""}
         ]
     };
     executeTasks("./src/admin/login.html", "./dist/admin", config.dev_login, filters);
@@ -50,10 +52,10 @@ gulp.task('inject:dev_login', ['sass:admin_app'], function () {
 gulp.task('inject:prod_index', ['sass:front_app'], function () {
     var filters = {
         "css": [
-            {"pattern": "/dist", "replaceStr": "/"}
+            {"pattern": "/dist", "replaceStr": ""}
         ],
         "js": [
-            {"pattern": "/src", "replaceStr": ""}
+            {"pattern": "/dist", "replaceStr": ""}
         ]
     };
     executeTasks("./src/index.html", "./dist", config.prod_index, filters);
@@ -63,11 +65,10 @@ gulp.task('inject:prod_admin_index', ['sass:admin_app'], function () {
     var filters = {
         "css": [
             {"pattern": "/src/plugins/", "replaceStr": "/plugins/"},
-            {"pattern": "/dist/admin/", "replaceStr": "/admin/"}
+            {"pattern": "/dist", "replaceStr": ""}
         ],
         "js": [
-            {"pattern": "/src/common/", "replaceStr": "../common/"},
-            {"pattern": "/src/admin/", "replaceStr": "/admin/"}
+            {"pattern": "/dist", "replaceStr": ""}
         ]
     };
     executeTasks("./src/admin/index.html", "./dist/admin", config.prod_admin_index, filters);
@@ -77,11 +78,10 @@ gulp.task('inject:prod_login', ['sass:admin_app'], function () {
     var filters = {
         "css": [
             {"pattern": "/src/plugins/", "replaceStr": "/plugins/"},
-            {"pattern": "/dist/admin/", "replaceStr": "/admin/"}
+            {"pattern": "/dist", "replaceStr": ""}
         ],
         "js": [
-            {"pattern": "/src/common/", "replaceStr": "../common/"},
-            {"pattern": "/src/admin/", "replaceStr": "/admin/"}
+            {"pattern": "/dist", "replaceStr": ""}
         ]
     };
     executeTasks("./src/admin/login.html", "./dist/admin", config.prod_login, filters);
@@ -100,7 +100,6 @@ function executeTasks(sourceTpl, destFolder, configIndex, filters) {
     }))
         .pipe(inject(jsSources, {
             transform: function (filePath) {
-                // console.log(filePath);
                 return '<script type="text/javascript" src="' + getPath(filePath, filters.js) + '"></script>';
             }
         }))

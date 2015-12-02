@@ -4,7 +4,7 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     rev = require('gulp-rev');
 
-gulp.task('concat:js', ['contact:front', 'contact:admin']);
+gulp.task('concat', ['contact:front', 'contact:admin']);
 
 gulp.task('contact:front', function(){
     gulp.src(['src/app/app.js', 'src/app/**/*.js', '!src/app/**/*.spec.js', '!src/app/**/*.scenario.js'])
@@ -21,3 +21,4 @@ gulp.task('contact:admin', function(){
         .pipe(rev())
         .pipe(gulp.dest('./dist/admin'));
 });
+

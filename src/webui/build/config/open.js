@@ -5,7 +5,7 @@ var gulp = require('gulp'),
 gulp.task('open', function () {
     gulp.src("./dist/index.html")
         .pipe(open({
-            uri: 'localhost:8000',
+            uri: 'http://localhost:8000',
             app: 'chrome'
         })
     );

@@ -2,7 +2,6 @@
 var gulp = require("gulp");
 
 gulp.task("server", [
-    'prod',
-    'connect',
+    'connect:prod',
     'open'
 ]);

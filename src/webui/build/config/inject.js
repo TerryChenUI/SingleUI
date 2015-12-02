@@ -15,6 +15,7 @@ module.exports = {
                 'lib/angular-bootstrap/ui-bootstrap-tpls.js',
                 'lib/underscore/underscore.js',
                 'src/app/app.js',
+                'dist/app/app.tpl.js',
                 'src/app/**/*.js',
                 'src/common/**/*.js',
                 '!src/app/**/*.spec.js',
@@ -42,6 +43,7 @@ module.exports = {
                 'lib/sweetalert/sweetalert-dev.js',
                 'lib/angular-breadcrumb/angular-breadcrumb.js',
                 'src/admin/app/app.js',
+                'dist/app/app.tpl.js',
                 'src/admin/app/**/*.js',
                 'src/common/**/*.js',
                 '!src/app/**/*.spec.js',
@@ -69,6 +71,7 @@ module.exports = {
                 'lib/sweetalert/sweetalert-dev.js',
                 'lib/angular-breadcrumb/angular-breadcrumb.js',
                 'src/admin/app/app.js',
+                'dist/app/app.tpl.js',
                 'src/admin/app/login/login.js',
                 'src/common/**/*.js',
                 '!src/app/**/*.spec.js',
@@ -80,7 +83,7 @@ module.exports = {
         src: {
             css: [
                 'lib/bootstrap/css/bootstrap.min.css',
-                'dist/app.*.css'
+                'dist/app-*.css'
             ],
             js: [
                 'lib/jquery/jquery.min.js',
@@ -90,7 +93,7 @@ module.exports = {
                 'lib/angular-bootstrap/ui-bootstrap.min.js',
                 'lib/angular-bootstrap/ui-bootstrap-tpls.min.js',
                 'lib/underscore/underscore.min.js',
-                'dist/app.*.js'
+                'dist/app-*.js'
             ]
         }
     },
@@ -100,7 +103,7 @@ module.exports = {
                 'src/plugins/font-awesome/css/font-awesome.css',
                 'lib/bootstrap/css/bootstrap.css',
                 'lib/sweetalert/sweetalert.css',
-                'dist/admin/app.*.css'
+                'dist/admin/app-*.css'
             ],
             js: [
                 'lib/jquery/jquery.js',
@@ -113,7 +116,7 @@ module.exports = {
                 'lib/underscore/underscore.js',
                 'lib/sweetalert/sweetalert.js',
                 'lib/angular-breadcrumb/angular-breadcrumb.js',
-                'dist/admin/app/app.*.js'
+                'dist/admin/app-*.js'
             ]
         }
     },
@@ -123,7 +126,7 @@ module.exports = {
                 'src/plugins/font-awesome/css/font-awesome.css',
                 'lib/bootstrap/css/bootstrap.css',
                 'lib/sweetalert/sweetalert.css',
-                'dist/admin/app.*.css'
+                'dist/admin/app-*.css'
             ],
             js: [
                 'lib/jquery/jquery.js',
@@ -136,7 +139,7 @@ module.exports = {
                 'lib/underscore/underscore.js',
                 'lib/sweetalert/sweetalert.js',
                 'lib/angular-breadcrumb/angular-breadcrumb.js',
-                'dist/admin/app/app.*.js'
+                'dist/admin/app-*.js'
             ]
         }
     }

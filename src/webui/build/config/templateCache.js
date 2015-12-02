@@ -1,20 +1,17 @@
 "use strict";
 var gulp = require('gulp'),
-    templateCache = require('gulp-angular-templatecache'),
-    runSequence = require('run-sequence');
+    templateCache = require('gulp-angular-templatecache');
 
-gulp.task('templateCache', function(cb){
-	runSequence('templateCache:front_app', 'templateCache:admin_app', cb)
-});
+gulp.task('templateCache', ['templateCache:front', 'templateCache:admin']);
 
-gulp.task('templateCache:front_app', function () {
+gulp.task('templateCache:front', function () {
     return gulp.src('src/app/**/*.tpl.html')
-        .pipe(templateCache('app.tpl.js', { module:'templates', standalone:true }))
+        .pipe(templateCache('app.tpl.js', {module: 'templates', standalone: true}))
         .pipe(gulp.dest('dist/app'));
 });
 
-gulp.task('templateCache:admin_app', function () {
+gulp.task('templateCache:admin', function () {
     return gulp.src('src/admin/**/*.tpl.html')
-        .pipe(templateCache('app.tpl.js', { module:'templates', standalone:true }))
+        .pipe(templateCache('app.tpl.js', {module: 'templates', standalone: true}))
         .pipe(gulp.dest('dist/admin/app'));
 });
