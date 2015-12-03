@@ -1,6 +1,4 @@
-/**
- * Created by tchen on 7/6/2015.
- */
+"use strict";
 angular.module('app.article')
     .controller('ListCtrl', ['$scope', '$stateParams', 'ArticleService', function ($scope, $stateParams, ArticleService) {
         //console.log($stateParams.categoryId);
@@ -30,7 +28,7 @@ angular.module('app.article')
                 $scope.articles = res.data.rows;
                 $scope.totalItems = res.data.pagination.size;
             });
-        };
+        }
 
         $scope.initController();
     }]);

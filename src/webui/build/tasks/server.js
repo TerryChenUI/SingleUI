@@ -1,7 +1,10 @@
 "use strict";
-var gulp = require("gulp");
+var gulp = require("gulp"),
+    runSequence = require('run-sequence').use(gulp);
 
-gulp.task("server", [
-    'connect:prod',
-    'open:prod'
-]);
+gulp.task("server", function () {
+    runSequence(
+        ['prod'],
+        ['connect', 'open']
+    );
+});

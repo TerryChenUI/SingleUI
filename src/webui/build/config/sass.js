@@ -7,16 +7,15 @@ var gulp = require('gulp'),
     rev = require('gulp-rev'),
     gulpif = require('gulp-if'),
     args = require('yargs').argv,
-    runSequence = require('run-sequence').use(gulp),  
     isProductVersion = args.env === 'production';
 
 gulp.task('sass', ['sass:front', 'sass:admin']);
 
 gulp.task('sass:front', function () {
     gulp.src('src/app.scss')
-        .pipe(sourcemaps.init())
+        .pipe(gulpif(!isProductVersion, sourcemaps.init()))
         .pipe(sass().on('error', sass.logError))
-        .pipe(sourcemaps.write())
+        .pipe(gulpif(!isProductVersion, sourcemaps.write()))
         .pipe(gulpif(isProductVersion, minifyCss()))
         .pipe(gulpif(isProductVersion, rev()))
         .pipe(gulp.dest('dist/'))
@@ -25,9 +24,9 @@ gulp.task('sass:front', function () {
 
 gulp.task('sass:admin', function () {
     gulp.src('src/admin/app.scss')
-        .pipe(sourcemaps.init())
+        .pipe(gulpif(!isProductVersion, sourcemaps.init()))
         .pipe(sass().on('error', sass.logError))
-        .pipe(sourcemaps.write())
+        .pipe(gulpif(!isProductVersion, sourcemaps.write()))
         .pipe(gulpif(isProductVersion, minifyCss()))
         .pipe(gulpif(isProductVersion, rev()))
         .pipe(gulp.dest('dist/admin/'))

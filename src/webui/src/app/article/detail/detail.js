@@ -1,6 +1,4 @@
-/**
- * Created by tchen on 7/6/2015.
- */
+"use strict";
 angular.module('app.article')
     .controller('DetailCtrl', ['$scope', '$stateParams', 'ArticleService', function ($scope, $stateParams, ArticleService) {
 

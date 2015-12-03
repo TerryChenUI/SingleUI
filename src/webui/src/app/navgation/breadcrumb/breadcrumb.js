@@ -1,3 +1,4 @@
+"use strict";
 angular.module('app.nav')
     .directive('breadPanel', function () {
         return {

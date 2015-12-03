@@ -3,7 +3,7 @@ angular.module('common.directives')
         return {
             restrict: 'EA',
             require: 'ngModel',
-            templateUrl: '/common/directives/ueditor/ueditor.tpl.html',
+            templateUrl: '../common/directives/ueditor/ueditor.tpl.html',
             link: function (scope, ele, attrs, ngModel) {
                 var ue = UE.getEditor('editor', {
                     //UEDITOR_HOME_URL: URL,

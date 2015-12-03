@@ -70,5 +70,5 @@ angular.module('app.admin.layout')
                     $scope.initTabs();
                 });
             }]
-        }
+        };
     });

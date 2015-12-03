@@ -6,9 +6,9 @@ var express = require('express'),
     mongoose = require('mongoose'),
     Category = require('../models/category');
 
-//req.params.xxxxx 从path中的变量
-//req.query.xxxxx 从get中的?xxxx=中
-//req.body.xxxxx 从post中的变量
+//req.params.xxxxx
+//req.query.xxxxx
+//req.body.xxxxx
 
 router
     .get('/api/categories', function (req, res, next) {

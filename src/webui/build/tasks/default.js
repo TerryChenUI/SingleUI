@@ -5,7 +5,7 @@ var gulp = require("gulp"),
 gulp.task("default", function () {
     runSequence(
         ['dev'],
-        ['connect:dev', 'open:dev', 'watch'],
+        ['connect', 'open', 'watch'],
         ['karma:unit', 'karma:e2e']
     );
 });

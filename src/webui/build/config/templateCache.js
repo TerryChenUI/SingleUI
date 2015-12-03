@@ -21,7 +21,7 @@ gulp.task('templateCache:front', function () {
 
 gulp.task('templateCache:admin', function () {
     return gulp.src(['src/admin/**/*.tpl.html', 'src/common/**/*.tpl.html'])
-        .pipe(templateCache('templates.js', {module: 'app.templates', standalone: true}))
+        .pipe(templateCache('templates.js', {module: 'app.admin.templates', standalone: true}))
         .pipe(gulpif(isProductVersion, uglify()))
         .pipe(gulpif(isProductVersion, rev()))
         .pipe(gulp.dest('dist/admin'))

@@ -8,11 +8,11 @@ angular.module('app.admin.layout')
             transclude: true,
             replace: true,
             templateUrl: 'app/layout/header-menu/header-menu.tpl.html',
-            controller: function($scope, $window, AuthenService){
-                $scope.logout = function(){
+            controller: ['$scope', '$window', 'AuthenService', function ($scope, $window, AuthenService) {
+                $scope.logout = function () {
                     AuthenService.clearCredentials();
                     $window.location.href = "login.html";
-                }
-            }
-        }
+                };
+            }]
+        };
     });
