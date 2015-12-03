@@ -5,22 +5,25 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     gulpif = require('gulp-if'),
     args = require('yargs').argv,
+    connect = require('gulp-connect'),
     isProductVersion = args.env === 'production';
 
 gulp.task('templateCache', ['templateCache:front', 'templateCache:admin']);
 
 gulp.task('templateCache:front', function () {
-    return gulp.src('src/app/**/*.tpl.html')
+    return gulp.src(['src/app/**/*.tpl.html', 'src/common/**/*.tpl.html'])
         .pipe(templateCache('templates.js', {module: 'app.templates', standalone: true}))
         .pipe(gulpif(isProductVersion, uglify()))
         .pipe(gulpif(isProductVersion, rev()))
-        .pipe(gulp.dest('dist'));
+        .pipe(gulp.dest('dist'))
+        .pipe(connect.reload());
 });
 
 gulp.task('templateCache:admin', function () {
-    return gulp.src('src/admin/**/*.tpl.html')
+    return gulp.src(['src/admin/**/*.tpl.html', 'src/common/**/*.tpl.html'])
         .pipe(templateCache('templates.js', {module: 'app.templates', standalone: true}))
         .pipe(gulpif(isProductVersion, uglify()))
         .pipe(gulpif(isProductVersion, rev()))
-        .pipe(gulp.dest('dist/admin'));
+        .pipe(gulp.dest('dist/admin'))
+        .pipe(connect.reload());
 });
