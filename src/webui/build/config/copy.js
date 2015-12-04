@@ -7,7 +7,7 @@ var gulp = require('gulp'),
 gulp.task('copy', ['copy:lib', 'copy:plugins', 'copy:assets', 'copy:js']);
 
 gulp.task('copy:lib', function () {
-    gulp.src(setting.path.lib, {base: 'src'})
+    return gulp.src(setting.path.lib, {base: 'src'})
         .pipe(gulp.dest(setting.dest.lib));
 });
 
