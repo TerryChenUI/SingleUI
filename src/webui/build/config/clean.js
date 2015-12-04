@@ -1,7 +1,8 @@
 "use strict";
 var gulp = require('gulp'),
-    del = require('del');
+    del = require('del'),
+    setting = require('../setting');
 
 gulp.task('clean', function () {
-    return del(['dist', 'test_out']);
+    return del(setting.clean);
 });

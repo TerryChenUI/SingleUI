@@ -7,28 +7,29 @@ var gulp = require('gulp'),
     rev = require('gulp-rev'),
     gulpif = require('gulp-if'),
     args = require('yargs').argv,
+    setting = require('../setting'),
     isProductVersion = args.env === 'production';
 
 gulp.task('sass', ['sass:front', 'sass:admin']);
 
 gulp.task('sass:front', function () {
-    gulp.src('src/app.scss')
+    gulp.src(setting.sass.front.src)
         .pipe(gulpif(!isProductVersion, sourcemaps.init()))
         .pipe(sass().on('error', sass.logError))
         .pipe(gulpif(!isProductVersion, sourcemaps.write()))
         .pipe(gulpif(isProductVersion, minifyCss()))
         .pipe(gulpif(isProductVersion, rev()))
-        .pipe(gulp.dest('dist/'))
+        .pipe(gulp.dest(setting.dest.dist))
         .pipe(connect.reload());
 });
 
 gulp.task('sass:admin', function () {
-    gulp.src('src/admin/app.scss')
+    gulp.src(setting.sass.admin.src)
         .pipe(gulpif(!isProductVersion, sourcemaps.init()))
         .pipe(sass().on('error', sass.logError))
         .pipe(gulpif(!isProductVersion, sourcemaps.write()))
         .pipe(gulpif(isProductVersion, minifyCss()))
         .pipe(gulpif(isProductVersion, rev()))
-        .pipe(gulp.dest('dist/admin/'))
+        .pipe(gulp.dest(setting.dest.admin))
         .pipe(connect.reload());
 });
