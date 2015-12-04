@@ -1,6 +1,7 @@
 "use strict";
 var gulp = require('gulp'),
     open = require('gulp-open'),
+    connect = require('gulp-connect'),
     args = require('yargs').argv,
     setting = require('../setting'),
     isProductVersion = args.env === 'production';
