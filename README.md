@@ -4,23 +4,23 @@
 
 技术学习：gulp, mean(mongodb express angularjs nodejs), sass, jasmine
 
-----------
 进度：(前端相关)
+
 1. 基本完成gulp相关配置
 
 2. 功能：文章，类别的增删改查
-----------
+
 
 环境安装:
 ----------
-1.nodejs
+1. nodejs: v0.12.2 以上
 
-2.bower：npm install bower -g
+2. bower: npm install bower -g
 
-3.gulp：npm install gulp -g
+3. gulp：npm install gulp -g
 
 
-webui:
+webui
 ----------
 配置: 进入webui目录下, 执行命令 npm install prebuild 安装相关包 (若相关的包安装失败, 请将它删掉在安装)
 
@@ -56,5 +56,6 @@ webui:
 
 4. gulp test_singleRun --env production : 编译产品版本, 执行单元测试和e2e测试，输出相关报表
 
-测试:
+测试: 
+
 基于karma, 单元测试使用jammine, e2e测试用 ng-scenario, 输出报表有代码覆盖率karma-coverage, 执行结果报表junit-reporter
