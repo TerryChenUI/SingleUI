@@ -11,7 +11,7 @@ var gulp = require('gulp'),
 gulp.task('templateCache', ['templateCache:front', 'templateCache:admin']);
 
 gulp.task('templateCache:front', function () {
-    return gulp.src(['src/app/**/*.tpl.html', 'src/common/**/*.tpl.html'])
+    return gulp.src(['src/app/**/*.tpl.html'])
         .pipe(templateCache('templates.js', {module: 'app.templates', standalone: true}))
         .pipe(gulpif(isProductVersion, uglify()))
         .pipe(gulpif(isProductVersion, rev()))
@@ -20,7 +20,7 @@ gulp.task('templateCache:front', function () {
 });
 
 gulp.task('templateCache:admin', function () {
-    return gulp.src(['src/admin/**/*.tpl.html', 'src/common/**/*.tpl.html'])
+    return gulp.src(['src/admin/**/*.tpl.html', 'src/admin/common/**/*.tpl.html'])
         .pipe(templateCache('templates.js', {module: 'app.admin.templates', standalone: true}))
         .pipe(gulpif(isProductVersion, uglify()))
         .pipe(gulpif(isProductVersion, rev()))

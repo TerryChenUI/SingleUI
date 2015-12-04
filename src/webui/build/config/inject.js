@@ -45,6 +45,7 @@ module.exports = {
                 'src/admin/app/app.js',
                 'dist/admin/templates.js',
                 'src/admin/app/**/*.js',
+                'src/admin/common/**/*.js',
                 'src/common/**/*.js',
                 '!src/app/**/*.spec.js',
                 '!src/app/**/*.scenario.js'
@@ -73,6 +74,7 @@ module.exports = {
                 'src/admin/app/app.js',
                 'dist/admin/templates.js',
                 'src/admin/app/login/login.js',
+                'src/admin/common/**/*.js',
                 'src/common/**/*.js',
                 '!src/app/**/*.spec.js',
                 '!src/app/**/*.scenario.js'

@@ -15,7 +15,7 @@ gulp.task('watch', function () {
 
     gulp.watch(['src/common/**/*.js', '!src/**/*.spec.js', '!src/**/*.scenario.js'], ['copy:js_common']);
     gulp.watch(['src/app/**/*.js', '!src/**/*.spec.js', '!src/**/*.scenario.js'], ['copy:js_front']);
-    gulp.watch(['src/admin/app/**/*.js', '!src/**/*.spec.js', '!src/**/*.scenario.js'], ['copy:js_admin']);
+    gulp.watch(['src/admin/app/**/*.js', 'src/admin/common/**/*.js', '!src/**/*.spec.js', '!src/**/*.scenario.js'], ['copy:js_admin']);
 
     // gulp.watch(['./src/**/*.spec.js'], ['karma:unit']);
     // gulp.watch(['./src/**/*.scenario.js'], ['karma:e2e']);

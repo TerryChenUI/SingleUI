@@ -49,7 +49,7 @@ gulp.task('copy:js_front', function () {
         .pipe(connect.reload());
 });
 gulp.task('copy:js_admin', function () {
-    gulp.src(['src/admin/app/**/*.js', '!src/**/*.spec.js', '!src/**/*.scenario.js'], {base: 'src/admin'})
+    gulp.src(['src/admin/app/**/*.js', 'src/admin/common/**/*.js', '!src/**/*.spec.js', '!src/**/*.scenario.js'], {base: 'src/admin'})
         .pipe(gulp.dest('dist/admin/'))
         .pipe(connect.reload());
 });
