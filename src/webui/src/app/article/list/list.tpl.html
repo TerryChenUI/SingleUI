@@ -1,9 +1,29 @@
-<div class="blog-body">
-    <div class="col-sm-8 blog-main">
-        <div ui-view="post"></div>
+<a name="post-top"></a>
+<div class="row blog-post" ng-repeat="article in articles">
+    <div class="col-md-4">
+        <div class="blog-post-thumb">
+
+        </div>
     </div>
-    <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
-        <div ui-view="about"></div>
-        <div ui-view="archives"></div>
+    <div class="col-md-8">
+        <h2 class="blog-post-title">
+            <a title="{{article.Title}}" ui-sref="detail({articleId:article.Id})">{{article.Title}}</a>
+        </h2>
+
+        <p class="blog-post-meta">{{article.CreateTime}} by <a href="#">{{article.Author}}</a></p>
     </div>
+</div>
+<div class="row">
+    <pagination
+            boundary-links="true"
+            total-items="totalItems"
+            ng-model="currentPage"
+            items-per-page="itemsPerPage"
+            class="pagination-sm"
+            ng-change="pageChanged()"
+            previous-text="&lsaquo;"
+            next-text="&rsaquo;"
+            first-text="&laquo;"
+            last-text="&raquo;">
+    </pagination>
 </div>

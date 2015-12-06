@@ -13,7 +13,6 @@ module.exports = function (connect, options) {
     app.use(methodOverride());
     app.use(errorhandler());
     app.use(express["static"](options.root));
-    //app.use(express["static"]('dist'));
     app.use(express.Router());
     routeService(app);
     
