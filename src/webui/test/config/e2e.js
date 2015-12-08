@@ -5,18 +5,6 @@ module.exports = function(config) {
 
     frameworks: ['ng-scenario'],
 
-    files: [
-        './src/**/*.scenario.js'
-    ],
-
-    preprocessors: {
-        'test/**/*.scenario.js': 'coverage'
-    },
-
-    proxies:{
-        '/': 'http://localhost:8000/'
-    },
-
     port: 9876,
 
     runnerPort: 9101,

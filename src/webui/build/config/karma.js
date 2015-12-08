@@ -26,9 +26,6 @@ gulp.task('karma:unit', function (done) {
             './dist/admin/common/**/*.js',
             './src/**/*.spec.js'
         ]),
-        preprocessors: {
-            './src/**/*.spec.js': 'coverage'
-        },
         configFile: __dirname + unitPath
     }, done);
     karma.start();
@@ -37,6 +34,12 @@ gulp.task('karma:unit', function (done) {
 gulp.task('karma:e2e', function (done) {
     var karma = new server({
         singleRun: false,
+        files: [
+            './src/**/*.scenario.js'
+        ],
+        proxies:{
+            '/': 'http://localhost:' + setting.connect.port.dev + '/'
+        },
         configFile: __dirname + e2ePath
     }, done);
     karma.start();
@@ -49,15 +52,12 @@ gulp.task('karma:unit_run', function (done) {
     var karma = new server({
         singleRun: true,
         files: jsLibraries.concat([
-            './dist/app/app-*.js',
+            './dist/app-*.js',
             './dist/templates-*.js',
-            './dist/admin/app/app-*.js',
+            './dist/admin/app-*.js',
             './dist/admin/templates-*.js',
             './src/**/*.spec.js'
         ]),
-        preprocessors: {
-            './src/**/*.spec.js': 'coverage'
-        },
         configFile: __dirname + unitPath
     }, done);
     karma.start();
@@ -66,6 +66,9 @@ gulp.task('karma:unit_run', function (done) {
 gulp.task('karma:e2e_run', function (done) {
     var karma = new server({
         singleRun: true,
+        files: [
+            './src/**/*.scenario.js'
+        ],
         configFile: __dirname + e2ePath,
         proxies: {
             '/': 'http://localhost:' + setting.connect.port.prod + '/'

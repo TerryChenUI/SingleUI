@@ -7,13 +7,13 @@ module.exports = function(config) {
     
     port: 9877,
 
-    background: true,
-
     runnerPort: 9102,
+
+    background: true,
 
     autoWatch: true,
 
-    browsers: ['PhantomJS'],
+    browsers: ['Chrome'],
 
     urlRoot: '/__karma/',
 
