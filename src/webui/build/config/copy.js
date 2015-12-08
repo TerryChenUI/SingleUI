@@ -7,17 +7,17 @@ var gulp = require('gulp'),
 gulp.task('copy', ['copy:lib', 'copy:plugins', 'copy:assets', 'copy:js']);
 
 gulp.task('copy:lib', function () {
-    return gulp.src(setting.path.lib, {base: 'src'})
+    return gulp.src('lib/**/*', {base: 'src'})
         .pipe(gulp.dest(setting.dest.lib));
 });
 
 gulp.task('copy:plugins', function () {
-    gulp.src(setting.path.plugins, {base: 'src'})
+    gulp.src('src/plugins/**', {base: 'src'})
         .pipe(gulp.dest(setting.dest.dist))
 });
 
 gulp.task('copy:assets', function () {
-    gulp.src(setting.path.assets, {base: 'src'})
+    gulp.src('src/**/assets/**', {base: 'src'})
         .pipe(gulp.dest(setting.dest.dist))
 });
 
@@ -36,7 +36,6 @@ gulp.task('copy:assets', function () {
 //        .pipe(connect.reload());
 //});
 
-//js
 gulp.task('copy:js', ['copy:js_common', 'copy:js_front', 'copy:js_admin']);
 
 gulp.task('copy:js_common', function () {

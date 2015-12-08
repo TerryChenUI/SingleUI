@@ -4,15 +4,7 @@ module.exports = function(config) {
     basePath: '../..',
 
     frameworks: ['jasmine'],
-
-    files: [
-        './src/**/*.spec.js'
-    ],
-
-    preprocessors: {
-        'test/**/*.spec.js': 'coverage',
-    },
-
+    
     port: 9877,
 
     background: true,

@@ -7,7 +7,7 @@ var gulp = require('gulp'),
 
 gulp.task('connect', function () {
     var option = {
-        root: 'dist',
+        root: setting.dist,
         port: setting.connect.port.dev,
         livereload: true,
         middleware: require('../../middleware')

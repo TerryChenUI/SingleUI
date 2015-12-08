@@ -13,8 +13,8 @@ gulp.task('templateCache', ['templateCache:front', 'templateCache:admin']);
 
 gulp.task('templateCache:front', function () {
     return gulp.src(setting.templateCache.front.src)
-        .pipe(templateCache(setting.templateCache.front.template, {
-            module: setting.templateCache.front.module,
+        .pipe(templateCache('templates.js', {
+            module: 'app.templates',
             standalone: true
         }))
         .pipe(gulpif(isProductVersion, uglify()))
@@ -25,8 +25,8 @@ gulp.task('templateCache:front', function () {
 
 gulp.task('templateCache:admin', function () {
     return gulp.src(setting.templateCache.admin.src)
-        .pipe(templateCache(setting.templateCache.admin.template, {
-            module: setting.templateCache.admin.module,
+        .pipe(templateCache('templates.js', {
+            module: 'app.admin.templates',
             standalone: true
         }))
         .pipe(gulpif(isProductVersion, uglify()))
