@@ -17,32 +17,39 @@ h6, .h6 {
   color: #333;
 }
 
-.blog-content{
+.blog-body {
   border: 1px solid #ddd;
   background: #fff;
-  padding:0 30px;
-
-  .blog-post{
+  padding: 0 15px;
+  .blog-post {
     padding: 20px 0;
     border-bottom: 1px solid #e4e4e4;
-    .blog-post-thumb{
-      width:100%;
-      border: 1px solid #ddd;
-      min-height:150px;
+    .blog-post-thumb {
+      min-height: 150px;
+      img {
+        width: 100%;
+      }
     }
-    .blog-post-title {
 
+  }
+  
+  .blog-detail {
+    padding: 15px;
+    .blog-post-description {
+      padding: 10px;
+      border: 1px solid #ddd;
+    }
+    .blog-post-content {
+      margin: 10px 0 0 0;
+      line-height: 25px;
     }
   }
 
-  .pagination{
+  .pagination {
     text-align: center;
-    margin:20px auto;
+    margin: 20px auto;
   }
 }
-
-
-
 
 .footer {
   background: #000;

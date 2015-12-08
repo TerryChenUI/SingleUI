@@ -1,21 +1,17 @@
-<div class="blog-body">
-    <bread-panel>
-    </bread-panel>
-    <div class="col-sm-8 blog-main">
-        <div class="blog-post">
-            <h2 class="blog-post-title">{{article.Title}}</h2>
-            <p class="blog-post-meta">{{article.CreateTime}} by <a href="#">{{article.Author}}</a></p>
-            <div class="blog-content">
-                {{article.Content}}
-            </div>
-        </div>
+<div class="row blog-detail">
+    <h2 class="blog-post-title">{{article.Title}}</h2>
+
+    <p class="blog-post-meta">{{article.PublishTime}} | 分类：<a
+            ui-sref="list({categoryId:article.CategoryId})">{{article.CategoryName}}</a> |
+        作者：{{article.Author}} | 评论：{{article.Views}}</p>
+
+    <div class="blog-post-description">
+        {{article.Description}}
     </div>
-    <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
-        <div ui-view="about"></div>
-        <div ui-view="archives"></div>
+
+    <div class="blog-post-content">
+        {{article.Content}}
     </div>
 </div>
-
-
 
 

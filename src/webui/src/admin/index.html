@@ -6,23 +6,15 @@
     <!-- endinject -->
 </head>
 
-<!-- Body开始 -->
 <body class="page-header-fixed">
-<!-- 顶部 -->
 <div class="header navbar navbar-inverse navbar-fixed-top">
-    <!-- 导航 -->
     <div class="header-inner">
-        <!-- logo -->
         <a class="navbar-brand" href="index.html">
             <img src="assets/img/logo.png" alt="logo" class="img-responsive" />
         </a>
-
-        <!-- 响应式切换按钮 -->
-        <a href="javascript:;" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <a href="javascript:void(0);" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <img src="assets/img/menu-toggler.png" alt="" />
         </a>
-
-        <!-- 导航菜单 -->
         <header-menu></header-menu>
     </div>
 </div>
@@ -30,22 +22,15 @@
 </div>
 
 <div class="page-container">
-
-    <!-- 侧边栏菜单 -->
     <sidebar-menu></sidebar-menu>
-
     <div class="page-content-wrapper">
         <div class="page-content">
-            <!-- 面包屑 -->
             <breadcrumb></breadcrumb>
-
-            <!-- 正文开始 -->
             <div ui-view></div>
         </div>
     </div>
 </div>
 
-<!-- 底部开始 -->
 <footer></footer>
 
 <!-- inject:js -->

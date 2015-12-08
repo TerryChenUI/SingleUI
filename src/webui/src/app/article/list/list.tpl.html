@@ -2,15 +2,23 @@
 <div class="row blog-post" ng-repeat="article in articles">
     <div class="col-md-4">
         <div class="blog-post-thumb">
-
+            <a ui-sref="detail({articleId:article.Id})" title="{{article.Title}}" target="_blank">
+                <img src="{{article.CoverImgPath}}" alt="{{article.Title}}"/>
+            </a>
         </div>
     </div>
     <div class="col-md-8">
         <h2 class="blog-post-title">
-            <a title="{{article.Title}}" ui-sref="detail({articleId:article.Id})">{{article.Title}}</a>
+            <a ui-sref="detail({articleId:article.Id})" title="{{article.Title}}"
+               target="_blank">{{article.Title}}</a>
         </h2>
+        <p class="blog-post-meta">{{article.PublishTime}} | 分类：<a
+                ui-sref="list({categoryId:article.CategoryId})" target="_blank">{{article.CategoryName}}</a> |
+            作者：{{article.Author}} | 评论：{{article.Views}}</p>
 
-        <p class="blog-post-meta">{{article.CreateTime}} by <a href="#">{{article.Author}}</a></p>
+        <div class="blog-post-description">
+            {{article.Description}}
+        </div>
     </div>
 </div>
 <div class="row">

@@ -1,6 +1,6 @@
 "use strict";
 angular.module('app.article')
-    .controller('ListCtrl', ['$scope', '$stateParams', 'ArticleService', function ($scope, $stateParams, ArticleService) {
+    .controller('ListCtrl', ['$scope', '$stateParams', 'ArticleService', 'CategoryService', function ($scope, $stateParams, ArticleService, CategoryService) {
         //console.log($stateParams.categoryId);
         $scope.articles = [];
         $scope.currentPage = 1;
