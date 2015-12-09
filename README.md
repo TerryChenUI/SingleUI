@@ -2,7 +2,7 @@
 
 这是本人转向前端的第一个项目。
 
-技术学习：gulp, mean(mongodb express angularjs nodejs), sass, jasmine
+技术相关：gulp, mean(mongodb express angularjs nodejs), sass, karma, jasmine
 
 进度：(前端相关)
 
@@ -22,7 +22,7 @@
 
 webui
 ----------
-配置: 进入webui目录下, 执行命令 npm install prebuild 安装相关包 (若相关的包安装失败, 请将它删掉在安装)
+配置: 进入webui目录下, 执行命令 npm install prebuild 安装相关包 (若相关的包安装失败, 请将它删掉再安装)
 
 命令: 请查看package.json的scripts和build目录下相关任务配置
 
