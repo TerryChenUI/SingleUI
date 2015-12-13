@@ -1,6 +1,6 @@
 # SingleUI
 
-这是本人转向前端的第一个项目。
+这是本人转向前端的一个项目。详细请查看(http://www.cnblogs.com/ForEvErNoME/p/5032158.html)
 
 技术相关：gulp, mean(mongodb express angularjs nodejs), sass, karma, jasmine
 
