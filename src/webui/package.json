@@ -6,7 +6,7 @@
     "postinstall": "bower install",
     "prebuild": "npm install --registry https://registry.npm.taobao.org",
     "default": "gulp default",
-    "server": "gulp server --env production",
+    "start": "gulp server --env production",
     "test": "gulp test_singleRun --env production",
     "publish": "npm run prebuild & gulp prod --env production"
   },
@@ -41,6 +41,7 @@
     "karma-junit-reporter": "^0.3.8",
     "karma-ng-scenario": "^0.1.0",
     "method-override": "^2.3.3",
+    "require-dir": "^0.3.0",
     "requirejs": "^2.1.18",
     "run-sequence": "^1.1.5",
     "serve-favicon": "~2.2.1",

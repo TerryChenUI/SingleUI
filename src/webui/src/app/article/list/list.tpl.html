@@ -1,27 +1,28 @@
 <a name="post-top"></a>
-<div class="row blog-post" ng-repeat="article in articles">
+<div class="row post-item" ng-repeat="article in articles">
     <div class="col-md-4">
-        <div class="blog-post-thumb">
+        <div class="post-item-thumb">
             <a ui-sref="detail({articleId:article.Id})" title="{{article.Title}}" target="_blank">
                 <img src="{{article.CoverImgPath}}" alt="{{article.Title}}"/>
             </a>
         </div>
     </div>
     <div class="col-md-8">
-        <h2 class="blog-post-title">
+        <h2 class="post-item-title">
             <a ui-sref="detail({articleId:article.Id})" title="{{article.Title}}"
                target="_blank">{{article.Title}}</a>
         </h2>
-        <p class="blog-post-meta">{{article.PublishTime}} | 分类：<a
+        <p class="post-item-meta">{{article.PublishTime}} | <span>分类：</span><a
                 ui-sref="list({categoryId:article.CategoryId})" target="_blank">{{article.CategoryName}}</a> |
-            作者：{{article.Author}} | 评论：{{article.Views}}</p>
+            <span>作者：</span>{{article.Author}} | <span>评论：</span>{{article.Views}}</p>
 
-        <div class="blog-post-description">
+        <div class="post-item-description">
             {{article.Description}}
         </div>
     </div>
 </div>
 <div class="row">
+    <div class="page-container">
     <pagination
             boundary-links="true"
             total-items="totalItems"
@@ -34,4 +35,5 @@
             first-text="&laquo;"
             last-text="&raquo;">
     </pagination>
+    </div>
 </div>
