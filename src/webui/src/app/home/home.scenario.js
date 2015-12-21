@@ -4,7 +4,7 @@ describe('app.home', function () {
             browser().navigateTo('/');
         });
         it('the blog-body should be visible', function () {
-            expect(element(".blog-body").count()).toBe(1);
+            expect(element(".main").count()).toBe(1);
         });
     });
 });

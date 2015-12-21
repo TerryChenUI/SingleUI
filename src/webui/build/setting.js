@@ -16,7 +16,7 @@ module.exports = {
     },
     templateCache: {
         front: {
-            src: 'src/app/**/*.tpl.html',
+            src: 'src/app/**/*.tpl.html'
         },
         admin: {
             src: ['src/admin/**/*.tpl.html', 'src/admin/common/**/*.tpl.html']
