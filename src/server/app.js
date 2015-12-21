@@ -24,15 +24,25 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, '')));
-//app.use(express.static(path.join(__dirname, 'assets')));
-//app.use(express.static(path.join(__dirname, 'lib')));
+// app.use(express.static(path.join(__dirname, 'plugins')));
+// app.use(express.static(path.join(__dirname, 'assets')));
+// app.use(express.static(path.join(__dirname, 'lib')));
+app.use("/", express.static(__dirname));
 
 //routes
+
+//static file
 app.get('/', function(req, res){
-  res.render('index.html')
+	res.render('index.html');
+});
+app.get('/admin', function(req, res){
+	res.render('admin/index.html');
+});
+app.get('/admin/login.html', function(req, res){
+	res.render('admin/login.html');
 });
 
+//api
 app.use(articles);
 app.use(categories);
 app.use(users);
